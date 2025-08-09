@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、计划任务概述1.怎么理解计划任务的定义​	1️⃣可以自行设定希望它在什么时间或者以什么频率按照预先设定好的去执行的脚本（命令）。 ​	2️⃣本功能的主要应用范围： ​		（1）按照设置的时间延时执行任务（类似人类设置闹钟叫自己起床） ​		（2）以一定的频率自动循环运行设置好的任务（类似为每天下午四点钟喝水吃零食） ​		（3）无人情况下机器按照设定自行完成任务（无人值守服务器运维） 2.Li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、计划任务概述1.怎么理解计划任务的定义​	1️⃣可以自行设定希望它在什么时间或者以什么频率按照预先设定好的去执行的脚本（命令）。 ​	2️⃣本功能的主要应用范围： ​		（1）按照设置的时间延时执行任务（类似人类设置闹钟叫自己起床） ​		（2）以一定的频率自动循环运行设置好的任务（类似为每天下午四点钟喝水吃零食） ​		（3）无人情况下机器按照设定自行完成任务（无人值守服务器运维） 2.Li">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806202631278.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806204421096.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806205204861.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806210734227.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806211358199.png">
+<meta property="article:published_time" content="2025-08-09T03:55:11.791Z">
+<meta property="article:modified_time" content="2025-08-09T01:43:43.658Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806202631278.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-一、计划任务概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T03:55:11.791Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、计划任务概述"><a href="#一、计划任务概述" class="headerlink" title="一、计划任务概述"></a>一、计划任务概述</h2><h3 id="1-怎么理解计划任务的定义"><a href="#1-怎么理解计划任务的定义" class="headerlink" title="1.怎么理解计划任务的定义"></a><strong>1.怎么理解计划任务的定义</strong></h3><p>​	1️⃣可以自行设定希望它在什么时间或者以什么频率按照预先设定好的去执行的脚本（命令）。</p>
+<p>​	2️⃣本功能的主要应用范围：</p>
+<p>​		（1）按照设置的时间延时执行任务（类似人类设置闹钟叫自己起床）</p>
+<p>​		（2）以一定的频率自动循环运行设置好的任务（类似为每天下午四点钟喝水吃零食）</p>
+<p>​		（3）无人情况下机器按照设定自行完成任务（无人值守服务器运维）</p>
+<h3 id="2-Linux中实现计划任务的两种方法"><a href="#2-Linux中实现计划任务的两种方法" class="headerlink" title="2.Linux中实现计划任务的两种方法"></a><strong>2.Linux中实现计划任务的两种方法</strong></h3><table>
+<thead>
+<tr>
+<th align="center">工具</th>
+<th align="center">适用场景</th>
+<th align="center">时间精度</th>
+<th align="center">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">at</td>
+<td align="center">一次性、延迟任务</td>
+<td align="center">秒级</td>
+<td align="center">简单，不用长期守护</td>
+</tr>
+<tr>
+<td align="center">cron</td>
+<td align="center">周期性重复任务</td>
+<td align="center">分钟级</td>
+<td align="center">复杂，需要长期守护</td>
+</tr>
+</tbody></table>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806202631278.png" alt="image-20250806202631278"></p>
+<h2 id="二、-at-命令"><a href="#二、-at-命令" class="headerlink" title="二、 at 命令"></a>二、 at 命令</h2><h3 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">at[选项] 时间表达式 [命令]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>​	提交任务：输入命令后按 Ctrl+D 提交。</li>
+<li>​	查看任务： atq （列出所有任务）。</li>
+<li>​	删除任务： atrm &lt;任务ID&gt; 。</li>
+</ul>
+<h3 id="2-2-时间表达式"><a href="#2-2-时间表达式" class="headerlink" title="2.2 时间表达式"></a>2.2 时间表达式</h3><ul>
+<li>灵活时间格式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">now  # 立即执行</span><br><span class="line">now + 5min # 5分钟后</span><br><span class="line">05:30 tomorrow/today # 次日5:30</span><br><span class="line">2025-8-6 11:11 # 绝对时间</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>举例：</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806204421096.png" alt="image-20250806204421096"></p>
+<p>该警告表示计划任务需要使用内置命令才可以</p>
+<h3 id="2-3-实战场景入门"><a href="#2-3-实战场景入门" class="headerlink" title="2.3 实战场景入门"></a>2.3 实战场景入门</h3><p><strong>场景：固定时间任务-每天凌晨2点备份数据库</strong></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806205204861.png" alt="image-20250806205204861"></p>
+<p><strong>date命令解释：</strong><br>date 的格式化符号以 % 开头，后接特定字母表示不同时间单位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">含义</th>
+<th align="center">示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%Y</td>
+<td align="center">四位年份</td>
+<td align="center">2025</td>
+</tr>
+<tr>
+<td align="center">%m</td>
+<td align="center">两位月份</td>
+<td align="center">05</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">两位日期</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">%H</td>
+<td align="center">24小时制小时</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="center">%I</td>
+<td align="center">12小时制小时</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">%M</td>
+<td align="center">两位分钟</td>
+<td align="center">22</td>
+</tr>
+<tr>
+<td align="center">%S</td>
+<td align="center">两位秒</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="center">%a</td>
+<td align="center">星期几缩写</td>
+<td align="center">Sun</td>
+</tr>
+<tr>
+<td align="center">%A</td>
+<td align="center">星期几全称</td>
+<td align="center">Sunday</td>
+</tr>
+<tr>
+<td align="center">%b</td>
+<td align="center">月份缩写</td>
+<td align="center">Apr</td>
+</tr>
+<tr>
+<td align="center">%B</td>
+<td align="center">月份全称</td>
+<td align="center">April</td>
+</tr>
+<tr>
+<td align="center">%F</td>
+<td align="center">ISO 8601日期格式</td>
+<td align="center">2023-07-28</td>
+</tr>
+<tr>
+<td align="center">%T</td>
+<td align="center">24小时制时间格式</td>
+<td align="center">14:30:00</td>
+</tr>
+<tr>
+<td align="center">%R</td>
+<td align="center">12小时制时间格式</td>
+<td align="center">02:30 PM</td>
+</tr>
+<tr>
+<td align="center">%z</td>
+<td align="center">时区偏移</td>
+<td align="center">UTC+8</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">自纪元起经过的秒数</td>
+<td align="center">168792300</td>
+</tr>
+</tbody></table>
+<p><strong>场景3：复杂时间格式</strong><br>支持灵活时间描述：</p>
+<ul>
+<li>now ：立即执行</li>
+<li>today &#x2F; tomorrow ：当天&#x2F;次日</li>
+<li>YYYY-MM-DD HH:MM ：绝对时间</li>
+<li>+N days &#x2F; -N minutes ：相对时间</li>
+</ul>
+<p>举例：2025年12月25日23:59执行关机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">at 23:59 Dec 25 2025</span><br><span class="line">shutdown -h now</span><br><span class="line">Ctrl+D 提交</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-管理命令"><a href="#2-4-管理命令" class="headerlink" title="2.4 管理命令"></a><strong>2.4 管理命令</strong></h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">作用</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">atq</td>
+<td align="center">查看所有等待执行的任务</td>
+<td align="center">atq -1（详细列表）</td>
+</tr>
+<tr>
+<td align="center">atrm</td>
+<td align="center">删除任务</td>
+<td align="center">atrm 3(删除ID&#x3D;3的任务)</td>
+</tr>
+<tr>
+<td align="center">at -c</td>
+<td align="center">查看任务内容</td>
+<td align="center">at -c 5 (查看ID&#x3D;5的任务)</td>
+</tr>
+</tbody></table>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806210734227.png" alt="image-20250806210734227"></p>
+<h2 id="三、-cron-命令详解"><a href="#三、-cron-命令详解" class="headerlink" title="三、 cron 命令详解"></a>三、 cron 命令详解</h2><h3 id="3-1-cron-核心功能"><a href="#3-1-cron-核心功能" class="headerlink" title="3.1 cron 核心功能"></a>3.1 cron 核心功能</h3><p>cron 是 Linux&#x2F;Unix 系统中守护周期性任务的进程，适合以下场景：</p>
+<ul>
+<li>定时备份（每隔一段时间自动备份）</li>
+<li>日志清理（定时删除过期的日志文件）</li>
+<li>数据同步（每隔多久同步服务器之间的数据）</li>
+<li>监控报警（检测状态并通知）</li>
+</ul>
+<h3 id="3-2-配置文件"><a href="#3-2-配置文件" class="headerlink" title="3.2 配置文件"></a>3.2 配置文件</h3><ul>
+<li>系统级： &#x2F;etc&#x2F;crontab 编辑模板（所有用户生效）。</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806211358199.png" alt="image-20250806211358199"></p>
+<ul>
+<li>语法格式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> * 	 *	 *	 *	 *	用户名	命令</span><br><span class="line">分钟 小时 日  月   周</span><br><span class="line">（“分时日月周”）</span><br></pre></td></tr></table></figure>
+
+<p>3.3 时间表达式</p>
+<ul>
+<li>字段说明：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">允许值</th>
+<th align="center">特殊符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">分</td>
+<td align="center">0-59</td>
+<td align="center">* , - , &#x2F; , ?</td>
+</tr>
+<tr>
+<td align="center">时</td>
+<td align="center">0-23</td>
+<td align="center">* , - , &#x2F; , ?</td>
+</tr>
+<tr>
+<td align="center">日</td>
+<td align="center">1-31</td>
+<td align="center">* , - , &#x2F; , L</td>
+</tr>
+<tr>
+<td align="center">月</td>
+<td align="center">1-12</td>
+<td align="center">* , - , &#x2F;</td>
+</tr>
+<tr>
+<td align="center">周</td>
+<td align="center">0-7</td>
+<td align="center">* , - , L</td>
+</tr>
+</tbody></table>
+<ul>
+<li>举例：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * root /usr/bin/systemctl restart nginx #每日凌晨2点重启Nginx</span><br><span class="line">30 4 * * 1-5 user1 /home/user1/backup.sh # 工作日每天4:30备份</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-管理命令详解"><a href="#3-3-管理命令详解" class="headerlink" title="3.3 管理命令详解"></a>3.3 管理命令详解</h3><p>crontab 是 cron 的配置工具，用于安装、删除、编辑用户的计划任务。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>crontab -e</td>
+<td>编辑当前用户任务</td>
+<td>crontab -e</td>
+</tr>
+<tr>
+<td>crontab -l</td>
+<td>列出当前用户任务</td>
+<td>crontab -l</td>
+</tr>
+<tr>
+<td>crontab -r</td>
+<td>删除当前用户所有任务</td>
+<td>crontab -r</td>
+</tr>
+<tr>
+<td>crontab -u username</td>
+<td>管理其他用户任务（需sudo）</td>
+<td>sudo crontab -e user1</td>
+</tr>
+<tr>
+<td>crontab -i</td>
+<td>编辑时交互提示</td>
+<td>crontab -i</td>
+</tr>
+<tr>
+<td>crontab -d</td>
+<td>删除用户任务（旧版用法）</td>
+<td>crontab -d</td>
+</tr>
+</tbody></table>
+<h4 id="1-crontab-e-：编辑任务"><a href="#1-crontab-e-：编辑任务" class="headerlink" title="1.crontab -e ：编辑任务"></a>1.crontab -e ：编辑任务</h4><ul>
+<li><p>功能：</p>
+<p>打开当前用户的 ~&#x2F;.crontab 文件，支持 vi 或 nano 编辑器（取决于系统默认）。</p>
+</li>
+<li><p>使用场景：</p>
+<p>添加、修改或删除个人定时任务。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 添加每日备份任务</span><br><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>corn</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 * * * touch /tmp/test2.t</span><br></pre></td></tr></table></figure>
+
+<p>保存退出后，任务自动生效。</p>
+<h4 id="2-crontab-l-：列出任务"><a href="#2-crontab-l-：列出任务" class="headerlink" title="2.crontab -l ：列出任务"></a>2.crontab -l ：列出任务</h4><ul>
+<li><p>功能：</p>
+<p>显示当前用户的所有计划任务（格式化输出）。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xnha ~]# crontab -l</span><br><span class="line">0 3 * * * touch /tmp/test2.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-crontab-r-：删除任务"><a href="#3-crontab-r-：删除任务" class="headerlink" title="3.crontab -r ：删除任务"></a>3.crontab -r ：删除任务</h4><ul>
+<li><p>功能：</p>
+<p>永久删除当前用户的所有计划任务。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-crontab-u-username-：管理其他用户"><a href="#4-crontab-u-username-：管理其他用户" class="headerlink" title="4.crontab -u username ：管理其他用户"></a>4.crontab -u username ：管理其他用户</h4><ul>
+<li><p>功能：</p>
+<p>需要 sudo 权限，用于查看&#x2F;编辑其他用户的任务。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@xnha ~]# crontab -u user777 -e</span><br><span class="line">no crontab for user777 - using an empty one</span><br><span class="line">crontab: installing new crontab</span><br><span class="line">[root@xnha ~]# crontab -u user777 -l</span><br><span class="line">0 3 * * * touch /tmp/user77</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-使用方法"><a href="#3-4-使用方法" class="headerlink" title="3.4 使用方法"></a>3.4 使用方法</h3><p>场景1：每两个月的工作日的凌晨3点打包备份日志&#x2F;var&#x2F;log&#x2F;secure<br>可以在&#x2F;etc&#x2F;crontab中直接编辑，也可以使用命令crontab -e 进行编辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、-at-vs-cron-对比分析"><a href="#四、-at-vs-cron-对比分析" class="headerlink" title="四、 at vs cron 对比分析"></a>四、 at vs cron 对比分析</h2><table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th align="center">at</th>
+<th align="center">cron</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">适用场景</td>
+<td align="center">一次性&#x2F;延迟任务</td>
+<td align="center">周期性重复任务</td>
+</tr>
+<tr>
+<td align="center">时间精度</td>
+<td align="center">秒级</td>
+<td align="center">分钟级</td>
+</tr>
+<tr>
+<td align="center">资源开销</td>
+<td align="center">无长期守护进程</td>
+<td align="center">需 crond 服务常驻</td>
+</tr>
+<tr>
+<td align="center">配置复杂度</td>
+<td align="center">简单时间描述</td>
+<td align="center">复杂时间表达式</td>
+</tr>
+</tbody></table>
+<h2 id="五、-总结与实战案例"><a href="#五、-总结与实战案例" class="headerlink" title="五、 总结与实战案例"></a>五、 总结与实战案例</h2><h3 id="5-1-关键总结"><a href="#5-1-关键总结" class="headerlink" title="5.1 关键总结"></a>5.1 关键总结</h3><ul>
+<li>at ：适合一次性任务（如临时重启服务、延迟执行敏感操作）。</li>
+<li>cron ：适合长期周期任务（如每日备份、定时监控）</li>
+</ul>
+<h3 id="5-2-综合案例：自动化运维"><a href="#5-2-综合案例：自动化运维" class="headerlink" title="5.2 综合案例：自动化运维"></a>5.2 综合案例：自动化运维</h3><p>需求：<br>每日凌晨2点备份网站数据到远程服务器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * root ./linux.sh</span><br></pre></td></tr></table></figure>
+
+<p>每小时检查服务器磁盘使用率，超过90%时发邮件报警：</p>
+<p>解决方案：github搜索脚本，按时运行！</p>
+<ol>
+<li>使用 cron 备份：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * rsync -avz /www/user123.com/ user@remote:/backu</span><br></pre></td></tr></table></figure>
+
+<p>   2.使用at发送报警：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 每小时检查磁盘</span><br><span class="line">0 * * * * df -h | grep /dev/sda1 | awk &#x27;&#123;print $5&#125;&#x27; | while read -r usage;</span><br><span class="line">do</span><br><span class="line"> if [ &quot;$usage&quot; -gt 90 ]; then</span><br><span class="line">   at now + 5 minutes -t Asia/Shanghai</span><br><span class="line">   mail -s &quot;Disk Alert!&quot; admin@example.com &lt;&lt;&lt; &quot;Disk usage on /dev/sda1 is</span><br><span class="line">$usage%&quot;</span><br><span class="line"> fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/" data-id="cme3urluc0004900f7hhh41p1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/08/09/text/">text</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

