@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="PHP函数1.自定义函数 函数定义  函数就是可以完成固定功能的语句或语句集合，可以重复调用。  函数语言结构  1234567function 函数名(形式参数1,形式参数2...)&#123;    &#x2F;&#x2F;函数体    return 返回值&#125;函数名()   函数传参  12345678&#x2F;&#x2F; function.phpfunction add($x, $y)&#123;    $sum &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/08/14/PHP%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="PHP函数1.自定义函数 函数定义  函数就是可以完成固定功能的语句或语句集合，可以重复调用。  函数语言结构  1234567function 函数名(形式参数1,形式参数2...)&#123;    &#x2F;&#x2F;函数体    return 返回值&#125;函数名()   函数传参  12345678&#x2F;&#x2F; function.phpfunction add($x, $y)&#123;    $sum &#x3D;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814140726404.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814141753901.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814155257721.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814155436798.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814160154570.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814160934906.png">
+<meta property="article:published_time" content="2025-08-14T05:57:28.311Z">
+<meta property="article:modified_time" content="2025-08-14T08:10:05.797Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814140726404.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-PHP函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/14/PHP%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-08-14T05:57:28.311Z" itemprop="datePublished">2025-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="PHP函数"><a href="#PHP函数" class="headerlink" title="PHP函数"></a>PHP函数</h1><h2 id="1-自定义函数"><a href="#1-自定义函数" class="headerlink" title="1.自定义函数"></a>1.自定义函数</h2><ul>
+<li><h3 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h3></li>
+</ul>
+<p>函数就是可以完成固定功能的语句或语句集合，可以重复调用。</p>
+<ul>
+<li><h3 id="函数语言结构"><a href="#函数语言结构" class="headerlink" title="函数语言结构"></a>函数语言结构</h3></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形式参数<span class="number">1</span>,形式参数<span class="number">2</span>...</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> 返回值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">函数名()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h3></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"><span class="variable">$x</span>, <span class="variable">$y</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$sum</span> = <span class="variable">$x</span> + <span class="variable">$y</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$sum</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">add</span>(<span class="number">10</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>tips：</p>
+<ul>
+<li><ul>
+<li>function 是PHP 的关键字，用于完成函数的定义；</li>
+<li>函数名的命名，应该避开PHP 关键字，命名规则与变量的命名规则相同；</li>
+<li>形式参数，形参，给函数传递参数用的，仅作占位用；</li>
+<li>实际参数，实参，真正参与函数运算的；</li>
+<li>函数体，执行函数功能的部分。</li>
+<li>返回值，返回给调用的地方，默认返回NULL。</li>
+</ul>
+</li>
+<li><h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3></li>
+</ul>
+<p>函数名＋()</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814140726404.png" alt="image-20250814140726404"></p>
+<p>tips:</p>
+<ul>
+<li><ul>
+<li>函数的调用，直接函数名字后面加上() 即可，() 可以看作是运算符；</li>
+<li>调用函数之后执行的过程是相对独立的，互不干扰，默认没有联系；</li>
+<li>函数执行完毕，返回调用的位置继续向下执行。</li>
+</ul>
+</li>
+<li><h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3></li>
+</ul>
+<p>局部变量，就是在函数内部定义的变量，默认情况下，函数外部不能直接访问函数内部定义的变量。</p>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>全局变量是在脚本中，函数或类的外部定义的变量。</p>
+<ul>
+<li>用函数传参</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$username</span> = <span class="string">&quot;xiu&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_name</span>(<span class="params"><span class="variable">$username</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;My name is <span class="subst">&#123;$username&#125;</span>&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">get_name</span>(<span class="variable">$username</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用global 声明变量是全局变量。</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814141753901.png" alt="image-20250814141753901"></p>
+<ul>
+<li><h3 id="按值传参"><a href="#按值传参" class="headerlink" title="按值传参"></a>按值传参</h3></li>
+</ul>
+<p>默认传参方式。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814155257721.png" alt="image-20250814155257721"></p>
+<ul>
+<li><h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3></li>
+</ul>
+<p>可以给形式参数设置默认值，设置方法很简单直接赋值即可！</p>
+<p>给函数默认值的时候，全都给。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814155436798.png" alt="image-20250814155436798"></p>
+<p>由此可见，如果最后add一个数值，将会把这个数指参数赋给x</p>
+<h3 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a><strong>可变函数</strong></h3><p>也叫变量函数，动态函数，函数名可以动态设置和调用，<code>变量()</code>。这是PHP 特性之一，这种特性通常会被攻击者所利用。</p>
+<p>直接把函数名赋值给变量，通过修改变量的值，可以实现动态调用。PHP 支持可变函数的概念。这意味着如果一个变量名后有圆括号，PHP 将寻找与变量的值同名的函数，并且尝试执行它。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814160154570.png" alt="image-20250814160154570"></p>
+<h3 id="最简单后门"><a href="#最简单后门" class="headerlink" title="最简单后门"></a>最简单后门</h3><p>通过可变函数实际上可以调用任意PHP 函数。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814160934906.png" alt="image-20250814160934906"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/14/PHP%E5%87%BD%E6%95%B0/" data-id="cmfbvjmbn00016w0fbcx6gj93" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/08/15/%E4%B8%8EMySQL%20%E5%BB%BA%E7%AB%8B%E9%93%BE%E6%8E%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/08/12/PHP%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/08/18/Web%E6%BC%8F%E6%B4%9E%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AF%A6%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/15/%E4%B8%8EMySQL%20%E5%BB%BA%E7%AB%8B%E9%93%BE%E6%8E%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/14/PHP%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/12/PHP%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/12/H5%E5%88%9D%E8%AF%86%E2%9E%95%E5%AA%92%E4%BD%93%E4%B8%8E%E8%A1%A8%E5%8D%95/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -71,6 +71,952 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Web漏洞分类与详解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/18/Web%E6%BC%8F%E6%B4%9E%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time class="dt-published" datetime="2025-08-18T03:24:17.822Z" itemprop="datePublished">2025-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Web 漏洞分类与详解</p>
+<h1 id="一、SQL-注入相关漏洞"><a href="#一、SQL-注入相关漏洞" class="headerlink" title="一、SQL 注入相关漏洞"></a>一、SQL 注入相关漏洞</h1><ol>
+<li>基础 SQL 注入（SQLi）</li>
+</ol>
+<p>   web应用程序前端传入后端的参数是可控的，通过控制参数的传递和拼接sql语句可以实现数据库随意查询</p>
+<ol start="2">
+<li><p>报错注入</p>
+<p>构造sql语句在数据库执行过程中发生错误，数据库会返回包含错误信息的结果，利用错误信息获取数据库中的敏感数据（版本，表明，列名等）</p>
+</li>
+<li><p>二次注入（存储型 SQL 注入的特殊形式，输入存储后触发）</p>
+<p>已存储（数据库、文件）的用户输入被读取后再次进入到 SQL 查询语句中导致的注入。普通注入数据直接进入到 SQL 查询中，而二次注入则是输入数据经处理后存储，取出后，再次进入到 SQL 查询。</p>
+</li>
+<li><p>堆叠注入（通过分号执行多条 SQL 语句）</p>
+<p>只有当调用数据库函数支持执行多条sql语句时才能够使用，将原来的语句构造完后加上分号，代表该语句结束，后面在输入的就是一个全新的sql语句了，这个时候我们使用增删查改毫无限制。</p>
+</li>
+<li><p>盲注</p>
+<ul>
+<li>布尔盲注（基于查询结果的真假判断）</li>
+<li>时间盲注（基于延迟响应判断）</li>
+</ul>
+</li>
+<li><p>GET 注入（URL 参数）</p>
+<p>利用get传参的方式，在网页url后面传输恶意语句，进行sql注入</p>
+</li>
+<li><p>POST 注入（表单数据）</p>
+</li>
+<li><p>Cookie 注入（Cookie 字段）</p>
+</li>
+<li><p>User-Agent 注入（请求头字段）</p>
+</li>
+<li><p>Referer 注入（请求头字段）</p>
+</li>
+</ol>
+<h1 id="二、跨站脚本（XSS）相关漏洞"><a href="#二、跨站脚本（XSS）相关漏洞" class="headerlink" title="二、跨站脚本（XSS）相关漏洞"></a>二、跨站脚本（XSS）相关漏洞</h1><p>\1. 存储型 XSS（恶意脚本存储到服务器，持久触发）</p>
+<p>\2. 反射型 XSS（脚本随请求返回，一次性触发）</p>
+<p>\3. DOM 型 XSS（客户端 DOM 解析时执行，不经过服务器）</p>
+<h1 id="三、命令注入相关漏洞"><a href="#三、命令注入相关漏洞" class="headerlink" title="三、命令注入相关漏洞"></a>三、命令注入相关漏洞</h1><p>\1. 直接命令注入（用户输入直接拼接系统命令执行）</p>
+<p>\2. 间接命令注入（通过文件上传、配置文件等间接触发）</p>
+<h1 id="四、文件操作相关漏洞"><a href="#四、文件操作相关漏洞" class="headerlink" title="四、文件操作相关漏洞"></a>四、文件操作相关漏洞</h1><h2 id="1-文件上传漏洞（细分-4-类）"><a href="#1-文件上传漏洞（细分-4-类）" class="headerlink" title="1.文件上传漏洞（细分 4 类）"></a>1.文件上传漏洞（细分 4 类）</h2><p> 后缀名绕过（如.php5、.phtml）</p>
+<p> MIME 类型绕过（修改Content-Type）</p>
+<p> 路径遍历结合上传（如..&#x2F;shell.php）</p>
+<p> 解析漏洞利用（如 IIS&#x2F;nginx 解析缺陷）</p>
+<h2 id="1-文件包含漏洞"><a href="#1-文件包含漏洞" class="headerlink" title="1.文件包含漏洞"></a>1.文件包含漏洞</h2><p> 本地文件包含（LFI，包含服务器本地文件）</p>
+<p> 远程文件包含（RFI，包含远程恶意文件）</p>
+<p>\1. 任意文件读取（未授权读取敏感文件，如&#x2F;etc&#x2F;passwd）</p>
+<p>\2. 任意文件删除（未授权删除服务器文件）</p>
+<p>\3. 任意文件写入（未授权写入文件，如写入后门）</p>
+<h1 id="五、认证与授权漏洞"><a href="#五、认证与授权漏洞" class="headerlink" title="五、认证与授权漏洞"></a>五、认证与授权漏洞</h1><p>\1. 弱口令（密码复杂度不足，易被暴力破解）</p>
+<p>\2. 默认口令（未修改设备 &#x2F; 系统默认账号密码）</p>
+<p>\3. 密码明文传输（未加密传输，如 HTTP 传输密码）</p>
+<p>\4. 会话固定（固定会话 ID，诱导用户使用）</p>
+<p>\5. 会话劫持（窃取会话 ID 冒充用户）</p>
+<p>\6. 越权访问（细分 2 类）</p>
+<p> 水平越权（访问同权限用户数据，如查他人订单）</p>
+<p> 垂直越权（低权限访问高权限功能，如普通用户进后台）</p>
+<p>\1. 权限提升（通过漏洞获取更高权限）</p>
+<p>\2. 认证绕过（直接跳过登录验证，如逻辑缺陷）</p>
+<p>\3. 多因素认证缺失（仅单因素认证，易被破解）</p>
+<p>\4. 密码重置逻辑漏洞（如验证码复用、重置链接永久有效）</p>
+<h1 id="六、跨站请求伪造（CSRF）相关漏洞"><a href="#六、跨站请求伪造（CSRF）相关漏洞" class="headerlink" title="六、跨站请求伪造（CSRF）相关漏洞"></a>六、跨站请求伪造（CSRF）相关漏洞</h1><p>\1. 基础 CSRF（诱导用户在已登录状态执行操作）</p>
+<p>\2. GET 型 CSRF（利用 GET 请求的幂等性触发）</p>
+<p>\3. POST 型 CSRF（利用表单自动提交触发）</p>
+<h1 id="七、逻辑漏洞"><a href="#七、逻辑漏洞" class="headerlink" title="七、逻辑漏洞"></a>七、逻辑漏洞</h1><p>\1. 支付逻辑漏洞（如价格篡改、重复支付退款）</p>
+<p>\2. 订单逻辑漏洞（如越权修改订单状态、重复下单）</p>
+<p>\3. 注册逻辑漏洞（如重复注册、批量注册、手机号复用）</p>
+<p>\4. 密码找回逻辑漏洞（如跳过验证步骤、验证码泄露）</p>
+<p>\5. 验证码逻辑漏洞（如验证码过期时间长、可重复使用）</p>
+<p>\6. 业务流程绕过（如跳过关键步骤完成操作）</p>
+<h1 id="八、XML-与数据格式相关漏洞"><a href="#八、XML-与数据格式相关漏洞" class="headerlink" title="八、XML 与数据格式相关漏洞"></a>八、XML 与数据格式相关漏洞</h1><p>\1. XML 外部实体注入（XXE，利用外部实体读取文件 &#x2F; 执行命令）</p>
+<p>\2. XML 注入（修改 XML 结构导致数据篡改或泄露）</p>
+<p>\3. XPath 注入（XPath 查询未过滤，导致数据泄露）</p>
+<h1 id="九、服务器配置漏洞"><a href="#九、服务器配置漏洞" class="headerlink" title="九、服务器配置漏洞"></a>九、服务器配置漏洞</h1><p>\1. 目录遍历（通过..&#x2F;等路径访问非预期目录）</p>
+<p>\2. 敏感信息泄露（如 PHPINFO、数据库错误详情、日志泄露）</p>
+<p>\3. 服务器版本泄露（响应头暴露 Apache&#x2F;Nginx 版本）</p>
+<p>\4. 默认页面未删除（如phpMyAdmin、test.php默认路径）</p>
+<p>\5. 目录索引开启（未禁用自动目录列表，泄露文件结构）</p>
+<p>\6. 不安全 HTTP 方法（开启 PUT&#x2F;DELETE，允许文件操作）</p>
+<p>\7. CORS 配置不当（跨域资源共享规则过松，泄露数据）</p>
+<h1 id="十、密码学与传输漏洞"><a href="#十、密码学与传输漏洞" class="headerlink" title="十、密码学与传输漏洞"></a>十、密码学与传输漏洞</h1><p>\1. 弱加密算法（如使用 MD5、SHA1 存储密码）</p>
+<p>\2. 密钥泄露（硬编码密钥、日志泄露密钥）</p>
+<p>\3. 明文存储密码（数据库直接存储明文密码）</p>
+<p>\4. 加密传输缺失（未用 HTTPS，数据明文传输）</p>
+<p>\5. SSL&#x2F;TLS 配置漏洞（支持弱加密套件、协议版本过低）</p>
+<h1 id="十一、API-与新兴技术漏洞"><a href="#十一、API-与新兴技术漏洞" class="headerlink" title="十一、API 与新兴技术漏洞"></a>十一、API 与新兴技术漏洞</h1><p>\1. API 未授权访问（接口缺少认证，直接调用）</p>
+<p>\2. API 参数篡改（修改接口参数越权操作）</p>
+<h1 id="十二、其他类型漏洞"><a href="#十二、其他类型漏洞" class="headerlink" title="十二、其他类型漏洞"></a>十二、其他类型漏洞</h1><p>\1. 反序列化漏洞（如 Java&#x2F;PHP 反序列化执行命令）</p>
+<p>\2. 服务器端请求伪造（SSRF，诱导服务器请求内网资源）</p>
+<p>\3. 点击劫持（通过透明层诱导用户点击非预期按钮）</p>
+<p>\4. 模板注入（如 Jinja2&#x2F;Twig 注入，执行代码）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/18/Web%E6%BC%8F%E6%B4%9E%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AF%A6%E8%A7%A3/" data-id="cmfbvjmbp00046w0fc1667594" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-与MySQL 建立链接" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/15/%E4%B8%8EMySQL%20%E5%BB%BA%E7%AB%8B%E9%93%BE%E6%8E%A5/" class="article-date">
+  <time class="dt-published" datetime="2025-08-15T04:59:11.076Z" itemprop="datePublished">2025-08-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>交互</p>
+<p>把pikachu解压到这个目录</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815110844072.png" alt="image-20250815110844072"></p>
+<p>打开install.php</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815110949487.png" alt="image-20250815110949487"></p>
+<p>浏览器访问<a target="_blank" rel="noopener" href="http://127.0.0.1/pikachu-master/install.php%EF%BC%8C%E5%AE%89%E8%A3%85%E5%88%9D%E5%A7%8B%E5%8C%96">http://127.0.0.1/pikachu-master/install.php，安装初始化</a></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815111059128.png" alt="image-20250815111059128"></p>
+<p>进来了<img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815111123005.png" alt="image-20250815111123005"></p>
+<p>按理说现在pikachu已经安装好了，去终端看一下，确保已经存在</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815111305933.png" alt="image-20250815111305933"></p>
+<p>看一眼users表单</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815111424304.png" alt="image-20250815111424304"></p>
+<h3 id="与MySQL-建立链接"><a href="#与MySQL-建立链接" class="headerlink" title="与MySQL 建立链接"></a>与MySQL 建立链接</h3><p>直接使用PHP 提供的函数。</p>
+<h3 id="建立链接"><a href="#建立链接" class="headerlink" title="建立链接"></a>建立链接</h3><p> <img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815121814981.png" alt="image-20250815121814981"></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815121828951.png" alt="image-20250815121828951"></p>
+<h3 id="捕获连接错误"><a href="#捕获连接错误" class="headerlink" title="捕获连接错误"></a>捕获连接错误</h3><ul>
+<li>错误编号</li>
+<li>错误详情</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="variable">$link</span>)&#123;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="string">&quot;[&quot;</span>.<span class="title function_ invoke__">mysqli_connect_errno</span>().<span class="string">&quot;] &quot;</span>.<span class="title function_ invoke__">mysqli_connect_error</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>tips：“！”取反的意思</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815122212309.png" alt="image-20250815122212309"></p>
+<h3 id="关闭链接"><a href="#关闭链接" class="headerlink" title="关闭链接"></a>关闭链接</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">mysqli_close</span>(<span class="variable">$link</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="单条SQL-语句执行"><a href="#单条SQL-语句执行" class="headerlink" title="单条SQL 语句执行"></a>单条SQL 语句执行</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;select * from users;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$results</span> =  <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$link</span>, <span class="variable">$sql</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815122555954.png" alt="image-20250815122555954"></p>
+<p>成功执行！</p>
+<h3 id="SQL-错误"><a href="#SQL-错误" class="headerlink" title="SQL 错误"></a>SQL 错误</h3><p>如果在执行SQL 语句的时候发生错误，mysqli_query 将返回false。可以使用以下函数捕获错误原因：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815123020517.png" alt="image-20250815123020517"></p>
+<p>完美细致的报错</p>
+<h3 id="函数速查"><a href="#函数速查" class="headerlink" title="函数速查"></a>函数速查</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">mysqli_fetch_row()</td>
+<td align="center">以索引数组的方式获取一条记录的数据</td>
+</tr>
+<tr>
+<td align="center">mysqli_fetch_assoc()</td>
+<td align="center">以关联数组的方式获取一条记录的数据</td>
+</tr>
+<tr>
+<td align="center">mysqli_fetch_array()</td>
+<td align="center">以索引数组或关联数组的方式获取一条记录的数据</td>
+</tr>
+<tr>
+<td align="center">mysqli_fetch_all()</td>
+<td align="center">以索引数组或关联数组的方式获取全部记录的数据</td>
+</tr>
+<tr>
+<td align="center">mysqli_num_rows()</td>
+<td align="center">获取结果集对象中数据条数</td>
+</tr>
+<tr>
+<td align="center">mysqli_free_result()</td>
+<td align="center">释放与一个结果集合相关的内存</td>
+</tr>
+</tbody></table>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815123742878.png" alt="image-20250815123742878"></p>
+<p>输出：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815124010253.png" alt="image-20250815124010253"></p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815125821843.png" alt="image-20250815125821843"></p>
+<p>终端查看，发现插入成功</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250815125857053.png" alt="image-20250815125857053"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/15/%E4%B8%8EMySQL%20%E5%BB%BA%E7%AB%8B%E9%93%BE%E6%8E%A5/" data-id="cmfbvjmbr00076w0ffb70gbdu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PHP函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/14/PHP%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-08-14T05:57:28.311Z" itemprop="datePublished">2025-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="PHP函数"><a href="#PHP函数" class="headerlink" title="PHP函数"></a>PHP函数</h1><h2 id="1-自定义函数"><a href="#1-自定义函数" class="headerlink" title="1.自定义函数"></a>1.自定义函数</h2><ul>
+<li><h3 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h3></li>
+</ul>
+<p>函数就是可以完成固定功能的语句或语句集合，可以重复调用。</p>
+<ul>
+<li><h3 id="函数语言结构"><a href="#函数语言结构" class="headerlink" title="函数语言结构"></a>函数语言结构</h3></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params">形式参数<span class="number">1</span>,形式参数<span class="number">2</span>...</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//函数体</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> 返回值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">函数名()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h3></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function.php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"><span class="variable">$x</span>, <span class="variable">$y</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$sum</span> = <span class="variable">$x</span> + <span class="variable">$y</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$sum</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">add</span>(<span class="number">10</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>tips：</p>
+<ul>
+<li><ul>
+<li>function 是PHP 的关键字，用于完成函数的定义；</li>
+<li>函数名的命名，应该避开PHP 关键字，命名规则与变量的命名规则相同；</li>
+<li>形式参数，形参，给函数传递参数用的，仅作占位用；</li>
+<li>实际参数，实参，真正参与函数运算的；</li>
+<li>函数体，执行函数功能的部分。</li>
+<li>返回值，返回给调用的地方，默认返回NULL。</li>
+</ul>
+</li>
+<li><h3 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h3></li>
+</ul>
+<p>函数名＋()</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814140726404.png" alt="image-20250814140726404"></p>
+<p>tips:</p>
+<ul>
+<li><ul>
+<li>函数的调用，直接函数名字后面加上() 即可，() 可以看作是运算符；</li>
+<li>调用函数之后执行的过程是相对独立的，互不干扰，默认没有联系；</li>
+<li>函数执行完毕，返回调用的位置继续向下执行。</li>
+</ul>
+</li>
+<li><h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3></li>
+</ul>
+<p>局部变量，就是在函数内部定义的变量，默认情况下，函数外部不能直接访问函数内部定义的变量。</p>
+<h3 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h3><p>全局变量是在脚本中，函数或类的外部定义的变量。</p>
+<ul>
+<li>用函数传参</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$username</span> = <span class="string">&quot;xiu&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_name</span>(<span class="params"><span class="variable">$username</span></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;My name is <span class="subst">&#123;$username&#125;</span>&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">get_name</span>(<span class="variable">$username</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用global 声明变量是全局变量。</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814141753901.png" alt="image-20250814141753901"></p>
+<ul>
+<li><h3 id="按值传参"><a href="#按值传参" class="headerlink" title="按值传参"></a>按值传参</h3></li>
+</ul>
+<p>默认传参方式。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814155257721.png" alt="image-20250814155257721"></p>
+<ul>
+<li><h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3></li>
+</ul>
+<p>可以给形式参数设置默认值，设置方法很简单直接赋值即可！</p>
+<p>给函数默认值的时候，全都给。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814155436798.png" alt="image-20250814155436798"></p>
+<p>由此可见，如果最后add一个数值，将会把这个数指参数赋给x</p>
+<h3 id="可变函数"><a href="#可变函数" class="headerlink" title="可变函数"></a><strong>可变函数</strong></h3><p>也叫变量函数，动态函数，函数名可以动态设置和调用，<code>变量()</code>。这是PHP 特性之一，这种特性通常会被攻击者所利用。</p>
+<p>直接把函数名赋值给变量，通过修改变量的值，可以实现动态调用。PHP 支持可变函数的概念。这意味着如果一个变量名后有圆括号，PHP 将寻找与变量的值同名的函数，并且尝试执行它。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814160154570.png" alt="image-20250814160154570"></p>
+<h3 id="最简单后门"><a href="#最简单后门" class="headerlink" title="最简单后门"></a>最简单后门</h3><p>通过可变函数实际上可以调用任意PHP 函数。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250814160934906.png" alt="image-20250814160934906"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/14/PHP%E5%87%BD%E6%95%B0/" data-id="cmfbvjmbn00016w0fbcx6gj93" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PHP基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/12/PHP%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time class="dt-published" datetime="2025-08-12T12:32:46.859Z" itemprop="datePublished">2025-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="PHP基础"><a href="#PHP基础" class="headerlink" title="PHP基础"></a>PHP基础</h1><p>配置好php之后，创建新项目，在notedpad++开始学习代码：</p>
+<p>先输出一个123：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812203559246.png" alt="image-20250812203559246"></p>
+<p>加些东西：</p>
+<p>在<?php?>外面写<h1></h1>标题，或者写<script>，只要文件后缀是.php，这样是被允许的</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812204110364.png" alt="image-20250812204110364"></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812204651678.png" alt="image-20250812204651678"></p>
+<p>如果在里面写了phpinfo();   会导致敏感信息泄露：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812204958259.png" alt="image-20250812204958259"></p>
+<h3 id="设置变量-变量名"><a href="#设置变量-变量名" class="headerlink" title="设置变量 $ + 变量名"></a>设置变量 $ + 变量名</h3><p>变量名是严格区分大小写；变量名由字母、数字、下划线组成，并且不能以数字开头，也不能包含空白字符、特殊字符等；变量命名时建议做到“见名知意”</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812205313033.png" alt="image-20250812205313033"></p>
+<h3 id="变量声明与初始化"><a href="#变量声明与初始化" class="headerlink" title="变量声明与初始化"></a>变量声明与初始化</h3><p>直接赋值，直接使用。</p>
+<h3 id="分支执行"><a href="#分支执行" class="headerlink" title="分支执行"></a>分支执行</h3><p>语法结构</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>()&#123;<span class="comment">//判断条件，如果判断条件的返回值为True，则执行语句块1，否则执行语句块2</span></span><br><span class="line">    <span class="comment">//语句块1</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment">//语句块2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="条件示例："><a href="#条件示例：" class="headerlink" title="条件示例："></a>条件示例：</h4><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813111116983.png" alt="image-20250813111116983"></p>
+<p>空值触发了判断，输出了else的输出</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813111522515.png" alt="image-20250813111522515"></p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813111546165.png" alt="image-20250813111546165"></p>
+<p>通过输入?a=&quot;&quot;，写入score值，页面自动做出判断，并输出相应结果。</p>
+<h3 id="switch-语句"><a href="#switch-语句" class="headerlink" title="switch 语句"></a>switch 语句</h3><p>功能与if 语句类似，当需要<strong>多向分支结构</strong>时，并且<strong>判断条件是具体的某个值</strong>，此时大多使用switch 结构。</p>
+<p>Tips：</p>
+<ul>
+<li>表达式的值最好是整形或者字符串。</li>
+<li>不要忘记break 语句，用来跳出switch 语句。每个case 语句后面都加上break。</li>
+<li>如果某个case 语句后面并没有接语句块，那么就说明这个语句块的内容是同下。</li>
+<li>case 后面的语句块是不需要<code>&#123;&#125;</code> 括起来的。</li>
+</ul>
+<p>switch示例：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813112255311.png" alt="image-20250813112255311"></p>
+<h3 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h3><p>在编写if 语句时，要求判断条件是一个布尔类型的值。但是实际应用中，是无法保障这一点。如果判断条件是非布尔类型的值，就需要强制转换成布尔类型的值。</p>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>语言结构：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(表达式)&#123;<span class="comment">//当表达式的值为真的时候，执行循环体。</span></span><br><span class="line">    <span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当表达式的值为true，就执行下面的循环体。当循环体执行结束之后，继续判断表达式的值是true 还是false，如果还是true，那么就继续执行循环体。直到，这个表达式的值为false，那么这个while 语句就执行结束了。</p>
+<p>例子：输出1 到100 数字。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813154935958.png" alt="image-20250813154935958"></p>
+<h3 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813155135364.png" alt="image-20250813155135364"></p>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>语法格式。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(;;)&#123;<span class="comment">//计数器;判断条件;自增或自减</span></span><br><span class="line">    <span class="comment">//循环体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例：输出1 到1000 数字。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813155458925.png" alt="image-20250813155458925"></p>
+<h3 id="特殊流程"><a href="#特殊流程" class="headerlink" title="特殊流程"></a>特殊流程</h3><h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 用于switch，for，while，do…while，foreach 等的中断。后面可以接上一个数字来表示跳出几层循环。默认不加就是跳出当前循环语句。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813155947579.png" alt="image-20250813155947579"></p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p> 只能用在循环语句，轮空本次循环，并不是结束整个循环语句。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813160222685.png" alt="image-20250813160222685"></p>
+<h3 id="exit"><a href="#exit" class="headerlink" title="exit"></a>exit</h3><p>表示结束当前整个PHP 脚本的执行。同die() 语句。</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250813160510512.png" alt="image-20250813160510512"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/12/PHP%E5%9F%BA%E7%A1%80/" data-id="cmfbvjmbp00036w0fak0l295m" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-H5初识➕媒体与表单" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/12/H5%E5%88%9D%E8%AF%86%E2%9E%95%E5%AA%92%E4%BD%93%E4%B8%8E%E8%A1%A8%E5%8D%95/" class="article-date">
+  <time class="dt-published" datetime="2025-08-12T04:55:58.717Z" itemprop="datePublished">2025-08-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="H5初识"><a href="#H5初识" class="headerlink" title="H5初识"></a>H5初识</h1><h2 id="1-1、HTML基本结构"><a href="#1-1、HTML基本结构" class="headerlink" title="1.1、HTML基本结构"></a>1.1、HTML基本结构</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812110948024.png" alt="image-20250812110948024"></p>
+<h2 id="1-2、网页的基本标签"><a href="#1-2、网页的基本标签" class="headerlink" title="1.2、网页的基本标签"></a>1.2、网页的基本标签</h2><h3 id="1、标题标签"><a href="#1、标题标签" class="headerlink" title="1、标题标签"></a>1、标题标签</h3><p>h1最大，h6最小</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812111518758.png" alt="image-20250812111518758"></p>
+<h3 id="2、段落标签"><a href="#2、段落标签" class="headerlink" title="2、段落标签"></a>2、段落标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;  &lt;p&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812111716600.png" alt="image-20250812111716600"></p>
+<h3 id="3、换行标签"><a href="#3、换行标签" class="headerlink" title="3、换行标签"></a>3、换行标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;br /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812111844119.png" alt="image-20250812111844119"></p>
+<h3 id="4、水平线标签"><a href="#4、水平线标签" class="headerlink" title="4、水平线标签"></a>4、水平线标签</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;hr/&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812112026685.png" alt="image-20250812112026685"></p>
+<h3 id="5、特殊符号"><a href="#5、特殊符号" class="headerlink" title="5、特殊符号"></a>5、特殊符号</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812112429643.png" alt="image-20250812112429643"></p>
+<h2 id="1-3、图像标签"><a href="#1-3、图像标签" class="headerlink" title="1.3、图像标签"></a>1.3、图像标签</h2><p>常见的图像格式：jpg、gif、png(受浏览器兼容性限制)</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812120848196.png" alt="image-20250812120848196"></p>
+<h2 id="1-4、链接标签"><a href="#1-4、链接标签" class="headerlink" title="1.4、链接标签"></a>1.4、链接标签</h2><p>页面间链接：从一个页面链接到另外一个页面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;ahref=&quot;path&quot;target=&quot;_self&quot;&gt;文本或者图像&lt;/a&gt;</span><br><span class="line">&lt;ahref=&quot;path&quot;target=&quot;_blank&quot;&gt;文本或者图像&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812121455085.png" alt="image-20250812121455085"></p>
+<p>跳转到顶部：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812121759365.png" alt="image-20250812121759365"></p>
+<h1 id="2、表格与表单"><a href="#2、表格与表单" class="headerlink" title="2、表格与表单"></a>2、表格与表单</h1><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812122256674.png" alt="image-20250812122256674"></p>
+<h2 id="跨列、跨行"><a href="#跨列、跨行" class="headerlink" title="跨列、跨行"></a>跨列、跨行</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812122530316.png" alt="image-20250812122530316"></p>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p>method:规定如何发送表单数据常用值,get,post<br>在实际网页开发中通常采用post方式提交表单数据<br>action:表示向何处发送表单数据</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812123407559.png" alt="image-20250812123407559"></p>
+<h2 id="表单元素"><a href="#表单元素" class="headerlink" title="表单元素"></a>表单元素</h2><p>1、文本框</p>
+<p>type&#x3D;”text”<br>name：文本框名称(必填)<br>value：文本框初始值<br>size：文本框长度<br>maxlength：文本框可输入最多字符</p>
+<p>2、密码框</p>
+<p>type&#x3D;”password”<br>name：密码框名称(必填)<br>size：密码框长度</p>
+<p>3、单选按钮</p>
+<p>type&#x3D;”radio”<br>name：单选框名称(必填)，一组的名称需要相同<br>checked：单选按钮选中状态<br>value：单选框的值</p>
+<p>4、复选框</p>
+<p>type&#x3D;”checkbox”<br>name：复选框名称(必填)，一组的名称需要相同<br>checked：复选按钮选中状态<br>value：复选框的值</p>
+<p>5、下拉列表框</p>
+<p>select:下拉列表框<br>option：选项</p>
+<p>6、按钮</p>
+<p>重置按钮<br>&lt;inputtype&#x3D;”reset”name&#x3D;”butReset”value&#x3D;”reset按钮”&gt;<br>提交按钮<br>&lt;inputtype&#x3D;”submit”name&#x3D;”butSubmit”value&#x3D;”submit按钮”&gt;<br>普通按钮<br>&lt;inputtype&#x3D;”button”name&#x3D;”butButton”value&#x3D;”button按钮”&#x2F;&gt;</p>
+<p>完整代码与浏览器预览样式：</p>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812130310261.png" alt="image-20250812130310261"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/12/H5%E5%88%9D%E8%AF%86%E2%9E%95%E5%AA%92%E4%BD%93%E4%B8%8E%E8%A1%A8%E5%8D%95/" data-id="cmfbvjmbj00006w0fb6hzfped" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux文件管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T11:35:34.340Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux文件管理"><a href="#Linux文件管理" class="headerlink" title="Linux文件管理"></a>Linux文件管理</h1><h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h2><h4 id="1-根目录"><a href="#1-根目录" class="headerlink" title="1.根目录"></a>1.根目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/ <span class="comment">#根目录</span></span><br><span class="line">起始点，系统中一切文件都从这里存储</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-root-和-home-用户的家目录"><a href="#2-root-和-home-用户的家目录" class="headerlink" title="2.&#x2F;root 和 &#x2F;home  用户的家目录"></a>2.&#x2F;root 和 &#x2F;home  用户的家目录</h4><ul>
+<li><p>&#x2F;root  </p>
+<p>作用：超级用户（root）的家目录</p>
+</li>
+</ul>
+<p>​		特点：<br>​			默认仅root可访问<br>​			用于存放 root 的配置文件<br>​	<br>​		例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> su <span class="comment">#切到root用户并进入其家目录</span></span><br><span class="line"><span class="built_in">ls</span> /root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>&#x2F;home </p>
+<p>作用：存放普通用户的家目录</p>
+</li>
+</ul>
+<p>​		特点：</p>
+<p>​					每个用户对应一个子目录</p>
+<p>​					用户拥有自己的家目录的一切权限</p>
+<p>​		例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看当前用户家目录</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$HOME</span> </span><br><span class="line"><span class="built_in">ls</span> /home</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-etc-系统配置目录"><a href="#3-etc-系统配置目录" class="headerlink" title="3.&#x2F;etc   系统配置目录"></a>3.&#x2F;etc   系统配置目录</h4><ul>
+<li><p>作用：存放系统和应用程序的配置文件</p>
+</li>
+<li><p>例如：</p>
+<ul>
+<li><p>&#x2F;etc&#x2F;passwd  用户的账户密码信息</p>
+</li>
+<li><p>CentOS 特有的路径</p>
+<ul>
+<li><p>网络配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/ifcfg-ens(网卡号)  <span class="comment">#网卡配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line"><span class="comment">#CentOS中yum/dnf管理器的核心文件</span></span><br><span class="line">/etc/yum.repos.d/CentOS-AppStream.repo</span><br><span class="line"><span class="comment">#仓库文件的源地址</span></span><br><span class="line">/etc/yum.repos.d/CentOS-Extras.repo</span><br><span class="line"><span class="comment">#决定系统从哪下</span></span><br><span class="line">mirrorlist		<span class="comment">#工作方式：直接指定仓库</span></span><br><span class="line">				<span class="comment">#工作流程：直接访问指定的URL，下载仓库的数据</span></span><br><span class="line">				若后面跟的地址不可达，会报错</span><br><span class="line">baseurl			<span class="comment">#先访问mirrorlist url，获取镜像地址列表</span></span><br><span class="line">				下载出列表，并开始测试响应速度</span><br><span class="line">				选择出最优的镜像进行连接，下载仓库数据</span><br><span class="line">				</span><br><span class="line">gpgcheck=1  <span class="comment">#是否启用仓库，（1为使用；0为不使用）</span></span><br><span class="line">gpgkey=      <span class="comment">#是仓库的验证密钥</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>selinux配置：</p>
+<ul>
+<li><pre><code class="language-bash">/etc/selinux
+SElinux            #美国国家安全局提出的，强制访问控制安全机制，用于增强linux安全性
+                自主访问控制安全机制 rw
+            共三种模式：
+            enforcing  强制模式（默认），严格执行安全策略，有违规会被禁止#军事领域
+            permissive 标准模式/宽容模式，会允许并记录（你可以访问，但是要被我记录）
+            disable    禁用，完全关闭
+        SElinuxTYPE: targated: 仅保护安全进程
+                mls:多级安全策略，#用于军事领域
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- YUM/DNF 配置：</span><br><span class="line"></span><br><span class="line">  ```bash</span><br><span class="line">  /etc/yum.repos.d/CentOS-Base.repo #软件源配置</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意事项：</p>
+<p>修改配置文件后，通常是要重启服务才能生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更改主机名</span></span><br><span class="line"><span class="built_in">sudo</span> vim /etc/hostname</span><br><span class="line"><span class="comment">#重启生效</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-dev-设备文件目录"><a href="#4-dev-设备文件目录" class="headerlink" title="4.&#x2F;dev  设备文件目录"></a>4.&#x2F;dev  设备文件目录</h4><ul>
+<li>作用：管理所有硬件设备和虚拟设备（存放所有的硬件设备）</li>
+<li>权限：仅有root和disk用户有操作权限</li>
+</ul>
+<h4 id="5-bin和-sbin-系统命令目录"><a href="#5-bin和-sbin-系统命令目录" class="headerlink" title="5.&#x2F;bin和&#x2F;sbin 系统命令目录"></a>5.&#x2F;bin和&#x2F;sbin 系统命令目录</h4><ul>
+<li><p>&#x2F;bin 二进制目录</p>
+<ul>
+<li><p>作用：存放普通用户和系统管理员都可使用的基础命令</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>单用户模式（维护模式）下可用   （Q为什么linux把所有命令要存在目录）</li>
+<li>命令多为系统运行必须的核心工具</li>
+</ul>
+</li>
+<li><p>常见命令：</p>
+<ul>
+<li>&#x2F;bin&#x2F;ls 查看文件列表</li>
+<li>&#x2F;bin&#x2F;cp 复制文件</li>
+<li>&#x2F;bin&#x2F;date 显示系统时间</li>
+</ul>
+</li>
+<li><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看系统时间（CentOS 8 默认使用timedatectl）</span></span><br><span class="line">/bin/date</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>&#x2F;sbin 管理系统命令</p>
+</li>
+<li><p>作用：存放需要管理员权限才能执行的系统管理命令</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>普通用户没有没有权限执行，想执行得用（sudo）</li>
+<li>命令大多都涉及系统配置与维护</li>
+</ul>
+</li>
+<li><p>常见命令：</p>
+<ul>
+<li>&#x2F;sbin&#x2F;service ：管理系统服务（如启动&#x2F;停止服务）。</li>
+<li>&#x2F;sbin&#x2F;ifconfig ：查看或配置网络接口（已逐步被 ip 命令替代）</li>
+<li>&#x2F;sbin&#x2F;reboot ：重启系统。</li>
+</ul>
+</li>
+<li><p>例子：</p>
+</li>
+</ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS 8 使用 systemctl 管理服务（替代旧版 service 命令）</span></span><br><span class="line">/sbin/service network restart <span class="comment"># 旧方式（仍可用）</span></span><br><span class="line">systemctl restart NetworkManager <span class="comment"># 推荐方式</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="6-var-存储动态变化的数据目录-（会随着系统运行，不断增长数据量）与-tmp-存放临时文件"><a href="#6-var-存储动态变化的数据目录-（会随着系统运行，不断增长数据量）与-tmp-存放临时文件" class="headerlink" title="6.&#x2F;var 存储动态变化的数据目录 （会随着系统运行，不断增长数据量）与 &#x2F;tmp 存放临时文件"></a>6.&#x2F;var 存储动态变化的数据目录 （会随着系统运行，不断增长数据量）与 &#x2F;tmp 存放临时文件</h4><h5 id="var"><a href="#var" class="headerlink" title="&#x2F;var"></a>&#x2F;var</h5><ul>
+<li><p>作用：存放运行过程中可变数据 （日志、数据库、邮件）</p>
+</li>
+<li><p>常见子目录：</p>
+<ul>
+<li>&#x2F;var&#x2F;log 系统程序数据（syslog、ngiinx&#x2F;access.log）</li>
+</ul>
+<p>在能够写入日志的情况下，写入木马病毒，获取Shell</p>
+<ul>
+<li>&#x2F;var&#x2F;lib 应用程序数据（MySQL数据库，&#x2F;var&#x2F;lib&#x2F;mysql）</li>
+</ul>
+<p>mysql数据库、docker容器</p>
+<ul>
+<li>&#x2F;var&#x2F;spool 队列数据（邮件队列 &#x2F;var&#x2F;spool&#x2F;mail）</li>
+<li>&#x2F;var&#x2F;log&#x2F;secure 安全认证日志</li>
+<li>&#x2F;var&#x2F;log&#x2F;messages 核心系统日志</li>
+</ul>
+</li>
+</ul>
+<h5 id="tmp"><a href="#tmp" class="headerlink" title="&#x2F;tmp"></a>&#x2F;tmp</h5><ul>
+<li><p>作用：存放临时文件（进程或用户手动创建）</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>全局可读写</li>
+<li>系统重启或定期清理时会自动删除文件（重启会清空）</li>
+</ul>
+</li>
+<li><p>实际应用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建临时文件并测试权限</span></span><br><span class="line"><span class="built_in">touch</span> /tmp/test.tmp</span><br><span class="line"><span class="built_in">chmod</span> 777 /tmp/test.tmp <span class="comment">#允许所有用户读写</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-usr-和-usr-local-系统资源目录"><a href="#7-usr-和-usr-local-系统资源目录" class="headerlink" title="7.&#x2F;usr 和&#x2F;usr&#x2F;local :系统资源目录"></a>7.&#x2F;usr 和&#x2F;usr&#x2F;local :系统资源目录</h4><ul>
+<li><p>&#x2F;usr 存储静态用户进程</p>
+</li>
+<li><p>作用：存放系统核心程序、库和文档</p>
+<ul>
+<li>子目录：<ul>
+<li>&#x2F;usr&#x2F;bin: 用户命令（gcc，Python）</li>
+<li>&#x2F;usr&#x2F;lib: 库文件（.so动态库）</li>
+<li>&#x2F;usr&#x2F;share 共享数据（文档，临时文件）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x2F;usr&#x2F;local</p>
+<ul>
+<li><p>作用：存放用户手动编译安装的软件</p>
+</li>
+<li><p>特点：</p>
+<p>避免与系统包管理器安装的软件冲突</p>
+</li>
+<li><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#编译安装软件到 /usr/local</span></span><br><span class="line">./configure --prefix=/usr/local</span><br><span class="line">make &amp;&amp; <span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>ps:数据性质：&#x2F;var 动态变化</p>
+<p>​						&#x2F;tmp 临时数据</p>
+<p>​						&#x2F;usr 静态只读</p>
+<p>是否可以删除： &#x2F;var 部分可删</p>
+<p>​							&#x2F;tmp 可删</p>
+<p>​							&#x2F;usr 不可删</p>
+<p>是否需要备份：&#x2F;var 部分需要备份（数据库）</p>
+<p>​							&#x2F;tmp 不需要备份</p>
+<p>​							&#x2F;usr  不需要备份</p>
+<p>文件大小：     	&#x2F;var 10G以上，日志可能随时清理</p>
+<p>​							&#x2F;tmp 1G以内</p>
+<p>​							&#x2F;usr  5-20G（Linux基础系统大小）</p>
+<p>分区情况： 		&#x2F;var 建议单独分区 （因为会不断增长）</p>
+<p>​							&#x2F;tmp 通常会挂载为tmpfs</p>
+<p>​							&#x2F;usr  通常和根目录（&#x2F;）合并</p>
+<h4 id="8-boot-系统启动目录"><a href="#8-boot-系统启动目录" class="headerlink" title="8.&#x2F;boot 系统启动目录"></a>8.&#x2F;boot 系统启动目录</h4><ul>
+<li>作用： 是启动linux系统的核心文件，<strong>这里存放的有内核kernel</strong>，临时根文件系统</li>
+<li>关键文件：<ul>
+<li>vmlinuz-* ：Linux 内核文件</li>
+<li>initrd.img-* ：初始内存盘镜像</li>
+<li>&#x2F;boot&#x2F;grub ：GRUB 引导程序配置</li>
+</ul>
+</li>
+<li>操作警告：<ul>
+<li>误删此目录文件可能导致系统无法启动</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-文件管理命令"><a href="#2-文件管理命令" class="headerlink" title="2.文件管理命令"></a>2.文件管理命令</h2><p>Linux系统一切皆文件，不以后缀名去识别文件</p>
+<h4 id="1-touch创建"><a href="#1-touch创建" class="headerlink" title="1.touch创建"></a>1.touch创建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建文件</span></span><br><span class="line"><span class="built_in">touch</span> filename</span><br><span class="line"><span class="comment">#可以批量创建</span></span><br><span class="line"><span class="built_in">touch</span> file1 file2</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建目录</span></span><br><span class="line"><span class="built_in">mkdir</span> 路径和目录名称</span><br><span class="line"><span class="comment">#创建单层目录</span></span><br><span class="line"><span class="built_in">mkdir</span> dir1</span><br><span class="line"><span class="comment">#递归创建嵌套目录（自动补全）</span></span><br><span class="line"><span class="built_in">mkdir</span> -p dir1/dir2</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-cp-复制文件或目录"><a href="#2-cp-复制文件或目录" class="headerlink" title="2.cp 复制文件或目录"></a>2.cp 复制文件或目录</h4><ul>
+<li>用途：复制文件或目录到指定位置</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> [选项] 源文件 目标路径</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用选项：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp file.txt backup/ #复制文件到目录</span><br><span class="line">cp -r dir1/ dir2/  #递归复制目录</span><br><span class="line">cp -f dir1 dir2   #强制复制</span><br><span class="line">cp -i dile.txt backup  #覆盖前提示确认</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.mv 移动或重命名文件</strong></p>
+<ul>
+<li><p>用途：移动文件或目录，或修改名称</p>
+</li>
+<li><p>语法：</p>
+</li>
+<li><pre><code class="language-bash">mv 源文件 目标路径或名称
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4.rm 删除</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+rm -r #删除目录
+rm -f #强制删除
+rm -rf #强制删除目录及内容
+</code></pre>
+</li>
+</ul>
+<p>慎用删除<br>多用mv少用rm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5.查询命令</span><br><span class="line"></span><br><span class="line">- cat</span><br><span class="line"></span><br><span class="line">  - 用途：用于快速查看，合并或创建文件内容，适合小文件，直接内容输出到终端，无交互功能</span><br><span class="line"></span><br><span class="line">  - 语法：</span><br><span class="line"></span><br><span class="line">  - ```bash</span><br><span class="line">    cat filename  #查看文件内容</span><br><span class="line">    cat file1 file 2  #同时显示多个文件</span><br><span class="line">    cat file1 file2 &gt; merged_file #合并文件</span><br><span class="line">    </span><br><span class="line">    cat -n /etc/passwd  #-n显示行号（包括空行）</span><br><span class="line">    cat -b 123.txt       #-b 显示行号（忽略空行）</span><br><span class="line">    cat -s -n 123.txt   #压缩连续空行为一行</span><br><span class="line">    cat -E 123.txt        #在行尾显示￥符号</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>cat高级用法：</p>
+<ul>
+<li><p>创建文件：</p>
+</li>
+<li><pre><code>cat &gt;123.txt &lt;&lt;EOF
+&gt;ABC
+&gt;EOF
+
+cat 123.txt
+ABC
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- 追加内容：</span><br><span class="line"></span><br><span class="line">- ```bash</span><br><span class="line">  cat file1 &gt;&gt; file2  #将file1内容追加到file2末尾</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>less</p>
+<ul>
+<li><p>用途：提供用户交互式地滚动浏览文件</p>
+</li>
+<li><p>语法：</p>
+</li>
+<li><pre><code class="language-bash">less filename
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- 常用选项</span><br><span class="line"></span><br><span class="line">- ```bash</span><br><span class="line">  -N:显示行号</span><br><span class="line">  -m:显示更详细的提示信息 </span><br><span class="line">  -E:在文件结束后自动退出</span><br><span class="line">  -S:禁用自动换行</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>高级技巧</p>
+<ul>
+<li>用less命令看cat -n的输出（应用管道符）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">less 查看文件是从头查看，q退出查看  上线箭头可滚动</span><br><span class="line"><span class="built_in">cat</span> -n /etc/passwd | less</span><br><span class="line"></span><br><span class="line"><span class="comment">#管道符的作用：前一条命令的输出 作为后一条命令输入</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索内容</p>
+</li>
+<li><p>less中用&#x2F;字符后接搜索模式来向前搜索内容；或用？后接搜索模式来向后搜索内容</p>
+</li>
+<li><p>查看多个文件</p>
+</li>
+<li><pre><code class="language-bash">less file1 file2 file3
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    less中，可使用:n 命令跳转到下一文件，使用:p 命令跳转到上一文件</span><br><span class="line"></span><br><span class="line">- tail</span><br><span class="line"></span><br><span class="line">  - 用途：查看文件末尾内容，默认显示最后十行</span><br><span class="line"></span><br><span class="line">  - 语法：</span><br><span class="line"></span><br><span class="line">  - ```bash</span><br><span class="line">    tail filename       #显示文件最后10行</span><br><span class="line">    tail -n 20 filename  #-n 体现参数显示最后20行</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>常用选项：</p>
+<ul>
+<li><p>-n 指定显示的行数</p>
+</li>
+<li><p>-f 实时追踪文件变化（常用于监控日志）</p>
+</li>
+<li><pre><code class="language-bash">tail -f /var/log/messages
+
+ctrl+c #退出追踪
+
+后期手工对日志进行跟踪
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tail 高级技巧：</span><br><span class="line"></span><br><span class="line">- 结合grep过滤日志：</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  tail -f app.log | grep &quot;ERROR&quot;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>显示从第n行到末尾：</p>
+</li>
+<li><pre><code>tail -n +100 filename 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">#### 6.grep</span><br><span class="line"></span><br><span class="line">- 用途：是Linux系统中强大的文本搜索工具，，支持正则表达式，用于在文件或输入流中按模式匹配并输出符合条件的行</span><br><span class="line"></span><br><span class="line">  - 核心功能：快速过滤，定位内容</span><br><span class="line">  - 典型场景：日志分析，配置文件搜索，代码审查</span><br><span class="line"></span><br><span class="line">- 语法：</span><br><span class="line"></span><br><span class="line">- ```bash</span><br><span class="line">  grep [选项] “搜索模式” 文件名</span><br></pre></td></tr></table></figure>
+
+- 搜索模式：可以是普通字符串或正则表达式
+- 支持多文件，可同时搜索多个文件或目录
+</code></pre>
+</li>
+<li><p>常用选项</p>
+<h5 id="一、grep命令核心知识点"><a href="#一、grep命令核心知识点" class="headerlink" title="一、grep命令核心知识点"></a>一、grep命令核心知识点</h5><h6 id="1-基础语法："><a href="#1-基础语法：" class="headerlink" title="1.基础语法："></a>1.基础语法：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [选项] “搜索模式” 文件或目录</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搜索模式：普通字符串或正则表达式</li>
+<li>场景：单文件多文件目录递归搜索</li>
+</ul>
+<h6 id="2-常用选项"><a href="#2-常用选项" class="headerlink" title="2.常用选项"></a>2.常用选项</h6><table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-i</td>
+<td align="center">忽略大小写</td>
+<td align="center">grep -i  “error” file</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">反向匹配（排除）</td>
+<td align="center">grep -v “debug” file</td>
+</tr>
+<tr>
+<td align="center">-n</td>
+<td align="center">显示匹配行的行号</td>
+<td align="center">grep -n “warning” file</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">统计匹配行数</td>
+<td align="center">grep -c “404” file</td>
+</tr>
+<tr>
+<td align="center">-r &#x2F;-R</td>
+<td align="center">递归搜索目录</td>
+<td align="center">grep -r “config” &#x2F;etc&#x2F;</td>
+</tr>
+<tr>
+<td align="center">-w</td>
+<td align="center">精确匹配单词</td>
+<td align="center">grep -w “java” file</td>
+</tr>
+<tr>
+<td align="center">-o</td>
+<td align="center">仅输出匹配内容（非整行）</td>
+<td align="center">grep -o “user_[0-9]*” file</td>
+</tr>
+<tr>
+<td align="center">-A N</td>
+<td align="center">显示匹配行及之前N行</td>
+<td align="center">grep -A 3 “Exception” file</td>
+</tr>
+<tr>
+<td align="center">-B N</td>
+<td align="center">显示匹配行及之后N行</td>
+<td align="center">grep -B 2 “segfault” file</td>
+</tr>
+<tr>
+<td align="center">-C N</td>
+<td align="center">显示匹配行及前后各N行</td>
+<td align="center">grep C 2 “timeout” file</td>
+</tr>
+</tbody></table>
+<h6 id="3-正则表达式"><a href="#3-正则表达式" class="headerlink" title="3.正则表达式"></a>3.正则表达式</h6><p>1️⃣基础正则表达式</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">说明</th>
+<th align="center">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td align="center">匹配任意单个字符</td>
+<td align="center">grep “a.c” file ➡️匹配“abc”“axc”</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">匹配行首</td>
+<td align="center">grep “^start” file</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">匹配行尾</td>
+<td align="center">grep “enes$” file</td>
+</tr>
+<tr>
+<td align="center">[abc]</td>
+<td align="center">匹配括号内任意字符</td>
+<td align="center">grep “[aeiou]” file</td>
+</tr>
+<tr>
+<td align="center">[^abc]</td>
+<td align="center">匹配不在括号的字符</td>
+<td align="center">grep “[ ^0-9]” fiel</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">前一个字符重复0次或多次</td>
+<td align="center">grep “go*d” file ➡️匹配“git”</td>
+</tr>
+</tbody></table>
+<p>tips：若输入的内容中存在以上特殊符号，需要用\来把它编译掉，以免被识别为表达式内容</p>
+<p>2️⃣拓展正则表达式（-E 或 egrep）</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>前一个字符重复1次或多次</td>
+<td>grep -E “no+” file → 匹配 “no”, “nooo”</td>
+</tr>
+<tr>
+<td>？</td>
+<td>前一个字符重复0次或1次</td>
+<td>grep -E “colou?r” file → 匹配 “color”,”colour”</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>前一个字符重复n到m次</td>
+<td>grep -E “[0-9]{3}” file → 匹配 3 位数字</td>
+</tr>
+<tr>
+<td>|</td>
+<td>逻辑上的 “或”</td>
+<td>grep -E “error | warning “ file</td>
+</tr>
+</tbody></table>
+<h2 id="二、实验环境准备"><a href="#二、实验环境准备" class="headerlink" title="二、实验环境准备"></a>二、实验环境准备</h2><ul>
+<li><h3 id="创建练习文件"><a href="#创建练习文件" class="headerlink" title="创建练习文件"></a>创建练习文件</h3><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133716910.png" alt="image-20250812133716910"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133735642.png" alt="image-20250812133735642"></p>
+<h2 id="三、分步实验与练习"><a href="#三、分步实验与练习" class="headerlink" title="三、分步实验与练习"></a>三、分步实验与练习</h2><h3 id="1-基础搜索与选项"><a href="#1-基础搜索与选项" class="headerlink" title="1.基础搜索与选项"></a>1.基础搜索与选项</h3><ul>
+<li>实验 1.1：查找错误日志</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134034540.png" alt="image-20250812134034540"></p>
+<ul>
+<li>实验 1.2：忽略大小写匹配</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134059391.png" alt="image-20250812134059391"></p>
+<ul>
+<li>实验 1.3：反向排除调试信息</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134229830.png" alt="image-20250812134229830"></p>
+<h3 id="2-行号与统计"><a href="#2-行号与统计" class="headerlink" title="2. 行号与统计"></a>2. 行号与统计</h3><ul>
+<li>实验 2.1：显示匹配行号</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135444703.png" alt="image-20250812135444703"></p>
+<ul>
+<li>实验 2.2：统计错误次数</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135628456.png" alt="image-20250812135628456"></p>
+<h3 id="3-上下文控制"><a href="#3-上下文控制" class="headerlink" title="3. 上下文控制"></a>3. 上下文控制</h3><ul>
+<li>实验 3.1：查看错误上下文，显示每个 “ERROR” 行及其前后各 1 行</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135818735.png" alt="image-20250812135818735"></p>
+<h3 id="4-正则表达式实战"><a href="#4-正则表达式实战" class="headerlink" title="4.正则表达式实战"></a>4.正则表达式实战</h3><ul>
+<li>实验 4.1：匹配时间范围</li>
+</ul>
+<p><img src="C:\Users\14633\AppData\Roaming\Typora\typora-user-images\image-20250813092200792.png" alt="image-20250813092200792"></p>
+<p>输入grep命令对时间在某范围以内的信息进行筛选和查询</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" data-id="cmfbvjmbo00026w0fglkp966w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-text" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/08/09/text/" class="article-date">
@@ -97,7 +1043,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/text/" data-id="cme3usjaz0002xk0f1w32hwi6" data-title="text" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/text/" data-id="cmfbvjmbq00066w0f7l4obar4" data-title="text" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -148,7 +1094,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/hello-world/" data-id="cme3usjas0000xk0fex7uaqfm" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/hello-world/" data-id="cmfbvjmbq00056w0f1zls1nal" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -543,7 +1489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/" data-id="cme3usjax0001xk0fhd8l9taa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/" data-id="cmfbvjmbr00086w0fbbzj1mi4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -654,90 +1600,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/" data-id="cme3usjb00003xk0fh5mwcnld" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time class="dt-published" datetime="2025-08-09T03:55:11.791Z" itemprop="datePublished">2025-08-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="写一个自动化脚本，让一台新机子，完成关防火墙-关虚拟网卡-换源-selinux的操作"><a href="#写一个自动化脚本，让一台新机子，完成关防火墙-关虚拟网卡-换源-selinux的操作" class="headerlink" title="写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作"></a>写一个自动化脚本，让一台新机子，完成关防火墙 关虚拟网卡 换源 selinux的操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">vim /root/init.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -euo pipefail</span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 1. 关闭防火墙 ====</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] 防火墙已关闭并禁用&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 2. 设置 SELinux ====</span></span><br><span class="line">setenforce 0</span><br><span class="line">sed -ri <span class="string">&#x27;s/^SELINUX=.*/SELINUX=permissive/&#x27;</span> /etc/selinux/config</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] SELinux 已设为 permissive&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 3. 关闭虚拟网卡 ====</span></span><br><span class="line">systemctl stop libvirtd.service</span><br><span class="line">systemctl <span class="built_in">disable</span> libvirtd.service</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] libvirtd 已停止并禁用&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 4. 换源 ====</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /etc/yum.repos.d/backup</span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/ 2&gt;/dev/null || <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> &gt;/etc/yum.repos.d/CentOS-Base.repo &lt;&lt;<span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[base]</span><br><span class="line">name=CentOS-Base</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/BaseOS/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line"></span><br><span class="line">[extras]</span><br><span class="line">name=CentOS-Extras</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/extras/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line"></span><br><span class="line">[appstream]</span><br><span class="line">name=CentOS-AppStream</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos-vault/8.5.2111/AppStream/<span class="variable">$basearch</span>/os/</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-centosofficial</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">dnf clean all &amp;&amp; dnf makecache</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[✓] 已更换为阿里云 vault 源&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 5. 检查结果 ====</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;========== 检查结果 ==========&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[防火墙] systemctl is-active firewalld =&gt; <span class="subst">$(systemctl is-active firewalld)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[SELinux] getenforce =&gt; <span class="subst">$(getenforce)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[虚拟网卡] ip a | grep virbr =&gt; <span class="subst">$(ip a | grep virbr || echo &#x27;无 virbr&#x27;)</span>&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[源] dnf repolist | head -3 =&gt;&quot;</span></span><br><span class="line">dnf repolist | <span class="built_in">head</span> -3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/root/init.sh</span><br><span class="line"><span class="built_in">chmod</span> +x /root/init.sh</span><br><span class="line">/root/init.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250808124231747.png" alt="image-20250808124231747"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/" data-id="cme3usjb10005xk0f246b62l3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-按照拓扑完成网络管理配置任务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" class="article-date">
-  <time class="dt-published" datetime="2025-08-09T03:55:11.790Z" itemprop="datePublished">2025-08-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807150056478.png" alt="image-20250807150056478"></p>
-<h1 id="按照本拓扑完成网络管理配置"><a href="#按照本拓扑完成网络管理配置" class="headerlink" title="按照本拓扑完成网络管理配置"></a>按照本拓扑完成网络管理配置</h1><h2 id="一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3"><a href="#一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3" class="headerlink" title="一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3"></a>一、在虚拟机编辑中打开虚拟网络编辑器，建立VMnet2和VMnet3</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807150613360.png" alt="image-20250807150613360"></p>
-<p>（ps.主要不要勾选“使用DHCP”）</p>
-<h2 id="二、给win10配置IP"><a href="#二、给win10配置IP" class="headerlink" title="二、给win10配置IP"></a>二、给win10配置IP</h2><h3 id="1-将win10的网络适配器配置为VMware2"><a href="#1-将win10的网络适配器配置为VMware2" class="headerlink" title="1.将win10的网络适配器配置为VMware2"></a>1.将win10的网络适配器配置为VMware2</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807150904701.png" alt="image-20250807150904701"></p>
-<h3 id="2-在win10的网络连接中将其IP修改为192-168-2-1"><a href="#2-在win10的网络连接中将其IP修改为192-168-2-1" class="headerlink" title="2.在win10的网络连接中将其IP修改为192.168.2.1"></a>2.在win10的网络连接中将其IP修改为192.168.2.1</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807151023407.png" alt="image-20250807151023407"></p>
-<h2 id="三、给kali配置IP"><a href="#三、给kali配置IP" class="headerlink" title="三、给kali配置IP"></a>三、给kali配置IP</h2><h3 id="1-将为kali的网络适配器配置为VMware3"><a href="#1-将为kali的网络适配器配置为VMware3" class="headerlink" title="1.将为kali的网络适配器配置为VMware3"></a>1.将为kali的网络适配器配置为VMware3</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807151343626.png" alt="image-20250807151343626"></p>
-<h3 id="2-备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces"><a href="#2-备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces" class="headerlink" title="2.备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces"></a>2.备份kali原本配置文件（我打错了成back，问题不大）并新建interfaces</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807151645466.png" alt="image-20250807151645466"></p>
-<h3 id="3-写入IP配置"><a href="#3-写入IP配置" class="headerlink" title="3.写入IP配置"></a>3.写入IP配置</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807152009052.png" alt="image-20250807152009052"></p>
-<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153904139.png" alt="image-20250807153904139"></p>
-<p>ip addr flush dev eth0 —— 先把网卡上原来的 IP 清干净。<br>ip addr add 172.16.2.1&#x2F;24 dev eth0 —— 给网卡绑一个新 IP（172.16.2.1，子网掩码 24 位）。<br>ip route add default via 172.16.2.254 —— 告诉系统：要上网先找 172.16.2.254 这个网关。</p>
-<h3 id="4-重启服务后检查配置"><a href="#4-重启服务后检查配置" class="headerlink" title="4.重启服务后检查配置"></a>4.重启服务后检查配置</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807152314777.png" alt="image-20250807152314777"></p>
-<h2 id="四、给CentOS-8-进行双网卡配置"><a href="#四、给CentOS-8-进行双网卡配置" class="headerlink" title="四、给CentOS 8 进行双网卡配置"></a>四、给CentOS 8 进行双网卡配置</h2><h3 id="1-检查CentOS-8-我的是有ens160和ens224"><a href="#1-检查CentOS-8-我的是有ens160和ens224" class="headerlink" title="1.检查CentOS 8 我的是有ens160和ens224"></a>1.检查CentOS 8 我的是有ens160和ens224</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807152652655.png" alt="image-20250807152652655"></p>
-<h3 id="2-将CentOS-8-配置为两个网络适配器分别为：VMware2和3"><a href="#2-将CentOS-8-配置为两个网络适配器分别为：VMware2和3" class="headerlink" title="2.将CentOS 8 配置为两个网络适配器分别为：VMware2和3"></a>2.将CentOS 8 配置为两个网络适配器分别为：VMware2和3</h3><h3 id="3-重新编写网卡配置文件"><a href="#3-重新编写网卡配置文件" class="headerlink" title="3.重新编写网卡配置文件"></a>3.重新编写网卡配置文件</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153128993.png" alt="image-20250807153128993"></p>
-<h3 id="4-测试连通性发现"><a href="#4-测试连通性发现" class="headerlink" title="4.测试连通性发现"></a>4.测试连通性发现</h3><ul>
-<li>kali和ens224能够互相ping通</li>
-<li>win10和ens160能够互相ping通</li>
-<li>kali 和 win10 无法 互相ping通</li>
-</ul>
-<h3 id="5-配置路由转发"><a href="#5-配置路由转发" class="headerlink" title="5.配置路由转发"></a>5.配置路由转发</h3><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153509187.png" alt="image-20250807153509187"></p>
-<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153540019.png" alt="image-20250807153540019"></p>
-<h2 id="五、最后测试连通性"><a href="#五、最后测试连通性" class="headerlink" title="五、最后测试连通性"></a>五、最后测试连通性</h2><p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153641131.png" alt="image-20250807153641131"></p>
-<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250807153712196.png" alt="image-20250807153712196"></p>
-<p>而后可以实现了从kali到win10的整体联通，</p>
-<p><strong>完成了实验拓扑的要求</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/08/09/%E6%8C%89%E7%85%A7%E6%8B%93%E6%89%91%E5%AE%8C%E6%88%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E9%85%8D%E7%BD%AE%E4%BB%BB%E5%8A%A1/" data-id="cme3usjb00004xk0fe6h0gnj0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/" data-id="cmfbvjmbs00096w0fe22070mm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -750,6 +1613,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -780,23 +1648,23 @@
       <ul>
         
           <li>
-            <a href="/2025/08/09/text/">text</a>
+            <a href="/2025/08/18/Web%E6%BC%8F%E6%B4%9E%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AF%A6%E8%A7%A3/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/08/09/hello-world/">Hello World</a>
+            <a href="/2025/08/15/%E4%B8%8EMySQL%20%E5%BB%BA%E7%AB%8B%E9%93%BE%E6%8E%A5/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/08/09/%E4%B8%80%E3%80%81%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E6%A6%82%E8%BF%B0/">(no title)</a>
+            <a href="/2025/08/14/PHP%E5%87%BD%E6%95%B0/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/08/09/%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AE%A1%E5%88%92%20%E4%BB%BB%E5%8A%A1%20%E5%92%8C%E5%91%A8%E6%9C%9F%E6%80%A7%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%8F%8D%E5%BC%B9shell%EF%BC%885%E5%88%86%E9%92%9F%E5%90%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%92%8C%E6%AF%8F5%E5%88%86%E9%92%9F%E6%89%A7%E8%A1%8C1%E6%AC%A1%EF%BC%89%EF%BC%8Ckali%E4%B8%BB%E6%9C%BA%E6%8E%A5%E6%94%B6%EF%BC%8C%E8%A7%A3%E9%87%8A%E5%91%BD%E4%BB%A4%E5%AD%97%E7%9A%84%E5%90%AB%E4%B9%89%E3%80%82/">(no title)</a>
+            <a href="/2025/08/12/PHP%E5%9F%BA%E7%A1%80/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2025/08/09/%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC%EF%BC%8C%E8%AE%A9%E4%B8%80%E5%8F%B0%E6%96%B0%E6%9C%BA%E5%AD%90%EF%BC%8C%E5%AE%8C%E6%88%90%E5%85%B3%E9%98%B2%E7%81%AB%E5%A2%99%20%E5%85%B3%E8%99%9A%E6%8B%9F%E7%BD%91%E5%8D%A1%20%E6%8D%A2%E6%BA%90%20selinux%E7%9A%84%E6%93%8D%E4%BD%9C/">(no title)</a>
+            <a href="/2025/08/12/H5%E5%88%9D%E8%AF%86%E2%9E%95%E5%AA%92%E4%BD%93%E4%B8%8E%E8%A1%A8%E5%8D%95/">(no title)</a>
           </li>
         
       </ul>

@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Linux文件管理1.目录结构1.根目录12&#x2F; #根目录起始点，系统中一切文件都从这里存储  2.&#x2F;root 和 &#x2F;home  用户的家目录 &#x2F;root   作用：超级用户（root）的家目录   ​		特点：​			默认仅root可访问​			用于存放 root 的配置文件​	​		例如： 12sudo su #切到root用户并进入其家目录ls &#x2F;root   &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/08/09/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux文件管理1.目录结构1.根目录12&#x2F; #根目录起始点，系统中一切文件都从这里存储  2.&#x2F;root 和 &#x2F;home  用户的家目录 &#x2F;root   作用：超级用户（root）的家目录   ​		特点：​			默认仅root可访问​			用于存放 root 的配置文件​	​		例如： 12sudo su #切到root用户并进入其家目录ls &#x2F;root   &amp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133716910.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133735642.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134034540.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134059391.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134229830.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135444703.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135628456.png">
+<meta property="og:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135818735.png">
+<meta property="og:image" content="c:\Users\14633\AppData\Roaming\Typora\typora-user-images\image-20250813092200792.png">
+<meta property="article:published_time" content="2025-08-09T11:35:34.340Z">
+<meta property="article:modified_time" content="2025-08-18T01:00:34.587Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133716910.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Linux文件管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/09/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" class="article-date">
+  <time class="dt-published" datetime="2025-08-09T11:35:34.340Z" itemprop="datePublished">2025-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux文件管理"><a href="#Linux文件管理" class="headerlink" title="Linux文件管理"></a>Linux文件管理</h1><h2 id="1-目录结构"><a href="#1-目录结构" class="headerlink" title="1.目录结构"></a>1.目录结构</h2><h4 id="1-根目录"><a href="#1-根目录" class="headerlink" title="1.根目录"></a>1.根目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/ <span class="comment">#根目录</span></span><br><span class="line">起始点，系统中一切文件都从这里存储</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-root-和-home-用户的家目录"><a href="#2-root-和-home-用户的家目录" class="headerlink" title="2.&#x2F;root 和 &#x2F;home  用户的家目录"></a>2.&#x2F;root 和 &#x2F;home  用户的家目录</h4><ul>
+<li><p>&#x2F;root  </p>
+<p>作用：超级用户（root）的家目录</p>
+</li>
+</ul>
+<p>​		特点：<br>​			默认仅root可访问<br>​			用于存放 root 的配置文件<br>​	<br>​		例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> su <span class="comment">#切到root用户并进入其家目录</span></span><br><span class="line"><span class="built_in">ls</span> /root</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>&#x2F;home </p>
+<p>作用：存放普通用户的家目录</p>
+</li>
+</ul>
+<p>​		特点：</p>
+<p>​					每个用户对应一个子目录</p>
+<p>​					用户拥有自己的家目录的一切权限</p>
+<p>​		例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看当前用户家目录</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$HOME</span> </span><br><span class="line"><span class="built_in">ls</span> /home</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-etc-系统配置目录"><a href="#3-etc-系统配置目录" class="headerlink" title="3.&#x2F;etc   系统配置目录"></a>3.&#x2F;etc   系统配置目录</h4><ul>
+<li><p>作用：存放系统和应用程序的配置文件</p>
+</li>
+<li><p>例如：</p>
+<ul>
+<li><p>&#x2F;etc&#x2F;passwd  用户的账户密码信息</p>
+</li>
+<li><p>CentOS 特有的路径</p>
+<ul>
+<li><p>网络配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/ifcfg-ens(网卡号)  <span class="comment">#网卡配置文件</span></span><br><span class="line"></span><br><span class="line">/etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line"><span class="comment">#CentOS中yum/dnf管理器的核心文件</span></span><br><span class="line">/etc/yum.repos.d/CentOS-AppStream.repo</span><br><span class="line"><span class="comment">#仓库文件的源地址</span></span><br><span class="line">/etc/yum.repos.d/CentOS-Extras.repo</span><br><span class="line"><span class="comment">#决定系统从哪下</span></span><br><span class="line">mirrorlist		<span class="comment">#工作方式：直接指定仓库</span></span><br><span class="line">				<span class="comment">#工作流程：直接访问指定的URL，下载仓库的数据</span></span><br><span class="line">				若后面跟的地址不可达，会报错</span><br><span class="line">baseurl			<span class="comment">#先访问mirrorlist url，获取镜像地址列表</span></span><br><span class="line">				下载出列表，并开始测试响应速度</span><br><span class="line">				选择出最优的镜像进行连接，下载仓库数据</span><br><span class="line">				</span><br><span class="line">gpgcheck=1  <span class="comment">#是否启用仓库，（1为使用；0为不使用）</span></span><br><span class="line">gpgkey=      <span class="comment">#是仓库的验证密钥</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>selinux配置：</p>
+<ul>
+<li><pre><code class="language-bash">/etc/selinux
+SElinux            #美国国家安全局提出的，强制访问控制安全机制，用于增强linux安全性
+                自主访问控制安全机制 rw
+            共三种模式：
+            enforcing  强制模式（默认），严格执行安全策略，有违规会被禁止#军事领域
+            permissive 标准模式/宽容模式，会允许并记录（你可以访问，但是要被我记录）
+            disable    禁用，完全关闭
+        SElinuxTYPE: targated: 仅保护安全进程
+                mls:多级安全策略，#用于军事领域
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- YUM/DNF 配置：</span><br><span class="line"></span><br><span class="line">  ```bash</span><br><span class="line">  /etc/yum.repos.d/CentOS-Base.repo #软件源配置</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意事项：</p>
+<p>修改配置文件后，通常是要重启服务才能生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#更改主机名</span></span><br><span class="line"><span class="built_in">sudo</span> vim /etc/hostname</span><br><span class="line"><span class="comment">#重启生效</span></span><br><span class="line">reboot</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-dev-设备文件目录"><a href="#4-dev-设备文件目录" class="headerlink" title="4.&#x2F;dev  设备文件目录"></a>4.&#x2F;dev  设备文件目录</h4><ul>
+<li>作用：管理所有硬件设备和虚拟设备（存放所有的硬件设备）</li>
+<li>权限：仅有root和disk用户有操作权限</li>
+</ul>
+<h4 id="5-bin和-sbin-系统命令目录"><a href="#5-bin和-sbin-系统命令目录" class="headerlink" title="5.&#x2F;bin和&#x2F;sbin 系统命令目录"></a>5.&#x2F;bin和&#x2F;sbin 系统命令目录</h4><ul>
+<li><p>&#x2F;bin 二进制目录</p>
+<ul>
+<li><p>作用：存放普通用户和系统管理员都可使用的基础命令</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>单用户模式（维护模式）下可用   （Q为什么linux把所有命令要存在目录）</li>
+<li>命令多为系统运行必须的核心工具</li>
+</ul>
+</li>
+<li><p>常见命令：</p>
+<ul>
+<li>&#x2F;bin&#x2F;ls 查看文件列表</li>
+<li>&#x2F;bin&#x2F;cp 复制文件</li>
+<li>&#x2F;bin&#x2F;date 显示系统时间</li>
+</ul>
+</li>
+<li><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看系统时间（CentOS 8 默认使用timedatectl）</span></span><br><span class="line">/bin/date</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>&#x2F;sbin 管理系统命令</p>
+</li>
+<li><p>作用：存放需要管理员权限才能执行的系统管理命令</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>普通用户没有没有权限执行，想执行得用（sudo）</li>
+<li>命令大多都涉及系统配置与维护</li>
+</ul>
+</li>
+<li><p>常见命令：</p>
+<ul>
+<li>&#x2F;sbin&#x2F;service ：管理系统服务（如启动&#x2F;停止服务）。</li>
+<li>&#x2F;sbin&#x2F;ifconfig ：查看或配置网络接口（已逐步被 ip 命令替代）</li>
+<li>&#x2F;sbin&#x2F;reboot ：重启系统。</li>
+</ul>
+</li>
+<li><p>例子：</p>
+</li>
+</ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS 8 使用 systemctl 管理服务（替代旧版 service 命令）</span></span><br><span class="line">/sbin/service network restart <span class="comment"># 旧方式（仍可用）</span></span><br><span class="line">systemctl restart NetworkManager <span class="comment"># 推荐方式</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="6-var-存储动态变化的数据目录-（会随着系统运行，不断增长数据量）与-tmp-存放临时文件"><a href="#6-var-存储动态变化的数据目录-（会随着系统运行，不断增长数据量）与-tmp-存放临时文件" class="headerlink" title="6.&#x2F;var 存储动态变化的数据目录 （会随着系统运行，不断增长数据量）与 &#x2F;tmp 存放临时文件"></a>6.&#x2F;var 存储动态变化的数据目录 （会随着系统运行，不断增长数据量）与 &#x2F;tmp 存放临时文件</h4><h5 id="var"><a href="#var" class="headerlink" title="&#x2F;var"></a>&#x2F;var</h5><ul>
+<li><p>作用：存放运行过程中可变数据 （日志、数据库、邮件）</p>
+</li>
+<li><p>常见子目录：</p>
+<ul>
+<li>&#x2F;var&#x2F;log 系统程序数据（syslog、ngiinx&#x2F;access.log）</li>
+</ul>
+<p>在能够写入日志的情况下，写入木马病毒，获取Shell</p>
+<ul>
+<li>&#x2F;var&#x2F;lib 应用程序数据（MySQL数据库，&#x2F;var&#x2F;lib&#x2F;mysql）</li>
+</ul>
+<p>mysql数据库、docker容器</p>
+<ul>
+<li>&#x2F;var&#x2F;spool 队列数据（邮件队列 &#x2F;var&#x2F;spool&#x2F;mail）</li>
+<li>&#x2F;var&#x2F;log&#x2F;secure 安全认证日志</li>
+<li>&#x2F;var&#x2F;log&#x2F;messages 核心系统日志</li>
+</ul>
+</li>
+</ul>
+<h5 id="tmp"><a href="#tmp" class="headerlink" title="&#x2F;tmp"></a>&#x2F;tmp</h5><ul>
+<li><p>作用：存放临时文件（进程或用户手动创建）</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>全局可读写</li>
+<li>系统重启或定期清理时会自动删除文件（重启会清空）</li>
+</ul>
+</li>
+<li><p>实际应用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建临时文件并测试权限</span></span><br><span class="line"><span class="built_in">touch</span> /tmp/test.tmp</span><br><span class="line"><span class="built_in">chmod</span> 777 /tmp/test.tmp <span class="comment">#允许所有用户读写</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="7-usr-和-usr-local-系统资源目录"><a href="#7-usr-和-usr-local-系统资源目录" class="headerlink" title="7.&#x2F;usr 和&#x2F;usr&#x2F;local :系统资源目录"></a>7.&#x2F;usr 和&#x2F;usr&#x2F;local :系统资源目录</h4><ul>
+<li><p>&#x2F;usr 存储静态用户进程</p>
+</li>
+<li><p>作用：存放系统核心程序、库和文档</p>
+<ul>
+<li>子目录：<ul>
+<li>&#x2F;usr&#x2F;bin: 用户命令（gcc，Python）</li>
+<li>&#x2F;usr&#x2F;lib: 库文件（.so动态库）</li>
+<li>&#x2F;usr&#x2F;share 共享数据（文档，临时文件）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>&#x2F;usr&#x2F;local</p>
+<ul>
+<li><p>作用：存放用户手动编译安装的软件</p>
+</li>
+<li><p>特点：</p>
+<p>避免与系统包管理器安装的软件冲突</p>
+</li>
+<li><p>例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#编译安装软件到 /usr/local</span></span><br><span class="line">./configure --prefix=/usr/local</span><br><span class="line">make &amp;&amp; <span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>ps:数据性质：&#x2F;var 动态变化</p>
+<p>​						&#x2F;tmp 临时数据</p>
+<p>​						&#x2F;usr 静态只读</p>
+<p>是否可以删除： &#x2F;var 部分可删</p>
+<p>​							&#x2F;tmp 可删</p>
+<p>​							&#x2F;usr 不可删</p>
+<p>是否需要备份：&#x2F;var 部分需要备份（数据库）</p>
+<p>​							&#x2F;tmp 不需要备份</p>
+<p>​							&#x2F;usr  不需要备份</p>
+<p>文件大小：     	&#x2F;var 10G以上，日志可能随时清理</p>
+<p>​							&#x2F;tmp 1G以内</p>
+<p>​							&#x2F;usr  5-20G（Linux基础系统大小）</p>
+<p>分区情况： 		&#x2F;var 建议单独分区 （因为会不断增长）</p>
+<p>​							&#x2F;tmp 通常会挂载为tmpfs</p>
+<p>​							&#x2F;usr  通常和根目录（&#x2F;）合并</p>
+<h4 id="8-boot-系统启动目录"><a href="#8-boot-系统启动目录" class="headerlink" title="8.&#x2F;boot 系统启动目录"></a>8.&#x2F;boot 系统启动目录</h4><ul>
+<li>作用： 是启动linux系统的核心文件，<strong>这里存放的有内核kernel</strong>，临时根文件系统</li>
+<li>关键文件：<ul>
+<li>vmlinuz-* ：Linux 内核文件</li>
+<li>initrd.img-* ：初始内存盘镜像</li>
+<li>&#x2F;boot&#x2F;grub ：GRUB 引导程序配置</li>
+</ul>
+</li>
+<li>操作警告：<ul>
+<li>误删此目录文件可能导致系统无法启动</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-文件管理命令"><a href="#2-文件管理命令" class="headerlink" title="2.文件管理命令"></a>2.文件管理命令</h2><p>Linux系统一切皆文件，不以后缀名去识别文件</p>
+<h4 id="1-touch创建"><a href="#1-touch创建" class="headerlink" title="1.touch创建"></a>1.touch创建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建文件</span></span><br><span class="line"><span class="built_in">touch</span> filename</span><br><span class="line"><span class="comment">#可以批量创建</span></span><br><span class="line"><span class="built_in">touch</span> file1 file2</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建目录</span></span><br><span class="line"><span class="built_in">mkdir</span> 路径和目录名称</span><br><span class="line"><span class="comment">#创建单层目录</span></span><br><span class="line"><span class="built_in">mkdir</span> dir1</span><br><span class="line"><span class="comment">#递归创建嵌套目录（自动补全）</span></span><br><span class="line"><span class="built_in">mkdir</span> -p dir1/dir2</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-cp-复制文件或目录"><a href="#2-cp-复制文件或目录" class="headerlink" title="2.cp 复制文件或目录"></a>2.cp 复制文件或目录</h4><ul>
+<li>用途：复制文件或目录到指定位置</li>
+<li>语法：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> [选项] 源文件 目标路径</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用选项：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp file.txt backup/ #复制文件到目录</span><br><span class="line">cp -r dir1/ dir2/  #递归复制目录</span><br><span class="line">cp -f dir1 dir2   #强制复制</span><br><span class="line">cp -i dile.txt backup  #覆盖前提示确认</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.mv 移动或重命名文件</strong></p>
+<ul>
+<li><p>用途：移动文件或目录，或修改名称</p>
+</li>
+<li><p>语法：</p>
+</li>
+<li><pre><code class="language-bash">mv 源文件 目标路径或名称
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4.rm 删除</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+rm -r #删除目录
+rm -f #强制删除
+rm -rf #强制删除目录及内容
+</code></pre>
+</li>
+</ul>
+<p>慎用删除<br>多用mv少用rm</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 5.查询命令</span><br><span class="line"></span><br><span class="line">- cat</span><br><span class="line"></span><br><span class="line">  - 用途：用于快速查看，合并或创建文件内容，适合小文件，直接内容输出到终端，无交互功能</span><br><span class="line"></span><br><span class="line">  - 语法：</span><br><span class="line"></span><br><span class="line">  - ```bash</span><br><span class="line">    cat filename  #查看文件内容</span><br><span class="line">    cat file1 file 2  #同时显示多个文件</span><br><span class="line">    cat file1 file2 &gt; merged_file #合并文件</span><br><span class="line">    </span><br><span class="line">    cat -n /etc/passwd  #-n显示行号（包括空行）</span><br><span class="line">    cat -b 123.txt       #-b 显示行号（忽略空行）</span><br><span class="line">    cat -s -n 123.txt   #压缩连续空行为一行</span><br><span class="line">    cat -E 123.txt        #在行尾显示￥符号</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>cat高级用法：</p>
+<ul>
+<li><p>创建文件：</p>
+</li>
+<li><pre><code>cat &gt;123.txt &lt;&lt;EOF
+&gt;ABC
+&gt;EOF
+
+cat 123.txt
+ABC
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- 追加内容：</span><br><span class="line"></span><br><span class="line">- ```bash</span><br><span class="line">  cat file1 &gt;&gt; file2  #将file1内容追加到file2末尾</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>less</p>
+<ul>
+<li><p>用途：提供用户交互式地滚动浏览文件</p>
+</li>
+<li><p>语法：</p>
+</li>
+<li><pre><code class="language-bash">less filename
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- 常用选项</span><br><span class="line"></span><br><span class="line">- ```bash</span><br><span class="line">  -N:显示行号</span><br><span class="line">  -m:显示更详细的提示信息 </span><br><span class="line">  -E:在文件结束后自动退出</span><br><span class="line">  -S:禁用自动换行</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>高级技巧</p>
+<ul>
+<li>用less命令看cat -n的输出（应用管道符）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">less 查看文件是从头查看，q退出查看  上线箭头可滚动</span><br><span class="line"><span class="built_in">cat</span> -n /etc/passwd | less</span><br><span class="line"></span><br><span class="line"><span class="comment">#管道符的作用：前一条命令的输出 作为后一条命令输入</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜索内容</p>
+</li>
+<li><p>less中用&#x2F;字符后接搜索模式来向前搜索内容；或用？后接搜索模式来向后搜索内容</p>
+</li>
+<li><p>查看多个文件</p>
+</li>
+<li><pre><code class="language-bash">less file1 file2 file3
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    less中，可使用:n 命令跳转到下一文件，使用:p 命令跳转到上一文件</span><br><span class="line"></span><br><span class="line">- tail</span><br><span class="line"></span><br><span class="line">  - 用途：查看文件末尾内容，默认显示最后十行</span><br><span class="line"></span><br><span class="line">  - 语法：</span><br><span class="line"></span><br><span class="line">  - ```bash</span><br><span class="line">    tail filename       #显示文件最后10行</span><br><span class="line">    tail -n 20 filename  #-n 体现参数显示最后20行</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>常用选项：</p>
+<ul>
+<li><p>-n 指定显示的行数</p>
+</li>
+<li><p>-f 实时追踪文件变化（常用于监控日志）</p>
+</li>
+<li><pre><code class="language-bash">tail -f /var/log/messages
+
+ctrl+c #退出追踪
+
+后期手工对日志进行跟踪
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">tail 高级技巧：</span><br><span class="line"></span><br><span class="line">- 结合grep过滤日志：</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  tail -f app.log | grep &quot;ERROR&quot;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>显示从第n行到末尾：</p>
+</li>
+<li><pre><code>tail -n +100 filename 
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">#### 6.grep</span><br><span class="line"></span><br><span class="line">- 用途：是Linux系统中强大的文本搜索工具，，支持正则表达式，用于在文件或输入流中按模式匹配并输出符合条件的行</span><br><span class="line"></span><br><span class="line">  - 核心功能：快速过滤，定位内容</span><br><span class="line">  - 典型场景：日志分析，配置文件搜索，代码审查</span><br><span class="line"></span><br><span class="line">- 语法：</span><br><span class="line"></span><br><span class="line">- ```bash</span><br><span class="line">  grep [选项] “搜索模式” 文件名</span><br></pre></td></tr></table></figure>
+
+- 搜索模式：可以是普通字符串或正则表达式
+- 支持多文件，可同时搜索多个文件或目录
+</code></pre>
+</li>
+<li><p>常用选项</p>
+<h5 id="一、grep命令核心知识点"><a href="#一、grep命令核心知识点" class="headerlink" title="一、grep命令核心知识点"></a>一、grep命令核心知识点</h5><h6 id="1-基础语法："><a href="#1-基础语法：" class="headerlink" title="1.基础语法："></a>1.基础语法：</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [选项] “搜索模式” 文件或目录</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搜索模式：普通字符串或正则表达式</li>
+<li>场景：单文件多文件目录递归搜索</li>
+</ul>
+<h6 id="2-常用选项"><a href="#2-常用选项" class="headerlink" title="2.常用选项"></a>2.常用选项</h6><table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">说明</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-i</td>
+<td align="center">忽略大小写</td>
+<td align="center">grep -i  “error” file</td>
+</tr>
+<tr>
+<td align="center">-v</td>
+<td align="center">反向匹配（排除）</td>
+<td align="center">grep -v “debug” file</td>
+</tr>
+<tr>
+<td align="center">-n</td>
+<td align="center">显示匹配行的行号</td>
+<td align="center">grep -n “warning” file</td>
+</tr>
+<tr>
+<td align="center">-c</td>
+<td align="center">统计匹配行数</td>
+<td align="center">grep -c “404” file</td>
+</tr>
+<tr>
+<td align="center">-r &#x2F;-R</td>
+<td align="center">递归搜索目录</td>
+<td align="center">grep -r “config” &#x2F;etc&#x2F;</td>
+</tr>
+<tr>
+<td align="center">-w</td>
+<td align="center">精确匹配单词</td>
+<td align="center">grep -w “java” file</td>
+</tr>
+<tr>
+<td align="center">-o</td>
+<td align="center">仅输出匹配内容（非整行）</td>
+<td align="center">grep -o “user_[0-9]*” file</td>
+</tr>
+<tr>
+<td align="center">-A N</td>
+<td align="center">显示匹配行及之前N行</td>
+<td align="center">grep -A 3 “Exception” file</td>
+</tr>
+<tr>
+<td align="center">-B N</td>
+<td align="center">显示匹配行及之后N行</td>
+<td align="center">grep -B 2 “segfault” file</td>
+</tr>
+<tr>
+<td align="center">-C N</td>
+<td align="center">显示匹配行及前后各N行</td>
+<td align="center">grep C 2 “timeout” file</td>
+</tr>
+</tbody></table>
+<h6 id="3-正则表达式"><a href="#3-正则表达式" class="headerlink" title="3.正则表达式"></a>3.正则表达式</h6><p>1️⃣基础正则表达式</p>
+<table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">说明</th>
+<th align="center">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td align="center">匹配任意单个字符</td>
+<td align="center">grep “a.c” file ➡️匹配“abc”“axc”</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">匹配行首</td>
+<td align="center">grep “^start” file</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">匹配行尾</td>
+<td align="center">grep “enes$” file</td>
+</tr>
+<tr>
+<td align="center">[abc]</td>
+<td align="center">匹配括号内任意字符</td>
+<td align="center">grep “[aeiou]” file</td>
+</tr>
+<tr>
+<td align="center">[^abc]</td>
+<td align="center">匹配不在括号的字符</td>
+<td align="center">grep “[ ^0-9]” fiel</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">前一个字符重复0次或多次</td>
+<td align="center">grep “go*d” file ➡️匹配“git”</td>
+</tr>
+</tbody></table>
+<p>tips：若输入的内容中存在以上特殊符号，需要用\来把它编译掉，以免被识别为表达式内容</p>
+<p>2️⃣拓展正则表达式（-E 或 egrep）</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>前一个字符重复1次或多次</td>
+<td>grep -E “no+” file → 匹配 “no”, “nooo”</td>
+</tr>
+<tr>
+<td>？</td>
+<td>前一个字符重复0次或1次</td>
+<td>grep -E “colou?r” file → 匹配 “color”,”colour”</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>前一个字符重复n到m次</td>
+<td>grep -E “[0-9]{3}” file → 匹配 3 位数字</td>
+</tr>
+<tr>
+<td>|</td>
+<td>逻辑上的 “或”</td>
+<td>grep -E “error | warning “ file</td>
+</tr>
+</tbody></table>
+<h2 id="二、实验环境准备"><a href="#二、实验环境准备" class="headerlink" title="二、实验环境准备"></a>二、实验环境准备</h2><ul>
+<li><h3 id="创建练习文件"><a href="#创建练习文件" class="headerlink" title="创建练习文件"></a>创建练习文件</h3><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133716910.png" alt="image-20250812133716910"></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812133735642.png" alt="image-20250812133735642"></p>
+<h2 id="三、分步实验与练习"><a href="#三、分步实验与练习" class="headerlink" title="三、分步实验与练习"></a>三、分步实验与练习</h2><h3 id="1-基础搜索与选项"><a href="#1-基础搜索与选项" class="headerlink" title="1.基础搜索与选项"></a>1.基础搜索与选项</h3><ul>
+<li>实验 1.1：查找错误日志</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134034540.png" alt="image-20250812134034540"></p>
+<ul>
+<li>实验 1.2：忽略大小写匹配</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134059391.png" alt="image-20250812134059391"></p>
+<ul>
+<li>实验 1.3：反向排除调试信息</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812134229830.png" alt="image-20250812134229830"></p>
+<h3 id="2-行号与统计"><a href="#2-行号与统计" class="headerlink" title="2. 行号与统计"></a>2. 行号与统计</h3><ul>
+<li>实验 2.1：显示匹配行号</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135444703.png" alt="image-20250812135444703"></p>
+<ul>
+<li>实验 2.2：统计错误次数</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135628456.png" alt="image-20250812135628456"></p>
+<h3 id="3-上下文控制"><a href="#3-上下文控制" class="headerlink" title="3. 上下文控制"></a>3. 上下文控制</h3><ul>
+<li>实验 3.1：查看错误上下文，显示每个 “ERROR” 行及其前后各 1 行</li>
+</ul>
+<p><img src="https://kobea.oss-cn-beijing.aliyuncs.com/image-20250812135818735.png" alt="image-20250812135818735"></p>
+<h3 id="4-正则表达式实战"><a href="#4-正则表达式实战" class="headerlink" title="4.正则表达式实战"></a>4.正则表达式实战</h3><ul>
+<li>实验 4.1：匹配时间范围</li>
+</ul>
+<p><img src="C:\Users\14633\AppData\Roaming\Typora\typora-user-images\image-20250813092200792.png" alt="image-20250813092200792"></p>
+<p>输入grep命令对时间在某范围以内的信息进行筛选和查询</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/08/09/Linux%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/" data-id="cmfbvjmbo00026w0fglkp966w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/08/12/H5%E5%88%9D%E8%AF%86%E2%9E%95%E5%AA%92%E4%BD%93%E4%B8%8E%E8%A1%A8%E5%8D%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/08/09/text/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">text</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/08/">August 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/08/18/Web%E6%BC%8F%E6%B4%9E%E5%88%86%E7%B1%BB%E4%B8%8E%E8%AF%A6%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/15/%E4%B8%8EMySQL%20%E5%BB%BA%E7%AB%8B%E9%93%BE%E6%8E%A5/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/14/PHP%E5%87%BD%E6%95%B0/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/12/PHP%E5%9F%BA%E7%A1%80/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/08/12/H5%E5%88%9D%E8%AF%86%E2%9E%95%E5%AA%92%E4%BD%93%E4%B8%8E%E8%A1%A8%E5%8D%95/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
