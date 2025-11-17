@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="域和工作组基础知识1.工作组的定义： 将不同的电脑按照一定的功能或者部门分类，划分到不同的组中（工作组）。【有序，方便查找】 2.域的定义： domain，域是有安全边界的计算机集合（同一个域中的电脑可以相互访问，但不同域间的电脑不可以互相访问）  域相对于组来讲有着更加严格的安全管理机制——某台主机想访问一个域中的用户或者作为管理员对域进行管理时必须拥有一个合法的身份登录到域，而主机对域操作的权">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/17/%E5%9F%9F%E5%92%8C%E5%B7%A5%E4%BD%9C%E7%BB%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="域和工作组基础知识1.工作组的定义： 将不同的电脑按照一定的功能或者部门分类，划分到不同的组中（工作组）。【有序，方便查找】 2.域的定义： domain，域是有安全边界的计算机集合（同一个域中的电脑可以相互访问，但不同域间的电脑不可以互相访问）  域相对于组来讲有着更加严格的安全管理机制——某台主机想访问一个域中的用户或者作为管理员对域进行管理时必须拥有一个合法的身份登录到域，而主机对域操作的权">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109145402344.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109144840601.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109145530160.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153005119.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153025571.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153102140.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153931507.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109154149349.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109154551695.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109154722902.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109155001399.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109155141982.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160359473.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160631711.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160750946.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160926727.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161252389.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161325620.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161356919.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161815598.png">
+<meta property="article:published_time" content="2025-11-17T04:21:58.244Z">
+<meta property="article:modified_time" content="2025-11-17T03:15:36.498Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109145402344.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-域和工作组" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/17/%E5%9F%9F%E5%92%8C%E5%B7%A5%E4%BD%9C%E7%BB%84/" class="article-date">
+  <time class="dt-published" datetime="2025-11-17T04:21:58.244Z" itemprop="datePublished">2025-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="域和工作组"><a href="#域和工作组" class="headerlink" title="域和工作组"></a>域和工作组</h1><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><p>1.工作组的定义：</p>
+<p>将不同的电脑按照一定的功能或者部门分类，划分到不同的组中（工作组）。【有序，方便查找】</p>
+<p>2.域的定义：</p>
+<p>domain，域是有<strong>安全边界</strong>的计算机集合（同一个域中的电脑可以相互访问，但不同域间的电脑不可以互相访问）</p>
+<ul>
+<li><p>域相对于组来讲有着更加严格的安全管理机制——某台主机想访问一个域中的用户或者作为管理员对域进行管理时必须拥有一个合法的身份登录到域，而主机对域操作的权限取决于该主机登录访问域时的身份（访客&#x2F;成员&#x2F;管理员）</p>
+</li>
+<li><p>域的管理员只能管理这一个域，除非再赋予他其他域的管理权限才可以对其他域进行操作</p>
+</li>
+<li><p>每个域也都拥有各自的安全策略</p>
+</li>
+</ul>
+<h4 id="域相关的安全操作"><a href="#域相关的安全操作" class="headerlink" title="域相关的安全操作"></a>域相关的安全操作</h4><p>1.收集域内信息（对于域的用户、计算机、工作组、服务，要找到高权限用户、计算机域控、文件服务器、sql服务器，一些被赋有特权的工作组、各个域之间的信任关系，还有各种权限和开放的端口等信息）</p>
+<p>2.发现域内关键服务器</p>
+<p>3.由于需要合法身份信息，要获取一些身份认证和凭证等内容</p>
+<p>4.普通用户对域进行提权</p>
+<p>5.横向移动</p>
+<p>6.权限维持</p>
+<p>7.组策略</p>
+<h4 id="域的分类"><a href="#域的分类" class="headerlink" title="域的分类"></a>域的分类</h4><p>1.单域</p>
+<p>域内的用户或者公司员工没那么多，建立一个域就够用；根据不同部门创建并分为各个工作组即可</p>
+<p>2.父域子域</p>
+<p>父域，由总部总公司创建；子域，由分部子公司创建子域。</p>
+<p>父域子域之中可以有相互的信任关系，子域不能管理其他子域，但是可能可以互相访问或者，总部父域可能可以对若干子域进行管理。</p>
+<p>3.域树</p>
+<p>4.域林（包括信任关系，信任传递等）信息</p>
+<p>5.DNS域名服务器（通讯录）</p>
+<p>进行域名和IP地址转换的服务器：例如把192.168.xx.xx转换成<a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a></p>
+<p>6.DC域控（域控制器）</p>
+<p>（类似保安，对进出人员进行身份验证）</p>
+<p>拿到域控之后我们可以进行添加合法身份</p>
+<h4 id="域内权限：三个组"><a href="#域内权限：三个组" class="headerlink" title="域内权限：三个组"></a>域内权限：三个组</h4><ul>
+<li><p>本地组：</p>
+<p>任何域的用户、同一个域的其他域本地组，可在创建他的域内进行使用</p>
+<p>是赋予一定<strong>权限的集合</strong>。</p>
+</li>
+<li><p>全局组：同一个域的用户，同一个域的其他全局组，可在整个林中的所有域进行使用</p>
+<p>是<strong>用户的集合</strong>。</p>
+</li>
+<li><p>通用组：</p>
+<p><strong>组的集合</strong>。</p>
+</li>
+</ul>
+<h4 id="如何搭建域？"><a href="#如何搭建域？" class="headerlink" title="如何搭建域？"></a>如何搭建域？</h4><p>1️⃣准备好虚拟机环境（至少两台）</p>
+<p>我们这里用</p>
+<p>windows7 &gt;&gt;&gt; web服务器</p>
+<p>Windows server 2016 &gt;&gt;&gt; 域控制器</p>
+<p>2️⃣配置网络，使得域内设备都可以正常通信</p>
+<p>这里我们配置如下：</p>
+<ul>
+<li><p>192.168.10.10		域控</p>
+<p>给server 2016主机网卡连接模式改为vmnet2仅主机模式</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109145402344.png" alt="image-20251109145402344"></p>
+<p>配置server 2016的ipv4为192.168.10.10</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109144840601.png" alt="image-20251109144840601"></p>
+</li>
+<li><p>192.168.10.20        web服务器（外界可访问，所以需要给web服务器主机配置双网卡）</p>
+<p>先为服务器主机配置上双网卡；一个是nat模式；一个是和域控一致的vmnet2仅主机模式</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109145530160.png" alt="image-20251109145530160"></p>
+<p>然后配置并检查网卡IP，其中一个是nat模式连接的我的是192.168.88.146，另一个是vmnet2的配置为192.168.10.20</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153005119.png" alt="image-20251109153005119"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153025571.png" alt="image-20251109153025571"></p>
+<p>最好检查，可以互相ping通</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153102140.png" alt="image-20251109153102140"></p>
+</li>
+</ul>
+<p>3️⃣安装域控制器</p>
+<p>从server 2016打开<strong>服务器管理器</strong>，打开<strong>添加角色和功能</strong>，在<strong>服务器角色</strong>部分勾选上<strong>AD域服务</strong>和<strong>DNS服务器</strong></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109153931507.png" alt="image-20251109153931507"></p>
+<p>功能部分勾选文件共享支持和防火墙</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109154149349.png" alt="image-20251109154149349"></p>
+<p>一直下一步安装就好</p>
+<p>而后点击将此服务器提升为域控制器</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109154551695.png" alt="image-20251109154551695"></p>
+<p>添加新林：起一个高端大气上档次的名字</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109154722902.png" alt="image-20251109154722902"></p>
+<p>设置完密码之后，会给分配出名称</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109155001399.png" alt="image-20251109155001399"></p>
+<p>通过先决条件检查后，继续安装</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109155141982.png" alt="image-20251109155141982"></p>
+<p>安装完毕之后会自动重启，登录时会发现，用户名前面已经加上了域名Sun	</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160359473.png" alt="image-20251109160359473"></p>
+<p>4️⃣加入域</p>
+<p>win7服务器打开计算机 &gt;&gt;&gt; 属性 &gt;&gt;&gt; 高级系统设置 &gt;&gt;&gt; 更改</p>
+<p>来更改计算机名&#x2F;域</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160631711.png" alt="image-20251109160631711"></p>
+<p>更改域<img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160750946.png" alt="image-20251109160750946"></p>
+<p>而后会提示输入用户密码，注意⚠️这里要求输入的域控机的管理员账号密码</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109160926727.png" alt="image-20251109160926727"></p>
+<p>加入域成功！</p>
+<p>按照要求输入域名\用户名即可登录到新创建的sun域</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161252389.png" alt="image-20251109161252389"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161325620.png" alt="image-20251109161325620"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161356919.png" alt="image-20251109161356919"></p>
+<p>登录后，可命令提示符验证</p>
+<p>ipconfig &#x2F;flushdns刷新dns缓存，然后nslookup 域名 IP解析来验证</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251109161815598.png" alt="image-20251109161815598"></p>
+<p>至此，完成了创建域到将服务器加入域的全部操作！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/17/%E5%9F%9F%E5%92%8C%E5%B7%A5%E4%BD%9C%E7%BB%84/" data-id="cuidNZuIuGShq2m4LXzg-rKJD" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/11/17/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/17/%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/11/17/DC-2%E9%80%9A%E5%85%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/http%E5%8D%8F%E8%AE%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/burpsuit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="文件共享服务SMB可以干什么可以为攻击者提供信息收集，凭证窃取，代码执行的三位一体能力 1net share  信息收集：指向系统目录 凭证窃取：SMB服务是需要身份验证的，从而发送用户密码哈希 代码执行：永恒之蓝等漏洞（添加用户远程登录） SMB是什么文件共享、SMB、NTFS权限 以上三点为Windows网络管理的核心 怎么理解三者关系其中文件共享可以理解成为大楼 SMB协议为进出大楼规则（保">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="文件共享服务SMB可以干什么可以为攻击者提供信息收集，凭证窃取，代码执行的三位一体能力 1net share  信息收集：指向系统目录 凭证窃取：SMB服务是需要身份验证的，从而发送用户密码哈希 代码执行：永恒之蓝等漏洞（添加用户远程登录） SMB是什么文件共享、SMB、NTFS权限 以上三点为Windows网络管理的核心 怎么理解三者关系其中文件共享可以理解成为大楼 SMB协议为进出大楼规则（保">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110539241.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110752035.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110812316.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112033789.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112155933.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112330095.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112405363.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111121951587.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111122137343.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111122832378.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111122912081.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111123049658.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111123208912.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111124130734.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111125411821.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111125937091.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111130007379.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111130840898.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111130930732.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111131044596.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111131114481.png">
+<meta property="article:published_time" content="2025-11-17T04:22:19.511Z">
+<meta property="article:modified_time" content="2025-11-17T03:49:24.403Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110539241.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-文件共享服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/" class="article-date">
+  <time class="dt-published" datetime="2025-11-17T04:22:19.511Z" itemprop="datePublished">2025-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="文件共享服务"><a href="#文件共享服务" class="headerlink" title="文件共享服务"></a>文件共享服务</h1><h3 id="SMB可以干什么"><a href="#SMB可以干什么" class="headerlink" title="SMB可以干什么"></a>SMB可以干什么</h3><p>可以为攻击者提供信息收集，凭证窃取，代码执行的三位一体能力</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> share</span><br></pre></td></tr></table></figure>
+
+<p>信息收集：指向系统目录</p>
+<p>凭证窃取：SMB服务是需要身份验证的，从而发送用户密码哈希</p>
+<p>代码执行：永恒之蓝等漏洞（添加用户远程登录）</p>
+<h3 id="SMB是什么"><a href="#SMB是什么" class="headerlink" title="SMB是什么"></a>SMB是什么</h3><p>文件共享、SMB、NTFS权限</p>
+<p>以上三点为Windows<strong>网络管理的核心</strong></p>
+<h3 id="怎么理解三者关系"><a href="#怎么理解三者关系" class="headerlink" title="怎么理解三者关系"></a>怎么理解三者关系</h3><p>其中<strong>文件共享</strong>可以理解成为大楼</p>
+<p><strong>SMB协议</strong>为进出大楼规则（保安）</p>
+<p><strong>NTFS权限</strong>是楼里每个屋具体使用规则</p>
+<h3 id="关键交互流程"><a href="#关键交互流程" class="headerlink" title="关键交互流程"></a>关键交互流程</h3><p>通过SMB协议找到服务并请求共享</p>
+<p>而后，服务器检查共享的权限</p>
+<p>通过权限后，开始访问文件夹</p>
+<p>NTFS权限决定用户对文件有怎么样的处理方式</p>
+<p>有效权限&#x3D;共享权限和NTFS权限中更严格的一个</p>
+<h4 id="文件共享服务不同域不同网段是否可以使用？"><a href="#文件共享服务不同域不同网段是否可以使用？" class="headerlink" title="文件共享服务不同域不同网段是否可以使用？"></a>文件共享服务不同域不同网段是否可以使用？</h4><p>可以使用，但是要额外的身份验证</p>
+<h1 id="SMB协议详解"><a href="#SMB协议详解" class="headerlink" title="SMB协议详解"></a>SMB协议详解</h1><p>负责建立和维护网络连接，处理和文件操作相关的网络通信的</p>
+<p>连接管理:建立会话，身份验证文件探作:打开、读取</p>
+<p>目录操作:列出内容</p>
+<p>打印机共享:通过SMB协议实现</p>
+<h3 id="共享权限："><a href="#共享权限：" class="headerlink" title="共享权限："></a>共享权限：</h3><p>读取——查看文件名，读取文件内容</p>
+<p>更改——修改内容</p>
+<p>完全控制——获得所有权</p>
+<p><strong>现代管理中，一般会把它设置成everyone可完全控制，直接将真正的安全控制交给更为精细的NTFS</strong></p>
+<p>Tips：</p>
+<p>NTFS:访问文件的精细控制<br>杈限继承：拒绝优先</p>
+<h3 id="使用文件共享的方式"><a href="#使用文件共享的方式" class="headerlink" title="使用文件共享的方式"></a>使用文件共享的方式</h3><h5 id="法一"><a href="#法一" class="headerlink" title="法一"></a>法一</h5><p>win+R</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\Ip地址\共享文件名</span><br></pre></td></tr></table></figure>
+
+<h5 id="法二"><a href="#法二" class="headerlink" title="法二"></a>法二</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net use \\IP地址\共享文件名 #查看共享状态</span><br><span class="line">net use * \\IP地址\共亨文件名  #*代表共亨文件的盘符</span><br><span class="line">net use x: \\IP地址\共享文件名  指定盘符号（x盘）</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="域共享文件操作演示"><a href="#域共享文件操作演示" class="headerlink" title="域共享文件操作演示"></a>域共享文件操作演示</h3><p>1️⃣在Windows Server 2016域控机中，</p>
+<p>打开“C盘” &gt;&gt;&gt; “属性” &gt;&gt;&gt;  “共享” &gt;&gt;&gt; “高级共享”，选中“共享此文件夹” &gt;&gt;&gt; “权限” &gt;&gt;&gt; 在组或用户名中选择“everyone” &gt;&gt;&gt; 权限部分勾选“完全控制” &gt;&gt;&gt; “应用”</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110539241.png" alt="image-20251111110539241"></p>
+<p>2️⃣登录win7服务器，通过IP地址使用文件共享功能，访问到域控机的共享文件夹</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110752035.png" alt="image-20251111110752035"></p>
+<p>成功访问到共享文件夹</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111110812316.png" alt="image-20251111110812316"></p>
+<h5 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h5><p>⚠️一旦进入域的里面，而且域中正开启着文件共享，通过IP就可以访问共享文件夹，根本不需要其他的用户密码了；攻击者可以在域的共享文件夹中投放木马文件，对被攻击方造成严重损失</p>
+<h3 id="整个小实验"><a href="#整个小实验" class="headerlink" title="整个小实验"></a>整个小实验</h3><h4 id="实验任务"><a href="#实验任务" class="headerlink" title="实验任务"></a>实验任务</h4><p>通过AGDLP原则实现部门文件共享</p>
+<p>（”A”用户，”G”全局组，”DL”本地组，”P”共享）</p>
+<p>A：创建用户</p>
+<p>hzangsan、lisi</p>
+<p>G：创建全局组</p>
+<p>GG_safe、GG_manager</p>
+<p>DD：创建本地组</p>
+<p>DL_beijingsafe、DL_shanghaimanager</p>
+<h4 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h4><p>在搭建好域的Windows server 2016和win7中进行小实验</p>
+<h4 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h4><h5 id="1️⃣创建用户"><a href="#1️⃣创建用户" class="headerlink" title="1️⃣创建用户"></a>1️⃣创建用户</h5><p>在Windows Server 2016域控机上的“开始” &gt;&gt;&gt; “Windows管理工具” &gt;&gt;&gt; “Active Directory 用户和计算机” &gt;&gt;&gt; “Users” &gt;&gt;&gt; 创建新用户zhangsan</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112033789.png" alt="image-20251111112033789"></p>
+<p>创建lisi</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112155933.png" alt="image-20251111112155933"></p>
+<h5 id="2️⃣创建全局组"><a href="#2️⃣创建全局组" class="headerlink" title="2️⃣创建全局组"></a>2️⃣创建全局组</h5><p>GG_safe</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112330095.png" alt="image-20251111112330095"></p>
+<p>GG_manager</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111112405363.png" alt="image-20251111112405363"></p>
+<h5 id="3️⃣把用户加到全局组"><a href="#3️⃣把用户加到全局组" class="headerlink" title="3️⃣把用户加到全局组"></a>3️⃣把用户加到全局组</h5><p>在GG_manager选择属性，而后在成员位置加入lisi并应用</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111121951587.png" alt="image-20251111121951587"></p>
+<p>在GG_safe属性里的成员部分，添加zhangsan</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111122137343.png" alt="image-20251111122137343"></p>
+<h5 id="4️⃣创建本地组"><a href="#4️⃣创建本地组" class="headerlink" title="4️⃣创建本地组"></a>4️⃣创建本地组</h5><p>DL_beijingsafe、DL_shanghaimanager</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111122832378.png" alt="image-20251111122832378"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111122912081.png" alt="image-20251111122912081"></p>
+<h5 id="5️⃣将全局组加入本地组"><a href="#5️⃣将全局组加入本地组" class="headerlink" title="5️⃣将全局组加入本地组"></a>5️⃣将全局组加入本地组</h5><p>把GG_manager加到DL_shanghaimanager</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111123049658.png" alt="image-20251111123049658"></p>
+<p>把GG_safe加到DL_beijingsafe</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111123208912.png" alt="image-20251111123208912"></p>
+<h5 id="6️⃣配置权限"><a href="#6️⃣配置权限" class="headerlink" title="6️⃣配置权限"></a>6️⃣配置权限</h5><p>使得管理组可以修改管理组内容，可以查看安全组内容</p>
+<p>安全组可以修改安全组内容，不能查看管理组内容</p>
+<p>在Windows Server 2016域控上新建share文件夹，在里面再新建两个文件夹——safe和manager来模拟安全组和管理组的文件夹</p>
+<p>这里我们先给share文件夹改为对everyone共享</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111124130734.png" alt="image-20251111124130734"></p>
+<p>而后，对share进行安全配置添加本地组</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111125411821.png" alt="image-20251111125411821"></p>
+<h5 id="7️⃣safe和manager文件夹配置安全"><a href="#7️⃣safe和manager文件夹配置安全" class="headerlink" title="7️⃣safe和manager文件夹配置安全"></a>7️⃣safe和manager文件夹配置安全</h5><p>先在安全里面把权限继承关掉</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111125937091.png" alt="image-20251111125937091"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111130007379.png" alt="image-20251111130007379"></p>
+<p>安全组不能访问manager文件夹</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111130840898.png" alt="image-20251111130840898"></p>
+<p>管理组对manager文件夹有完全控制权</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111130930732.png" alt="image-20251111130930732"></p>
+<p>管理组只能对safe文件夹只读</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111131044596.png" alt="image-20251111131044596"></p>
+<p>安全组可以对safe文件夹完全控制</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111131114481.png" alt="image-20251111131114481"></p>
+<h5 id="8️⃣验证"><a href="#8️⃣验证" class="headerlink" title="8️⃣验证"></a>8️⃣验证</h5><p>配置完成以后，可以登录lisi或者zhangsan的域账户看一下</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/" data-id="cuidOM14EwNiIx8MfrC1u46Z5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/11/17/burpsuit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/11/17/DC-2%E9%80%9A%E5%85%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/http%E5%8D%8F%E8%AE%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/burpsuit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

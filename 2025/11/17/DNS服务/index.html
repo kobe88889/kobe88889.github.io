@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="DNS服务DNS定义：domain name system IP地址 xxx.xxx.xxx.xxx 域名电话簿 DNS核心功能：将易于记忆的域名翻译成计算机用于通信的IP DNS工作核心流程递归查询1️⃣查看浏览器缓存浏览器开发者工具 &gt;&gt;&gt; 网络 &gt;&gt;&gt; 200的第一个数据包  2️⃣通过操作系统缓存（若浏览器缓存没有查到，才会查操作系统缓存） Tips：操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DNS服务DNS定义：domain name system IP地址 xxx.xxx.xxx.xxx 域名电话簿 DNS核心功能：将易于记忆的域名翻译成计算机用于通信的IP DNS工作核心流程递归查询1️⃣查看浏览器缓存浏览器开发者工具 &gt;&gt;&gt; 网络 &gt;&gt;&gt; 200的第一个数据包  2️⃣通过操作系统缓存（若浏览器缓存没有查到，才会查操作系统缓存） Tips：操">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111192042006.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111203252417.png">
+<meta property="article:published_time" content="2025-11-17T04:22:17.232Z">
+<meta property="article:modified_time" content="2025-11-17T03:22:31.207Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111192042006.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DNS服务" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/" class="article-date">
+  <time class="dt-published" datetime="2025-11-17T04:22:17.232Z" itemprop="datePublished">2025-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="DNS服务"><a href="#DNS服务" class="headerlink" title="DNS服务"></a>DNS服务</h1><h3 id="DNS定义："><a href="#DNS定义：" class="headerlink" title="DNS定义："></a>DNS定义：</h3><p>domain name system</p>
+<p>IP地址</p>
+<p>xxx.xxx.xxx.xxx</p>
+<p>域名电话簿</p>
+<h3 id="DNS核心功能："><a href="#DNS核心功能：" class="headerlink" title="DNS核心功能："></a>DNS核心功能：</h3><p>将易于记忆的域名翻译成计算机用于通信的IP</p>
+<h3 id="DNS工作核心流程"><a href="#DNS工作核心流程" class="headerlink" title="DNS工作核心流程"></a>DNS工作核心流程</h3><h4 id="递归查询"><a href="#递归查询" class="headerlink" title="递归查询"></a><strong>递归查询</strong></h4><h5 id="1️⃣查看浏览器缓存"><a href="#1️⃣查看浏览器缓存" class="headerlink" title="1️⃣查看浏览器缓存"></a>1️⃣查看浏览器缓存</h5><p>浏览器开发者工具 &gt;&gt;&gt; 网络 &gt;&gt;&gt; 200的第一个数据包</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111192042006.png" alt="image-20251111192042006"></p>
+<h5 id="2️⃣通过操作系统缓存"><a href="#2️⃣通过操作系统缓存" class="headerlink" title="2️⃣通过操作系统缓存"></a>2️⃣通过操作系统缓存</h5><p>（若浏览器缓存没有查到，才会查操作系统缓存）</p>
+<p>Tips：操作系统DNS缓存不是浏览的文件，存储在内存（ram） （不是外存磁盘） </p>
+<p>例子：</p>
+<p>在终端输入</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span> /displaydns</span><br></pre></td></tr></table></figure>
+
+<p>查看</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">firefox-settings-attachments.cdn.mozilla.<span class="built_in">net</span></span><br><span class="line">    ----------------------------------------</span><br><span class="line">    记录名称. . . . . . . : firefox-settings-attachments.cdn.mozilla.<span class="built_in">net</span></span><br><span class="line">    记录类型. . . . . . . : <span class="number">5</span></span><br><span class="line">    生存时间. . . . . . . : <span class="number">530208</span></span><br><span class="line">    数据长度. . . . . . . : <span class="number">8</span></span><br><span class="line">    部分. . . . . . . . . : 答案</span><br><span class="line">    CNAME 记录  . . . . . : mozilla.map.fastly.<span class="built_in">net</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    记录名称. . . . . . . : mozilla.map.fastly.<span class="built_in">net</span></span><br><span class="line">    记录类型. . . . . . . : <span class="number">1</span></span><br><span class="line">    生存时间. . . . . . . : <span class="number">530208</span></span><br><span class="line">    数据长度. . . . . . . : <span class="number">4</span></span><br><span class="line">    部分. . . . . . . . . : 答案</span><br><span class="line">    A (主机)记录  . . . . : <span class="number">146</span>.<span class="number">75</span>.<span class="number">45</span>.<span class="number">91</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这两段是：这两行还在缓存里，任何程序再问 “hectorstatic.baidu.com 的 IP 是什么？” 系统会直接回答：“先走 CNAME → opencdnbdv6.jomodns.com，再去查它的 A&#x2F;AAAA 记录”，而不会再向公网发起递归查询。</p>
+<p>CNAME：别名</p>
+<p>部分. . . . . . . . . : 答案 （dns查询出来的直接答案，标识）</p>
+<p>第一部分：通过DNS查询告诉我们firefox-settings-attachments.cdn.mozilla.net，实际上需要去找mozilla.map.fastly.net</p>
+<p>第二部分：通过查找mozilla.map.fastly.net找到了一个实际IPv4的地址</p>
+<h5 id="3️⃣查本地敏感文件"><a href="#3️⃣查本地敏感文件" class="headerlink" title="3️⃣查本地敏感文件"></a>3️⃣查本地敏感文件</h5><p>文件地址：”C:\Windows\System32\drivers\etc\hosts”</p>
+<p>操作系统检查hosts文件，查看是否有手动配置的映射关系 </p>
+<h5 id="4️⃣递归DNS服务器（个人服务器来说作用不大）"><a href="#4️⃣递归DNS服务器（个人服务器来说作用不大）" class="headerlink" title="4️⃣递归DNS服务器（个人服务器来说作用不大）"></a>4️⃣递归DNS服务器（个人服务器来说作用不大）</h5><p>ISP提供的（移动，联通，电信）</p>
+<p>会向<strong>路由器</strong>提问“域名对应的IP地址”</p>
+<h5 id="5️⃣根域名服务器"><a href="#5️⃣根域名服务器" class="headerlink" title="5️⃣根域名服务器"></a>5️⃣根域名服务器</h5><p>查询跟域名服务器，跟域名服务器不会给出具体IP，但是会给到.com让去问他</p>
+<h5 id="6️⃣顶级域名服务器-com"><a href="#6️⃣顶级域名服务器-com" class="headerlink" title="6️⃣顶级域名服务器.com"></a>6️⃣顶级域名服务器.com</h5><p>他不会告诉你具体的IP<br>但是会跟你说baidu.com是谁<br>baidu.com对应的是百度公司<br>你去问百度公司</p>
+<h5 id="7️⃣权威域名服务器"><a href="#7️⃣权威域名服务器" class="headerlink" title="7️⃣权威域名服务器"></a>7️⃣权威域名服务器</h5><p>域名的IP到底是谁？</p>
+<p>baidu.com所有主机的准确IP</p>
+<p>baidu.com的IP是多少</p>
+<p>93.184.216.34</p>
+<h5 id="8️⃣返回结果"><a href="#8️⃣返回结果" class="headerlink" title="8️⃣返回结果"></a>8️⃣返回结果</h5><p>都是在毫秒内完成的</p>
+<p>Tips：解析完成后会缓存下来，方便下次快速响应，减少等待解析的时间</p>
+<h4 id="分开解析"><a href="#分开解析" class="headerlink" title="分开解析"></a>分开解析</h4><p><a href="http://www.baidu.com.其中：">www.baidu.com.其中：</a></p>
+<p>.：根域名：DNS顶层，是被隐藏起来的起点</p>
+<p>.com：顶级域名：位于域名最右侧，国家统一管理</p>
+<p>baidu：一级域名：与公司相关</p>
+<p>www：主机名：可以提供web服务</p>
+<h4 id="重要的DNS记录类型"><a href="#重要的DNS记录类型" class="headerlink" title="重要的DNS记录类型"></a>重要的DNS记录类型</h4><p>nslookup 域名</p>
+<p>nslookup -type&#x3D;记录类型（参数） 域名<br>nslookup -type&#x3D;A <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<p>A记录：IPv4地址——<strong>IP和域名的基础映射</strong></p>
+<p>AAAA记录：IPv6地址——<strong>IP和域名的基础映射</strong></p>
+<p>CNAME：别名——<strong>信息收集会用到的，可用于查找薄弱资产</strong><br>服务分离</p>
+<p>MX：邮件服务——<strong>邮件系统入口</strong><br>电子邮件路由</p>
+<p>NS：由哪台DNS服务器来提供域——<strong>查询域空</strong><br>内网信息收集<br>DNS&gt;DC</p>
+<p>PTR：反向解析<br>100.100.100.100&gt;&gt;&gt;hacker.com&gt;&gt;&gt;黑客公司</p>
+<p>TXT：存储的文本信息——<strong>邮件安全的核心</strong><br>恶意语句</p>
+<h3 id="小小实验一下"><a href="#小小实验一下" class="headerlink" title="小小实验一下"></a>小小实验一下</h3><p>实验：<br>使用NSlookup查找域名<br>nslookup 域名<br>nslookup -type&#x3D;记录类型（参数） 域名<br>nslookup -type&#x3D;A <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251111203252417.png" alt="image-20251111203252417"></p>
+<p>Tips：</p>
+<p>非权威应答：代表不是百度回答的</p>
+<p>ipv4和ipv6各两个网址是因为要实现“负载均衡”（在一个服务器崩掉的时候还能保持通信）</p>
+<p>nslookup -type&#x3D;mx google.com    # 查询邮件服务器<br>nslookup -type&#x3D;ns microsoft.com # 查询权威名称服务器<br>nslookup -type&#x3D;cname github.com # 查询别名记录</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>公司内网DNS服务器</p>
+<p>公共DNS服务：</p>
+<p>114.114.114.114       国内的</p>
+<p>8.8.8.8                        谷歌的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/" data-id="cuidtoUTdT_R3LfHYbzAjInUc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/17/NTFS%E5%AE%89%E5%85%A8%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/11/17/DC-2%E9%80%9A%E5%85%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/http%E5%8D%8F%E8%AE%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/burpsuit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="综合实验：全程模拟攻击行为，进行溯源 1、部署监控：配置审计策略secpol.msc	#打开本地策略审核账户登录事件  审核账户管理  2、模拟攻击行为：触发可疑事件创建一个后门用户	$net user 用户名$ 密码 &#x2F;add  权限提升把用户加到管理员组net localgroup 组名 用户名 &#x2F;add  故意输错几次密码	爆破 切换用户hacker$，输入若干次错误密码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/17/%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="综合实验：全程模拟攻击行为，进行溯源 1、部署监控：配置审计策略secpol.msc	#打开本地策略审核账户登录事件  审核账户管理  2、模拟攻击行为：触发可疑事件创建一个后门用户	$net user 用户名$ 密码 &#x2F;add  权限提升把用户加到管理员组net localgroup 组名 用户名 &#x2F;add  故意输错几次密码	爆破 切换用户hacker$，输入若干次错误密码">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110526189.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110543790.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110644707.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110757472.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110935942.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106111015245.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106111614603.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106111856290.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106112036188.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106112201518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106125451279.png">
+<meta property="article:published_time" content="2025-11-17T04:21:52.232Z">
+<meta property="article:modified_time" content="2025-11-17T03:08:55.766Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110526189.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-综合实验" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/17/%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C/" class="article-date">
+  <time class="dt-published" datetime="2025-11-17T04:21:52.232Z" itemprop="datePublished">2025-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="综合实验："><a href="#综合实验：" class="headerlink" title="综合实验："></a>综合实验：</h1><p>全程模拟攻击行为，进行溯源</p>
+<p>1、部署监控：配置审计策略<br>secpol.msc	#打开本地策略<br>审核账户登录事件</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110526189.png" alt="image-20251106110526189"></p>
+<p>审核账户管理</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110543790.png" alt="image-20251106110543790"></p>
+<p>2、模拟攻击行为：触发可疑事件<br>创建一个后门用户	$<br>net user 用户名$ 密码 &#x2F;add</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110644707.png" alt="image-20251106110644707"></p>
+<p>权限提升<br>把用户加到管理员组net localgroup 组名 用户名 &#x2F;add</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110757472.png" alt="image-20251106110757472"></p>
+<p>故意输错几次密码	爆破</p>
+<p>切换用户hacker$，输入若干次错误密码模拟暴力破解行为</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106110935942.png" alt="image-20251106110935942"></p>
+<p>而后，输入正确密码</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106111015245.png" alt="image-20251106111015245"></p>
+<p>3、收集和分析：日志分析<br>eventvwr.msc查看事件管理器</p>
+<p>4625：失败<br>4624：成功<br>4720：添加用户<br>4732：添加到本地组<br>4748</p>
+<p>筛选ID为4625的账户登录失败任务可以看到如图的四次爆破行为</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106111614603.png" alt="image-20251106111614603"></p>
+<p>筛选ID为4624的账户登录成功任务可以看到如图的爆破成功，hacker进入的行为</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106111856290.png" alt="image-20251106111856290"></p>
+<p>筛选ID为4720的添加用户任务可以看到模拟的hacker创建后门用户的日志</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106112036188.png" alt="image-20251106112036188"></p>
+<p>筛选ID为4732的添加用户到组的提权任务可以看到hacker的提权到Administrators组的提权记录</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106112201518.png" alt="image-20251106112201518"></p>
+<p>4、对整个事件进行还原<br>谁什么时候干了什么，可能造成什么影响</p>
+<p>2025&#x2F;11&#x2F;06 11:06:30时间，攻击者在系统内创建了hacker$账户作为后门账户</p>
+<p>2525&#x2F;11&#x2F;06 11:07:13时间，攻击者进行了对hacker$账户的提权，将hacker$加到了Administrators组之中拥有了管理员权限，有极大可能造成关键数据泄露，数据丢失，系统信息被篡改等危害</p>
+<p>2025&#x2F;11&#x2F;06 11:09:28至11:09:44时间段内，hacker$对系统进行了4次未成功的登录行为，属于黑客暴力破解行为，被攻击会有可能被爆破出来账号密码，会对系统安全造成威胁。</p>
+<p>2025&#x2F;11&#x2F;06 11:13:04时间，hacker$成功爆破出来密码，成功登录系统</p>
+<p>5、实验环境清理<br>删除用户</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251106125451279.png" alt="image-20251106125451279"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/17/%E7%BB%BC%E5%90%88%E5%AE%9E%E9%AA%8C/" data-id="cuidtF7utHkaA2evBVmW11ap3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/11/17/%E5%9F%9F%E5%92%8C%E5%B7%A5%E4%BD%9C%E7%BB%84/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/11/17/%E7%94%A8%E6%88%B7%E5%92%8C%E7%BB%84/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/11/17/DC-2%E9%80%9A%E5%85%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/http%E5%8D%8F%E8%AE%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/burpsuit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

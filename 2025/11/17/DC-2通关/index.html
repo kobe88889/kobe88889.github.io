@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="DC-2通关1️⃣环境搭建确定把两台虚拟机的网络连接都改成nat模式 kali：  DC2：  2️⃣信息收集 确定目标IP 由于两台电脑都选用了nat模式的网络连接，所以它们应该在一个网段，直接用kali的nmap对该网段进行扫描，看看有哪些IP是活着的，能不能发现它  通过在浏览器里输入url进行尝试，发现192.168.88.154会变成，这样  于是确定了目标IP  将IP绑定DNS，找到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/17/DC-2%E9%80%9A%E5%85%B3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DC-2通关1️⃣环境搭建确定把两台虚拟机的网络连接都改成nat模式 kali：  DC2：  2️⃣信息收集 确定目标IP 由于两台电脑都选用了nat模式的网络连接，所以它们应该在一个网段，直接用kali的nmap对该网段进行扫描，看看有哪些IP是活着的，能不能发现它  通过在浏览器里输入url进行尝试，发现192.168.88.154会变成，这样  于是确定了目标IP  将IP绑定DNS，找到">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113165449134.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113165518575.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113172350747.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113172443830.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113200939787.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113201205161.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113201125557.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113201501354.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113202225140.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113203957936.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113204605548.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113204805520.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113204852097.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205400340.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205718133.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205657371.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205840216.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113210713205.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113210837460.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113211025437.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113211502884.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113212018834.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113212139463.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113212317170.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113214949881.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220113675.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220032795.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220156448.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220451562.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220803511.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220932512.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113221801886.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113222059041.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113222347688.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113222456045.png">
+<meta property="article:published_time" content="2025-11-17T04:22:38.212Z">
+<meta property="article:modified_time" content="2025-11-17T03:55:50.246Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113165449134.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-DC-2通关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/11/17/DC-2%E9%80%9A%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2025-11-17T04:22:38.212Z" itemprop="datePublished">2025-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="DC-2通关"><a href="#DC-2通关" class="headerlink" title="DC-2通关"></a>DC-2通关</h1><h3 id="1️⃣环境搭建"><a href="#1️⃣环境搭建" class="headerlink" title="1️⃣环境搭建"></a>1️⃣环境搭建</h3><p>确定把两台虚拟机的网络连接都改成nat模式</p>
+<p>kali：</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113165449134.png" alt="image-20251113165449134"></p>
+<p>DC2：</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113165518575.png" alt="image-20251113165518575"></p>
+<h3 id="2️⃣信息收集"><a href="#2️⃣信息收集" class="headerlink" title="2️⃣信息收集"></a>2️⃣信息收集</h3><ol>
+<li><p>确定目标IP</p>
+<p>由于两台电脑都选用了nat模式的网络连接，所以它们应该在一个网段，直接用kali的nmap对该网段进行扫描，看看有哪些IP是活着的，能不能发现它</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113172350747.png" alt="image-20251113172350747"></p>
+<p>通过在浏览器里输入url进行尝试，发现192.168.88.154会变成，这样</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113172443830.png" alt="image-20251113172443830"></p>
+<p>于是确定了目标IP</p>
+</li>
+<li><p>将IP绑定DNS，找到dc-2的页面</p>
+<p>从kali打开etc&#x2F;hosts文件</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113200939787.png" alt="image-20251113200939787"></p>
+<p>写入192.168.88.154  dc-2</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113201205161.png" alt="image-20251113201205161"></p>
+<p>成功找到网页界面</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113201125557.png" alt="image-20251113201124078"></p>
+</li>
+<li><p>端口扫描</p>
+<p>继续使用nmap命令，键入nmap -A -p- 192.168.88.154</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113201501354.png" alt="image-20251113201501354"></p>
+<p>得到的信息：开放了80和7744端口，其中80端口的是http协议占用的端口，7744端口的是ssh安全外壳协议服务，这本应该出现在22端口的</p>
+</li>
+<li><p>观察网页</p>
+<p>网页下面可以看出该靶场是用WordPress公开CMS模板搭建的，可知后面可针对这一点，使用wpscan工具进行爆破</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113202225140.png" alt="image-20251113202225140"></p>
+</li>
+<li><p>爆破后台目录</p>
+<p>使用dirb工具，对dc-2进行爆破</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirb http://192.168.88.154 -o dc-2</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113203957936.png" alt="image-20251113203957936"></p>
+<p>爆出来根目录下面有一个wp-admin的目录</p>
+</li>
+</ol>
+<h3 id="3️⃣漏洞利用"><a href="#3️⃣漏洞利用" class="headerlink" title="3️⃣漏洞利用"></a>3️⃣漏洞利用</h3><ol>
+<li><p>根据信息收集到的敏感目录，发现了登录界面</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113204605548.png" alt="image-20251113204605548"></p>
+</li>
+<li><p>在这个登录界面尝试，先用admin用户试试，再换user试试</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113204805520.png" alt="image-20251113204805520"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113204852097.png" alt="image-20251113204852097"></p>
+<p>根据回显我们可以判断，这里是有admin用户的，而没有user</p>
+</li>
+<li><p>由于我们在信息收集阶段发现了此网页使用WordPress构建，故我们使用wpscan扫描工具来扫一下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wpscan --url http://dc-2/ -e u</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205400340.png" alt="image-20251113205400340"></p>
+<p>通过爆破我们找到了包括admin在内的三个用户名</p>
+</li>
+<li><p>现在我们拥有了三个用户名，我们把三个用户名存储为一个用户名字典，再配合前面使用cewl生成的密码字典进行爆破</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205718133.png" alt="image-20251113205718133"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205657371.png" alt="image-20251113205657371"></p>
+<p>爆破，继续使用wpscan</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113205840216.png" alt="image-20251113205840216"></p>
+<p>爆破出结果如下</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113210713205.png" alt="image-20251113210713205"></p>
+</li>
+<li><p>利用爆出来的jerry用户密码进行登录</p>
+<p>就这么水灵灵进来了</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113210837460.png" alt="image-20251113210837460"></p>
+</li>
+<li><p>通过浏览找到了一个flag2，但是看起来并没有什么卵用</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113211025437.png" alt="image-20251113211025437"></p>
+</li>
+<li><p>然后这里想起来信息收集阶段，网站还开了ssh服务，我们根据ssh进行尝试，看能不能进入他的操作系统账户</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh jerry@192.168.88.154 -p 7744</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113211502884.png" alt="image-20251113211502884"></p>
+<p>失败了，他的密码并没有继续使用我们上一步爆出来的密码</p>
+<p>但是，我们还有一个用户叫tom可以试试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh tom@192.168.88.154 -p 7744</span><br></pre></td></tr></table></figure>
+
+<p>进来了</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113212018834.png" alt="image-20251113212018834"></p>
+</li>
+<li><p>在tom的操作系统用户权限里看看有什么东西，ls</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113212139463.png" alt="image-20251113212139463"></p>
+<p>看到了一个flag3的文件，打开看看</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113212317170.png" alt="image-20251113212317170"></p>
+<p>这里提示我们su切换到root权限</p>
+</li>
+<li><p>在试了用su jerry想到jerry用户下，但是他并不能使用，是被关到了rbash里面</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113214949881.png" alt="image-20251113214949881"></p>
+<p>用vi尝试rbash绕过，进入vi</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220113675.png" alt="image-20251113220113675"></p>
+<p>进入vi后</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220032795.png" alt="image-20251113220032795"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220156448.png" alt="image-20251113220156448"></p>
+<p>然后添加环境变量，就可以得到输入密码的地方</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220451562.png" alt="image-20251113220451562"></p>
+<p>输入用户密码，往后退，到家目录，查看一下，有jerry，从这进去，在查看有什么，找到flag4</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220803511.png" alt="image-20251113220803511"></p>
+<p>查看flag4</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113220932512.png" alt="image-20251113220932512"></p>
+<p>这里显示还不是最终的flag</p>
+</li>
+<li><p>我们的环境变量不全，需要补齐</p>
+<p>添加环境变量</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113221801886.png" alt="image-20251113221801886"></p>
+</li>
+<li><p>提权</p>
+<p>键入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> git <span class="built_in">help</span> config</span><br></pre></td></tr></table></figure>
+
+<p>再在最后行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!/bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113222059041.png" alt="image-20251113222059041"></p>
+<p>已经提权到root</p>
+</li>
+<li><p>查看有什么，找到flag</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113222347688.png" alt="image-20251113222347688"></p>
+</li>
+<li><p>查看flag</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251113222456045.png" alt="image-20251113222456045"></p>
+</li>
+</ol>
+<p>OK！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/11/17/DC-2%E9%80%9A%E5%85%B3/" data-id="cuid7X10xi4mhU3LCtySGdZkd" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/11/17/http%E5%8D%8F%E8%AE%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/11/">November 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/11/17/DC-2%E9%80%9A%E5%85%B3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/http%E5%8D%8F%E8%AE%AE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/burpsuit%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2025/11/17/DNS%E6%9C%8D%E5%8A%A1/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
