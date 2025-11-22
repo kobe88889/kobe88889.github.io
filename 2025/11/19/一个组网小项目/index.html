@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="组网项目需求：1、全网互通 2、所有PC，要求使用DHCP获取IP地址 3、所有人都可以访问www.hack.com 4、要求内网中所有主机都可以使用Telnet来远程控制网络设备 5、安全要求，要求各入口点都配置上密文的密码并符合3&#x2F;4原则 1️⃣运行思科模拟器2️⃣要用的设备添加进去并连线添加两台服务器，一台三层交换机，两台二层交换机，三台PC主机  3️⃣配置1️⃣从二层交换机配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/19/%E4%B8%80%E4%B8%AA%E7%BB%84%E7%BD%91%E5%B0%8F%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="组网项目需求：1、全网互通 2、所有PC，要求使用DHCP获取IP地址 3、所有人都可以访问www.hack.com 4、要求内网中所有主机都可以使用Telnet来远程控制网络设备 5、安全要求，要求各入口点都配置上密文的密码并符合3&#x2F;4原则 1️⃣运行思科模拟器2️⃣要用的设备添加进去并连线添加两台服务器，一台三层交换机，两台二层交换机，三台PC主机  3️⃣配置1️⃣从二层交换机配置">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118154448795.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118165657049.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118170435554.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118182759180.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118183227128.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118183316058.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118184925012.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185130013.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185251256.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190237906.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190601919.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190724896.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190836466.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190852948.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118191429114.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118191601013.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118191633753.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118192407086.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118192519645.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118192508758.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118194530378.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118193214166.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118194614027.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118195009562.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118183316058.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118184925012.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185130013.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185251256.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118195205890.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118195233532.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118200534709.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118200452348.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118200620735.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118201055608.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118201412211.png">
+<meta property="article:published_time" content="2025-11-19T03:10:04.974Z">
+<meta property="article:modified_time" content="2025-11-18T12:24:09.429Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118154448795.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-11-19 11:10" pubdate>
+          November 19, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          647 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="组网项目"><a href="#组网项目" class="headerlink" title="组网项目"></a>组网项目</h1><h2 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h2><p>1、全网互通</p>
+<p>2、所有PC，要求使用DHCP获取IP地址</p>
+<p>3、所有人都可以访问<a target="_blank" rel="noopener" href="http://www.hack.com/">www.hack.com</a></p>
+<p>4、要求内网中所有主机都可以使用Telnet来远程控制网络设备</p>
+<p>5、安全要求，要求各入口点都配置上密文的密码并符合3&#x2F;4原则</p>
+<h2 id="1️⃣运行思科模拟器"><a href="#1️⃣运行思科模拟器" class="headerlink" title="1️⃣运行思科模拟器"></a>1️⃣运行思科模拟器</h2><h2 id="2️⃣要用的设备添加进去并连线"><a href="#2️⃣要用的设备添加进去并连线" class="headerlink" title="2️⃣要用的设备添加进去并连线"></a><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118154448795.png" srcset="/img/loading.gif" lazyload alt="image-20251118154448795">2️⃣要用的设备添加进去并连线</h2><p>添加两台服务器，一台三层交换机，两台二层交换机，三台PC主机</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118165657049.png" srcset="/img/loading.gif" lazyload alt="image-20251118165657049"></p>
+<h2 id="3️⃣配置"><a href="#3️⃣配置" class="headerlink" title="3️⃣配置"></a>3️⃣配置</h2><h3 id="1️⃣从二层交换机配置vlan"><a href="#1️⃣从二层交换机配置vlan" class="headerlink" title="1️⃣从二层交换机配置vlan"></a>1️⃣从二层交换机配置vlan</h3><ol>
+<li><p>在二层交换机的CLI界面，进入特权模式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>接着进入全局配置模式</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">configure terminal</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>进入vlan 1 的接口模式，并添加IP和子网掩码后手工开启</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">interface</span> vlan <span class="hljs-number">1</span><br>ip address <span class="hljs-number">10.0.0.2</span> <span class="hljs-number">255.0.0.0</span><br><span class="hljs-literal">no</span> shutdown<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118170435554.png" srcset="/img/loading.gif" lazyload alt="image-20251118170435554"></p>
+</li>
+</ol>
+<h3 id="2️⃣配置telnet远程登录，设密码，并应用"><a href="#2️⃣配置telnet远程登录，设密码，并应用" class="headerlink" title="2️⃣配置telnet远程登录，设密码，并应用"></a>2️⃣配置telnet远程登录，设密码，并应用</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">line</span> vty <span class="hljs-number">0</span> <span class="hljs-number">4</span><br><span class="hljs-attribute">password</span> <span class="hljs-number">123</span><br><span class="hljs-attribute">login</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118182759180.png" srcset="/img/loading.gif" lazyload alt="image-20251118182759180"></p>
+<h3 id="3️⃣PC远程登录"><a href="#3️⃣PC远程登录" class="headerlink" title="3️⃣PC远程登录"></a>3️⃣PC远程登录</h3><ol>
+<li><p>先给PC0配置静态IP</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118183227128.png" srcset="/img/loading.gif" lazyload alt="image-20251118183227128"></p>
+</li>
+<li><p>在PC0上打开命令提示符，运行telnet服务</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118183316058.png" srcset="/img/loading.gif" lazyload alt="image-20251118183316058"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">telnet 10.0.0.2<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118184925012.png" srcset="/img/loading.gif" lazyload alt="image-20251118184925012"></p>
+<p>输入enable欲进入特权模式时，提示没设置密码</p>
+</li>
+<li><p>现在要去交换机的全局配置中更改密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">enable</span> password 123<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185130013.png" srcset="/img/loading.gif" lazyload alt="image-20251118185130013"></p>
+<p>这时候PC端就可以进入特权模式了</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185251256.png" srcset="/img/loading.gif" lazyload alt="image-20251118185251256"></p>
+</li>
+</ol>
+<h3 id="4️⃣通过Server0-配置DHCP服务"><a href="#4️⃣通过Server0-配置DHCP服务" class="headerlink" title="4️⃣通过Server0 配置DHCP服务"></a>4️⃣通过Server0 配置DHCP服务</h3><ol>
+<li><p>先给服务器配置静态IP</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190237906.png" srcset="/img/loading.gif" lazyload alt="image-20251118190237906"></p>
+</li>
+<li><p>配置，启动DHCP服务</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190601919.png" srcset="/img/loading.gif" lazyload alt="image-20251118190601919"></p>
+</li>
+<li><p>到PC端IP尝试使用DHCP自动获取，出来了</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190724896.png" srcset="/img/loading.gif" lazyload alt="image-20251118190724896"></p>
+</li>
+<li><p>再把其他的PC也选择DHCP动态获取</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190836466.png" srcset="/img/loading.gif" lazyload alt="image-20251118190836466"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118190852948.png" srcset="/img/loading.gif" lazyload alt="image-20251118190852948"></p>
+</li>
+<li><p>测试连通性</p>
+<p>PC0 ping vlan 1</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118191429114.png" srcset="/img/loading.gif" lazyload alt="image-20251118191429114"></p>
+<p>PC0 ping PC1</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118191601013.png" srcset="/img/loading.gif" lazyload alt="image-20251118191601013"></p>
+<p>PC0 ping PC2</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118191633753.png" srcset="/img/loading.gif" lazyload alt="image-20251118191633753"></p>
+<p>至此，能实现全网通信</p>
+</li>
+</ol>
+<h3 id="5️⃣在Server1部署web服务，创建www-hack-com并使所有PC能访问"><a href="#5️⃣在Server1部署web服务，创建www-hack-com并使所有PC能访问" class="headerlink" title="5️⃣在Server1部署web服务，创建www.hack.com并使所有PC能访问"></a>5️⃣在Server1部署web服务，创建<a target="_blank" rel="noopener" href="http://www.hack.com并使所有pc能访问/">www.hack.com并使所有PC能访问</a></h3><ol>
+<li><p>在Server1启动DHCP自动获取IP</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118192407086.png" srcset="/img/loading.gif" lazyload alt="image-20251118192407086"></p>
+</li>
+<li><p>在Server1启动http服务</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118192519645.png" srcset="/img/loading.gif" lazyload alt="image-20251118192519645"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118192508758.png" srcset="/img/loading.gif" lazyload alt="image-20251118192508758"></p>
+</li>
+<li><p>在Server0上配置并开启DNS服务</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118194530378.png" srcset="/img/loading.gif" lazyload alt="image-20251118194530378"></p>
+</li>
+<li><p>在Server0上的DHCP服务中添加DNS</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118193214166.png" srcset="/img/loading.gif" lazyload alt="image-20251118193214166"></p>
+</li>
+<li><p>成功在PC上访问到<a target="_blank" rel="noopener" href="http://www.hacker.com/">www.hacker.com</a></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118194614027.png" srcset="/img/loading.gif" lazyload alt="image-20251118194614027"></p>
+</li>
+</ol>
+<h3 id="6️⃣使内网中所有主机都可以使用Telnet来远程控制网络设备"><a href="#6️⃣使内网中所有主机都可以使用Telnet来远程控制网络设备" class="headerlink" title="6️⃣使内网中所有主机都可以使用Telnet来远程控制网络设备"></a>6️⃣使内网中所有主机都可以使用Telnet来远程控制网络设备</h3><ol>
+<li><p>PC0</p>
+<ol>
+<li><p>先给PC0的IP为10.0.0.6了现在</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118195009562.png" srcset="/img/loading.gif" lazyload alt="image-20251118195009562"></p>
+</li>
+<li><p>在PC0上打开命令提示符，运行telnet服务</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118183316058.png" srcset="/img/loading.gif" lazyload alt="image-20251118183316058"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">telnet 10.0.0.2<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118184925012.png" srcset="/img/loading.gif" lazyload alt="image-20251118184925012"></p>
+<p>输入enable欲进入特权模式时，提示没设置密码</p>
+</li>
+<li><p>现在要去交换机的全局配置中更改密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">enable</span> password 123<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185130013.png" srcset="/img/loading.gif" lazyload alt="image-20251118185130013"></p>
+<p>这时候PC端就可以进入特权模式了</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118185251256.png" srcset="/img/loading.gif" lazyload alt="image-20251118185251256"></p>
+</li>
+</ol>
+</li>
+<li><p>PC1、PC2步骤同上</p>
+</li>
+</ol>
+<p>PC1：</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118195205890.png" srcset="/img/loading.gif" lazyload alt="image-20251118195205890"></p>
+<p>PC2:</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118195233532.png" srcset="/img/loading.gif" lazyload alt="image-20251118195233532"></p>
+<h3 id="7️⃣各入口点都配置上密文的密码并符合3-4原则"><a href="#7️⃣各入口点都配置上密文的密码并符合3-4原则" class="headerlink" title="7️⃣各入口点都配置上密文的密码并符合3&#x2F;4原则"></a>7️⃣各入口点都配置上密文的密码并符合3&#x2F;4原则</h3><p>直接配置用户密码</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118200534709.png" srcset="/img/loading.gif" lazyload alt="image-20251118200534709"></p>
+<p>然后用到全部吧</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118200452348.png" srcset="/img/loading.gif" lazyload alt="image-20251118200452348"></p>
+<p>加密密码</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118200620735.png" srcset="/img/loading.gif" lazyload alt="image-20251118200620735"></p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118201055608.png" srcset="/img/loading.gif" lazyload alt="image-20251118201055608"></p>
+<p>复制一下</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251118201412211.png" srcset="/img/loading.gif" lazyload alt="image-20251118201412211"></p>
+<h3 id="拓展-通过互联网资源，查询，研究如何破解路由设备密码"><a href="#拓展-通过互联网资源，查询，研究如何破解路由设备密码" class="headerlink" title="拓展:通过互联网资源，查询，研究如何破解路由设备密码"></a>拓展:通过互联网资源，查询，研究如何破解路由设备密码</h3><p>重启按钮。或者reload命令，</p>
+<p>启动时ctrl+break进rommon模式，修改配置寄存器，跳过启动配置</p>
+<p>路由重启后进特权模式，复制启动配置到运行配置</p>
+<p>修改密码router(config)# config-register 0x2102</p>
+<p>保存配置Router# copy running-config startup-config</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2025/11/19/一个组网小项目/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 19, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/11/22/%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/11/19/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82%E7%AE%80%E5%8D%95%E5%88%86%E6%9E%90/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

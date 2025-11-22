@@ -1,0 +1,690 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="三层交换技术一、三层交换技术概述1.三层交换技术用来干什么的？三层交换技术可以实现不同VLAN间的PC互相通信 2.怎么做到的？利用路由原理实现的不同VLAN间通信 3.什么设备可以完成本功能？三层交换机 三层交换机 &#x3D; 二层交换机 + 三层路由模块 三层交换技术&#x3D;二层交换技术+三层转发技术  4.为什么学了vlan以后还要学三层交换技术因为可以通过vlan实现了隔离广播域，v">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2025/11/23/%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="三层交换技术一、三层交换技术概述1.三层交换技术用来干什么的？三层交换技术可以实现不同VLAN间的PC互相通信 2.怎么做到的？利用路由原理实现的不同VLAN间通信 3.什么设备可以完成本功能？三层交换机 三层交换机 &#x3D; 二层交换机 + 三层路由模块 三层交换技术&#x3D;二层交换技术+三层转发技术  4.为什么学了vlan以后还要学三层交换技术因为可以通过vlan实现了隔离广播域，v">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122215542269.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122220537481.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122220550294.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122220603340.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251123003730444.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122223440455.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251123003342147.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251123003506473.png">
+<meta property="article:published_time" content="2025-11-22T16:56:27.322Z">
+<meta property="article:modified_time" content="2025-11-22T16:47:19.556Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122215542269.png">
+  
+  
+  
+  <title>Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-11-23 00:56" pubdate>
+          November 23, 2025 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          795 words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="三层交换技术"><a href="#三层交换技术" class="headerlink" title="三层交换技术"></a>三层交换技术</h1><h2 id="一、三层交换技术概述"><a href="#一、三层交换技术概述" class="headerlink" title="一、三层交换技术概述"></a>一、三层交换技术概述</h2><h3 id="1-三层交换技术用来干什么的？"><a href="#1-三层交换技术用来干什么的？" class="headerlink" title="1.三层交换技术用来干什么的？"></a>1.三层交换技术用来干什么的？</h3><p>三层交换技术可以实现不同VLAN间的PC互相通信</p>
+<h3 id="2-怎么做到的？"><a href="#2-怎么做到的？" class="headerlink" title="2.怎么做到的？"></a>2.怎么做到的？</h3><p>利用路由原理实现的不同VLAN间通信</p>
+<h3 id="3-什么设备可以完成本功能？"><a href="#3-什么设备可以完成本功能？" class="headerlink" title="3.什么设备可以完成本功能？"></a>3.什么设备可以完成本功能？</h3><p>三层交换机</p>
+<p>三层交换机 &#x3D; 二层交换机 + 三层路由模块</p>
+<p>三层交换技术&#x3D;二层交换技术+三层转发技术</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122215542269.png" srcset="/img/loading.gif" lazyload alt="image-20251122215542269"></p>
+<h3 id="4-为什么学了vlan以后还要学三层交换技术"><a href="#4-为什么学了vlan以后还要学三层交换技术" class="headerlink" title="4.为什么学了vlan以后还要学三层交换技术"></a>4.为什么学了vlan以后还要学三层交换技术</h3><p>因为可以通过vlan实现了隔离广播域，vlan+三层交换技术可以实现全网互通的前提下，广播被控制在每个VLAN内部。</p>
+<h2 id="二、-三层交换机的工作机制"><a href="#二、-三层交换机的工作机制" class="headerlink" title="二、 三层交换机的工作机制"></a>二、 三层交换机的工作机制</h2><h3 id="1-三层交换机路由转发数据的过程"><a href="#1-三层交换机路由转发数据的过程" class="headerlink" title="1. 三层交换机路由转发数据的过程"></a><strong>1.</strong> 三层交换机路由转发数据的过程</h3><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122220537481.png" srcset="/img/loading.gif" lazyload alt="image-20251122220537481"></p>
+<h3 id="2-三层交换机网络拓扑设计"><a href="#2-三层交换机网络拓扑设计" class="headerlink" title="2.三层交换机网络拓扑设计"></a>2.三层交换机网络拓扑设计</h3><p>接入层：所有终端接入</p>
+<p>汇聚层：把部分小区域汇聚成大区域</p>
+<p>核心层：负载均衡、链路冗余</p>
+<h4 id="2-1小型局域网结构"><a href="#2-1小型局域网结构" class="headerlink" title="2.1小型局域网结构"></a>2.1小型局域网结构</h4><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122220550294.png" srcset="/img/loading.gif" lazyload alt="image-20251122220550294"></p>
+<h4 id="2-2中大型局域网结构"><a href="#2-2中大型局域网结构" class="headerlink" title="2.2中大型局域网结构"></a>2.2中大型局域网结构</h4><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122220603340.png" srcset="/img/loading.gif" lazyload alt="image-20251122220603340"></p>
+<h3 id="3-如何配置及使用三层交换技术"><a href="#3-如何配置及使用三层交换技术" class="headerlink" title="3.如何配置及使用三层交换技术"></a>3.如何配置及使用三层交换技术</h3><p>画一个拓扑图（六个PC，三台二层交换机，一台三层交换机）</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251123003730444.png" srcset="/img/loading.gif" lazyload alt="image-20251123003730444"></p>
+<h4 id="3-1开启三层路由模块"><a href="#3-1开启三层路由模块" class="headerlink" title="3.1开启三层路由模块"></a>3.1开启三层路由模块</h4><p>全局配置模式下</p>
+<p>ip routing 开启三层交换机的路由模块</p>
+<h4 id="3-2划分vlan"><a href="#3-2划分vlan" class="headerlink" title="3.2划分vlan"></a>3.2划分vlan</h4><h4 id="3-3二层交换机与三层交换机之间起trunk二层交换机接口模式下"><a href="#3-3二层交换机与三层交换机之间起trunk二层交换机接口模式下" class="headerlink" title="3.3二层交换机与三层交换机之间起trunk二层交换机接口模式下"></a>3.3二层交换机与三层交换机之间起trunk二层交换机接口模式下</h4><p>sw mo trunk</p>
+<p>三层交换机接口模式下</p>
+<p>sw trunk encapsulation dot1q 定义标签类型(必须定义)</p>
+<p>sw mo t</p>
+<p>sw mo acc</p>
+<p>给三层交换机vlan配置ip地址</p>
+<p>in vl 10</p>
+<p>ip add ……</p>
+<p>no sh</p>
+<h4 id="3-4查看三层交换机路由引擎的ARP缓存"><a href="#3-4查看三层交换机路由引擎的ARP缓存" class="headerlink" title="3.4查看三层交换机路由引擎的ARP缓存"></a>3.4查看三层交换机路由引擎的ARP缓存</h4><p>show ip arp</p>
+<p>将三层交换机的二层接口提升为三层接口no sw</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h5 id="三层交换机："><a href="#三层交换机：" class="headerlink" title="三层交换机："></a>三层交换机：</h5><h6 id="创建vlan10-20-30"><a href="#创建vlan10-20-30" class="headerlink" title="创建vlan10,20,30"></a>创建vlan10,20,30</h6><h6 id="启动vtp服务"><a href="#启动vtp服务" class="headerlink" title="启动vtp服务"></a>启动vtp服务</h6><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">vtp</span> domain <span class="hljs-number">123</span><br></code></pre></td></tr></table></figure>
+
+<p>vlan10 、vlan20配置网关</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">interface</span> <span class="hljs-symbol">vlan</span> <span class="hljs-symbol">10</span><br><span class="hljs-symbol">ip</span> <span class="hljs-symbol">address</span> 网关地址 子网掩码<br><span class="hljs-symbol">interface</span> <span class="hljs-symbol">vlan</span> <span class="hljs-symbol">20</span><br><span class="hljs-symbol">ip</span> <span class="hljs-symbol">address</span> 网关地址 子网掩码<br><span class="hljs-symbol">interface</span> <span class="hljs-symbol">vlan</span> <span class="hljs-symbol">30</span><br><span class="hljs-symbol">ip</span> <span class="hljs-symbol">address</span> 网关地址 子网掩码<br></code></pre></td></tr></table></figure>
+
+<p>给接口配置trunk模式</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">int</span> <span class="hljs-built_in">range</span> f0/<span class="hljs-number">1</span>-<span class="hljs-number">3</span><br>switchport <span class="hljs-keyword">mode</span> trunk<br>#如果这样起不来，别担心按下面的操作<br>switchport <span class="hljs-keyword">mode</span> access<br>switchport <span class="hljs-keyword">mode</span> trunk<br>#这样就能起来了<br></code></pre></td></tr></table></figure>
+
+<h5 id="二层："><a href="#二层：" class="headerlink" title="二层："></a>二层：</h5><h6 id="配置vtp用户模式"><a href="#配置vtp用户模式" class="headerlink" title="配置vtp用户模式"></a>配置vtp用户模式</h6><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">vtp mode <span class="hljs-keyword">client</span><br></code></pre></td></tr></table></figure>
+
+<p>然后就能在二层交换机上看到我们在三层上面设置好的vlan了</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251122223440455.png" srcset="/img/loading.gif" lazyload alt="image-20251122223440455"></p>
+<h6 id="然后在各个二层交换机连接PC的端口上配置好连接的vlan"><a href="#然后在各个二层交换机连接PC的端口上配置好连接的vlan" class="headerlink" title="然后在各个二层交换机连接PC的端口上配置好连接的vlan"></a>然后在各个二层交换机连接PC的端口上配置好连接的vlan</h6><h6 id="⚠️开启三层交换机路由功能（默认关闭）"><a href="#⚠️开启三层交换机路由功能（默认关闭）" class="headerlink" title="⚠️开启三层交换机路由功能（默认关闭）"></a>⚠️开启三层交换机路由功能（默认关闭）</h6><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ip routing</span><br></code></pre></td></tr></table></figure>
+
+<p>而后，给各个PC配置好IP</p>
+<p>尝试从vlan10中的PC0向vlan20中的PC2发包，已经能正常通信</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<h4 id="然后我们在三层交换机加入一个dhcp功能"><a href="#然后我们在三层交换机加入一个dhcp功能" class="headerlink" title="然后我们在三层交换机加入一个dhcp功能"></a>然后我们在三层交换机加入一个dhcp功能</h4><p>给三层交换机创建dhcp池</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ip</span> dhcp pool <span class="hljs-number">10</span><br></code></pre></td></tr></table></figure>
+
+<h6 id="在三层交换机上我们开始配置我们的dhcp服务"><a href="#在三层交换机上我们开始配置我们的dhcp服务" class="headerlink" title="在三层交换机上我们开始配置我们的dhcp服务"></a>在三层交换机上我们开始配置我们的dhcp服务</h6><p>键入网关</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">network</span> <span class="hljs-number">10.0.0.0</span> <span class="hljs-number">255.0.0.0</span><br></code></pre></td></tr></table></figure>
+
+<p>设置默认路由</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">default</span>-router <span class="hljs-number">10.0</span><span class="hljs-number">.0</span><span class="hljs-number">.254</span><br></code></pre></td></tr></table></figure>
+
+<p>配置一个Google的DNS服务</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">dns</span>-server <span class="hljs-number">8.8.8.8</span><br></code></pre></td></tr></table></figure>
+
+<p>20和30网段同上</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251123003342147.png" srcset="/img/loading.gif" lazyload alt="image-20251123003342147"></p>
+<p>而后打开各个PC切换为dhcp动态获取IP地址模式</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251123003506473.png" srcset="/img/loading.gif" lazyload alt="image-20251123003506473"></p>
+<p>来了！</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2025/11/23/三层交换技术/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 23, 2025</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/11/23/%E5%9F%BA%E7%A1%80%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/11/23/DHCP%E4%B8%8EDHCP%E4%B8%AD%E7%BB%A7/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
