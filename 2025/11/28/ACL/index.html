@@ -19,20 +19,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ARP协议基础1️⃣广播1️⃣MAC广播地址FF-FF-FF-FF-FF-FF  2️⃣广播的危害——广播风暴广播风暴：内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。 产生原因：设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等 3️⃣IP广播地址本网段得">
+    <meta name="description" content="ACL一、ACL概述1.1 Access Control List访问控制列表 重要级别：高！ 1.2 ACL的作用ACL是一种包过滤技术！ 1.3 ACL应用场景路由器上就叫ACL！ 防火墙上一般称为策略！ 二、ACL怎么过滤 ACL基于数据包中的IP地址，端口号，对数据包进行过滤 三、ACL的分类3.1 标准ACL标准—Standard 表号：1-99 特点：只能基于源IP地址对包进行过滤！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2025/11/23/ARP%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="http://example.com/2025/11/28/ACL/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ARP协议基础1️⃣广播1️⃣MAC广播地址FF-FF-FF-FF-FF-FF  2️⃣广播的危害——广播风暴广播风暴：内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。 产生原因：设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等 3️⃣IP广播地址本网段得">
+<meta property="og:description" content="ACL一、ACL概述1.1 Access Control List访问控制列表 重要级别：高！ 1.2 ACL的作用ACL是一种包过滤技术！ 1.3 ACL应用场景路由器上就叫ACL！ 防火墙上一般称为策略！ 二、ACL怎么过滤 ACL基于数据包中的IP地址，端口号，对数据包进行过滤 三、ACL的分类3.1 标准ACL标准—Standard 表号：1-99 特点：只能基于源IP地址对包进行过滤！">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119170434853.png">
-<meta property="article:published_time" content="2025-11-22T16:57:31.266Z">
-<meta property="article:modified_time" content="2025-11-19T09:05:34.956Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125191824669.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125192550143.png">
+<meta property="article:published_time" content="2025-11-28T07:41:05.025Z">
+<meta property="article:modified_time" content="2025-11-25T15:12:05.423Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125191824669.png">
   
   
   
@@ -213,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-23 00:57" pubdate>
-          November 23, 2025 am
+        <time datetime="2025-11-28 15:41" pubdate>
+          November 28, 2025 pm
         </time>
       </span>
     
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          596 words
+          886 words
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          5 mins
+          8 mins
         
       </span>
     
@@ -278,35 +278,76 @@
             
               <div class="markdown-body">
                 
-                <h1 id="ARP协议基础"><a href="#ARP协议基础" class="headerlink" title="ARP协议基础"></a>ARP协议基础</h1><h2 id="1️⃣广播"><a href="#1️⃣广播" class="headerlink" title="1️⃣广播"></a>1️⃣广播</h2><h3 id="1️⃣MAC广播地址"><a href="#1️⃣MAC广播地址" class="headerlink" title="1️⃣MAC广播地址"></a>1️⃣MAC广播地址</h3><p>FF-FF-FF-FF-FF-FF</p>
-<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png" srcset="/img/loading.gif" lazyload alt="image-20251119165525979"></p>
-<h3 id="2️⃣广播的危害——广播风暴"><a href="#2️⃣广播的危害——广播风暴" class="headerlink" title="2️⃣广播的危害——广播风暴"></a>2️⃣广播的危害——广播风暴</h3><h4 id="广播风暴："><a href="#广播风暴：" class="headerlink" title="广播风暴："></a>广播风暴：</h4><p>内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。</p>
-<h4 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h4><p>设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等</p>
-<h3 id="3️⃣IP广播地址"><a href="#3️⃣IP广播地址" class="headerlink" title="3️⃣IP广播地址"></a>3️⃣IP广播地址</h3><p>本网段得广播IP地址：192.168.1.255&#x2F;255.255.255.0</p>
-<p>全局广播地址：255.255.255.255</p>
-<h3 id="4️⃣广播域"><a href="#4️⃣广播域" class="headerlink" title="4️⃣广播域"></a>4️⃣广播域</h3><p>可以听到同一个广播的pc集合，称为一个广播域</p>
-<p>路由器是天然的控制广播的设备！</p>
-<h2 id="2️⃣ARP概述及其工作原理"><a href="#2️⃣ARP概述及其工作原理" class="headerlink" title="2️⃣ARP概述及其工作原理"></a>2️⃣ARP概述及其工作原理</h2><h3 id="1️⃣ARP概述"><a href="#1️⃣ARP概述" class="headerlink" title="1️⃣ARP概述"></a>1️⃣ARP概述</h3><p>ARP(Address Resolution Protocol):</p>
-<p>ARP协议属于网络层（3层）</p>
-<p>ARP的作用：已知IP地址解析MAC地址！</p>
-<p>ARP协议可以说是tcp&#x2F;ip协议簇中最不安全的协议，但是离了他还不行</p>
-<h3 id="2️⃣ARP工作原理"><a href="#2️⃣ARP工作原理" class="headerlink" title="2️⃣ARP工作原理"></a>2️⃣ARP工作原理</h3><p>1）发送ARP广播：内容是：我的IP是xxx，我的mac是xxx，谁的IP是xxx，你的mac是？？？</p>
-<p>2）回应ARP单播</p>
-<p>3）当pc收到arp单播回应后，在计算机本地生成arp缓存表</p>
-<h3 id="3️⃣ARP帧结构"><a href="#3️⃣ARP帧结构" class="headerlink" title="3️⃣ARP帧结构"></a>3️⃣ARP帧结构</h3><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119170434853.png" srcset="/img/loading.gif" lazyload alt="image-20251119170434853"></p>
-<p>硬件类型、协议类型、硬件地址长度、协议地址长度我们不需要考虑</p>
-<p>OP操作：0x0001表示ARP请求，0x0002表示ARP应答，0003表示RARP请求，0004表示RARP应答。</p>
-<p>发送端以太网地址：源主机MAC地址。</p>
-<p>发送端IP地址：源主机IP地址。</p>
-<p>目的端以太网地址：目标端MAC地址（若为请求报文，则全0）。</p>
-<p>目的端IP地址：要接受主机的IP地址。</p>
-<h2 id="3️⃣ARP的漏洞点"><a href="#3️⃣ARP的漏洞点" class="headerlink" title="3️⃣ARP的漏洞点"></a>3️⃣ARP的漏洞点</h2><p>学习ARP时，没有进行身份验证，什么都学，后到后得</p>
-<p>hack通过频繁得发送虚假得ARP报文，来实现对受害者进行ARP攻击</p>
-<p>总结：</p>
-<p>无论是攻击还是欺骗，都是发送ARP 回应报文</p>
-<p>无论是攻击还是欺骗，都是在回应包中添加虚假的mac地址（目标MAC）</p>
-<p>ARP攻击造成的是断网，欺骗是窃取流量</p>
-<p>攻击使用的虚假MAC，互联网根本不存在的MAC欺骗使用的虚假mac是攻击者自身的mac</p>
+                <h1 id="ACL"><a href="#ACL" class="headerlink" title="ACL"></a>ACL</h1><h3 id="一、ACL概述"><a href="#一、ACL概述" class="headerlink" title="一、ACL概述"></a>一、ACL概述</h3><h4 id="1-1-Access-Control-List"><a href="#1-1-Access-Control-List" class="headerlink" title="1.1 Access Control List"></a>1.1 Access Control List</h4><p>访问控制列表</p>
+<p>重要级别：<strong>高！</strong></p>
+<h4 id="1-2-ACL的作用"><a href="#1-2-ACL的作用" class="headerlink" title="1.2 ACL的作用"></a>1.2 ACL的作用</h4><p>ACL是一种包过滤技术！</p>
+<h4 id="1-3-ACL应用场景"><a href="#1-3-ACL应用场景" class="headerlink" title="1.3 ACL应用场景"></a>1.3 ACL应用场景</h4><p>路由器上就叫ACL！</p>
+<p>防火墙上一般称为策略！</p>
+<h3 id="二、ACL怎么过滤"><a href="#二、ACL怎么过滤" class="headerlink" title="二、ACL怎么过滤"></a>二、ACL怎么过滤</h3><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125191824669.png" srcset="/img/loading.gif" lazyload alt="image-20251125191824669"></p>
+<p>ACL基于数据包中的<strong>IP地址，端口号</strong>，对数据包进行过滤</p>
+<h3 id="三、ACL的分类"><a href="#三、ACL的分类" class="headerlink" title="三、ACL的分类"></a>三、ACL的分类</h3><h4 id="3-1-标准ACL"><a href="#3-1-标准ACL" class="headerlink" title="3.1 标准ACL"></a>3.1 标准ACL</h4><p>标准—Standard</p>
+<p>表号：1-99</p>
+<p><strong>特点</strong>：只能基于<strong>源IP地址</strong>对包进行过滤！</p>
+<h4 id="3-2扩展ACL"><a href="#3-2扩展ACL" class="headerlink" title="3.2扩展ACL"></a>3.2扩展ACL</h4><p>扩展—Extended</p>
+<p>表号：100-199</p>
+<p><strong>特点</strong>：可以基于<strong>源IP地址、目标IP地址、目标端口号、协议</strong>等对包进行过滤！</p>
+<h4 id="3-3-命名的ACL"><a href="#3-3-命名的ACL" class="headerlink" title="3.3 命名的ACL"></a>3.3 命名的ACL</h4><p>标准的命名ACL 扩展的命名ACL</p>
+<h3 id="四、ACL过滤原理"><a href="#四、ACL过滤原理" class="headerlink" title="四、ACL过滤原理"></a>四、ACL过滤原理</h3><ol>
+<li>ACL表配置完毕后，<strong>必须应用</strong>到接口的<strong>in或out</strong>方向上，才能生效！</li>
+<li>一个接口的一个方向上只能应用一张表。</li>
+<li>在所有ACL表的最后都有一条隐藏的拒绝所有条目！</li>
+<li>在匹配ACL时，是严格<strong>自上而下</strong>的匹配每一条的！ 匹配成功，则完成动作，没匹配成功，则继续匹配下一条，如全部不匹配，则直接丢弃拒绝通过！（一定要注意书写的先后顺序！！）</li>
+<li>标准ACL因为只能基于源IP对包进行过滤，所以建议写在<strong>靠近源端</strong>的地方！</li>
+</ol>
+<ol start="6">
+<li>一个ACL编写完成后，默认情况下，<strong>不能删除某一条，也不能往中间插入新的条目</strong>，只能继续往最后追加新的条目！</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125192550143.png" srcset="/img/loading.gif" lazyload alt="image-20251125192550143"></p>
+<h3 id="五、ACL命令"><a href="#五、ACL命令" class="headerlink" title="五、ACL命令"></a>五、ACL命令</h3><h4 id="5-1-标准ACL命令"><a href="#5-1-标准ACL命令" class="headerlink" title="5.1 标准ACL命令"></a>5.1 标准ACL命令</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">conf</span> t<br>access-list 表号 permit/deny 条件 <span class="hljs-comment">#默认禁用所有</span><br><span class="hljs-literal">no</span> access-list 表号              <span class="hljs-comment">#删除acl表</span><br><br><span class="hljs-comment">#控制源端近的接口</span><br></code></pre></td></tr></table></figure>
+
+<p>表号：1-99</p>
+<p>条件：<strong>源IP+反子网掩码</strong></p>
+<p>反子网掩码：0.0.0.255 0代表严格匹配 255代表不需要匹配！</p>
+<h4 id="举个例子🌰"><a href="#举个例子🌰" class="headerlink" title="举个例子🌰"></a>举个例子🌰</h4><p>需求10 网段能够出去，回来的包给拒绝掉</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">access</span>-list <span class="hljs-number">1</span> <span class="hljs-literal">deny</span> <span class="hljs-number">10.1.1.1</span> <span class="hljs-number">0.0.0.255</span> # 拒绝源IP为<span class="hljs-number">10.1.1.0</span>网段的流量<br><span class="hljs-attribute">access</span>-list <span class="hljs-number">1</span> permit any # 允许所有网段<br></code></pre></td></tr></table></figure>
+
+<h4 id="5-2扩展ACL命令"><a href="#5-2扩展ACL命令" class="headerlink" title="5.2扩展ACL命令"></a>5.2扩展ACL命令</h4><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">configure</span> t<br><span class="hljs-symbol">access</span>-list 表号 permit/deny 协议 源<span class="hljs-built_in">IP</span> 反掩码 目的<span class="hljs-built_in">IP</span> 反掩码 eq 端口号<br></code></pre></td></tr></table></figure>
+
+<p>表号：100-199</p>
+<p>协议：TCP&#x2F;UDP&#x2F;IP&#x2F;ICMP(若写了端口号，就只能写TCP&#x2F;UDP)</p>
+<p>eq：&#x3D;</p>
+<p>lt： &gt;</p>
+<p>gt：&lt;</p>
+<p>neq： ≠</p>
+<h4 id="5-3将ACL表应用到接口上"><a href="#5-3将ACL表应用到接口上" class="headerlink" title="5.3将ACL表应用到接口上"></a>5.3将ACL表应用到接口上</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">int f0/<span class="hljs-number">1</span><br>ip access-group <span class="hljs-number">102</span> <span class="hljs-keyword">in</span>/out<br><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="5-4查看列出所有ACL表"><a href="#5-4查看列出所有ACL表" class="headerlink" title="5.4查看列出所有ACL表"></a>5.4查看列出所有ACL表</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">show</span> ip <span class="hljs-keyword">access</span>-list<br></code></pre></td></tr></table></figure>
+
+<h3 id="六、命名ACL"><a href="#六、命名ACL" class="headerlink" title="六、命名ACL"></a>六、命名ACL</h3><h4 id="6-1用命名acl创建表的方法"><a href="#6-1用命名acl创建表的方法" class="headerlink" title="6.1用命名acl创建表的方法"></a>6.1用命名acl创建表的方法</h4><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">conf t<br>ip <span class="hljs-keyword">access</span>-list extended 表名<br></code></pre></td></tr></table></figure>
+
+<p>开始从permit&#x2F;deny编辑每一条即可</p>
+<p>编写完exit退出即可！</p>
+<h4 id="6-2-命名ACL的好处"><a href="#6-2-命名ACL的好处" class="headerlink" title="6.2 命名ACL的好处"></a>6.2 命名ACL的好处</h4><p>使用命名ACL格式可以任意删除某一条，也可以插入某一条！</p>
+<p>如需要插入某一条，需要在条目前加数字即可</p>
+<h3 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h3><p>难点和重点：</p>
+<ol>
+<li><p>. ACL表配置完毕后，必须应用到接口的in或out方向上，才能生效！</p>
+</li>
+<li><p>在所有ACL表的最后都有一条隐藏的拒绝所有条目</p>
+</li>
+<li><p>在匹配ACL时，是严格自上而下的匹配每一条的！</p>
+</li>
+<li><p>一个接口的一个方向上只能应用一张表！</p>
+</li>
+<li><p>路由器上的ACL表对自身产生的数据不起作用！</p>
+</li>
+<li><p>一张标准或扩展ACL一旦编写完，不能删除某一条，也不能往中间插入新的条目，只能往最后继续添加新的条目,要改或删除的话，只能删除整张表，再重新写！！而命名acl可以插入新条目，删除旧条目</p>
+</li>
+<li><p>编写ACL的规则：</p>
+<p>若只允许小部分，则先写允许即可</p>
+<p>若只拒绝小部分，则先写拒绝这小部分，再写允许所有！</p>
+</li>
+</ol>
 
                 
               </div>
@@ -325,7 +366,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://example.com/2025/11/23/ARP协议基础/</div>
+      <div>http://example.com/2025/11/28/ACL/</div>
     </div>
     <div class="license-meta">
       
@@ -337,7 +378,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 23, 2025</div>
+          <div>November 28, 2025</div>
         </div>
       
       
@@ -369,7 +410,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/28/ACL/" title="">
+                      <a href="/2025/11/28/TCP+UDP%E5%88%86%E6%9E%90+DDOS%E6%94%BB%E5%87%BB/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -379,7 +420,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/11/23/%E5%9F%BA%E7%A1%80%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/" title="">
+                      <a href="/2025/11/23/ARP%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>

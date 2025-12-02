@@ -19,20 +19,20 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ARP协议基础1️⃣广播1️⃣MAC广播地址FF-FF-FF-FF-FF-FF  2️⃣广播的危害——广播风暴广播风暴：内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。 产生原因：设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等 3️⃣IP广播地址本网段得">
+    <meta name="description" content="TCP与UDP分析、三次握手四次断开、DDOS一、TCP协议分析TCP协议属于4层传输层 传输层中包含两个协议：TCP+UDP 其中：  TCP：协议号6 可靠的传输数据，需要建立三次握手连接，所以它慢 只支持一对一通信  UDP：协议号17 不可靠的传输，不需要建立连接，数据损坏或者发生丢包一概不管，所以它快 支持一对一，一对多，多对多通信   &#x3D;&#x3D;&#x3D;&#x3D;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2025/11/23/ARP%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="http://example.com/2025/11/28/TCP+UDP%E5%88%86%E6%9E%90+DDOS%E6%94%BB%E5%87%BB/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ARP协议基础1️⃣广播1️⃣MAC广播地址FF-FF-FF-FF-FF-FF  2️⃣广播的危害——广播风暴广播风暴：内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。 产生原因：设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等 3️⃣IP广播地址本网段得">
+<meta property="og:description" content="TCP与UDP分析、三次握手四次断开、DDOS一、TCP协议分析TCP协议属于4层传输层 传输层中包含两个协议：TCP+UDP 其中：  TCP：协议号6 可靠的传输数据，需要建立三次握手连接，所以它慢 只支持一对一通信  UDP：协议号17 不可靠的传输，不需要建立连接，数据损坏或者发生丢包一概不管，所以它快 支持一对一，一对多，多对多通信   &#x3D;&#x3D;&#x3D;&#x3D;&amp;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119170434853.png">
-<meta property="article:published_time" content="2025-11-22T16:57:31.266Z">
-<meta property="article:modified_time" content="2025-11-19T09:05:34.956Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125182606414.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125182821505.png">
+<meta property="article:published_time" content="2025-11-28T07:41:23.764Z">
+<meta property="article:modified_time" content="2025-11-25T10:55:52.810Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125182606414.png">
   
   
   
@@ -213,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-23 00:57" pubdate>
-          November 23, 2025 am
+        <time datetime="2025-11-28 15:41" pubdate>
+          November 28, 2025 pm
         </time>
       </span>
     
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          596 words
+          645 words
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          5 mins
+          6 mins
         
       </span>
     
@@ -278,35 +278,47 @@
             
               <div class="markdown-body">
                 
-                <h1 id="ARP协议基础"><a href="#ARP协议基础" class="headerlink" title="ARP协议基础"></a>ARP协议基础</h1><h2 id="1️⃣广播"><a href="#1️⃣广播" class="headerlink" title="1️⃣广播"></a>1️⃣广播</h2><h3 id="1️⃣MAC广播地址"><a href="#1️⃣MAC广播地址" class="headerlink" title="1️⃣MAC广播地址"></a>1️⃣MAC广播地址</h3><p>FF-FF-FF-FF-FF-FF</p>
-<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png" srcset="/img/loading.gif" lazyload alt="image-20251119165525979"></p>
-<h3 id="2️⃣广播的危害——广播风暴"><a href="#2️⃣广播的危害——广播风暴" class="headerlink" title="2️⃣广播的危害——广播风暴"></a>2️⃣广播的危害——广播风暴</h3><h4 id="广播风暴："><a href="#广播风暴：" class="headerlink" title="广播风暴："></a>广播风暴：</h4><p>内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。</p>
-<h4 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h4><p>设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等</p>
-<h3 id="3️⃣IP广播地址"><a href="#3️⃣IP广播地址" class="headerlink" title="3️⃣IP广播地址"></a>3️⃣IP广播地址</h3><p>本网段得广播IP地址：192.168.1.255&#x2F;255.255.255.0</p>
-<p>全局广播地址：255.255.255.255</p>
-<h3 id="4️⃣广播域"><a href="#4️⃣广播域" class="headerlink" title="4️⃣广播域"></a>4️⃣广播域</h3><p>可以听到同一个广播的pc集合，称为一个广播域</p>
-<p>路由器是天然的控制广播的设备！</p>
-<h2 id="2️⃣ARP概述及其工作原理"><a href="#2️⃣ARP概述及其工作原理" class="headerlink" title="2️⃣ARP概述及其工作原理"></a>2️⃣ARP概述及其工作原理</h2><h3 id="1️⃣ARP概述"><a href="#1️⃣ARP概述" class="headerlink" title="1️⃣ARP概述"></a>1️⃣ARP概述</h3><p>ARP(Address Resolution Protocol):</p>
-<p>ARP协议属于网络层（3层）</p>
-<p>ARP的作用：已知IP地址解析MAC地址！</p>
-<p>ARP协议可以说是tcp&#x2F;ip协议簇中最不安全的协议，但是离了他还不行</p>
-<h3 id="2️⃣ARP工作原理"><a href="#2️⃣ARP工作原理" class="headerlink" title="2️⃣ARP工作原理"></a>2️⃣ARP工作原理</h3><p>1）发送ARP广播：内容是：我的IP是xxx，我的mac是xxx，谁的IP是xxx，你的mac是？？？</p>
-<p>2）回应ARP单播</p>
-<p>3）当pc收到arp单播回应后，在计算机本地生成arp缓存表</p>
-<h3 id="3️⃣ARP帧结构"><a href="#3️⃣ARP帧结构" class="headerlink" title="3️⃣ARP帧结构"></a>3️⃣ARP帧结构</h3><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119170434853.png" srcset="/img/loading.gif" lazyload alt="image-20251119170434853"></p>
-<p>硬件类型、协议类型、硬件地址长度、协议地址长度我们不需要考虑</p>
-<p>OP操作：0x0001表示ARP请求，0x0002表示ARP应答，0003表示RARP请求，0004表示RARP应答。</p>
-<p>发送端以太网地址：源主机MAC地址。</p>
-<p>发送端IP地址：源主机IP地址。</p>
-<p>目的端以太网地址：目标端MAC地址（若为请求报文，则全0）。</p>
-<p>目的端IP地址：要接受主机的IP地址。</p>
-<h2 id="3️⃣ARP的漏洞点"><a href="#3️⃣ARP的漏洞点" class="headerlink" title="3️⃣ARP的漏洞点"></a>3️⃣ARP的漏洞点</h2><p>学习ARP时，没有进行身份验证，什么都学，后到后得</p>
-<p>hack通过频繁得发送虚假得ARP报文，来实现对受害者进行ARP攻击</p>
-<p>总结：</p>
-<p>无论是攻击还是欺骗，都是发送ARP 回应报文</p>
-<p>无论是攻击还是欺骗，都是在回应包中添加虚假的mac地址（目标MAC）</p>
-<p>ARP攻击造成的是断网，欺骗是窃取流量</p>
-<p>攻击使用的虚假MAC，互联网根本不存在的MAC欺骗使用的虚假mac是攻击者自身的mac</p>
+                <h1 id="TCP与UDP分析、三次握手四次断开、DDOS"><a href="#TCP与UDP分析、三次握手四次断开、DDOS" class="headerlink" title="TCP与UDP分析、三次握手四次断开、DDOS"></a>TCP与UDP分析、三次握手四次断开、DDOS</h1><h3 id="一、TCP协议分析"><a href="#一、TCP协议分析" class="headerlink" title="一、TCP协议分析"></a>一、TCP协议分析</h3><p>TCP协议属于4层传输层</p>
+<p>传输层中包含两个协议：TCP+UDP</p>
+<p>其中：</p>
+<ul>
+<li><p>TCP：协议号6</p>
+<p>可靠的传输数据，需要建立三次握手连接，所以它慢</p>
+<p>只支持一对一通信</p>
+</li>
+<li><p>UDP：协议号17</p>
+<p>不可靠的传输，不需要建立连接，数据损坏或者发生丢包一概不管，所以它快</p>
+<p>支持一对一，一对多，多对多通信</p>
+</li>
+</ul>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
+<p>TCP包头长度：20-60字节</p>
+<p>源端口：客户机随机生成的打开某网站或浏览器，就自动生成一个50000以上的</p>
+<p>目标端口：服务器的服务端口，例如：FTP21&#x2F;20 HTTP80 HTTPS443 TELNET23</p>
+<p>序号：英文seq，发出去的每一个报文，都要唯一编号！初始报文的编号是随机的！</p>
+<p>确认号：ack，确认对方的报文是否正常，如正常，则ack&#x3D;对方的seq+1</p>
+<p>首部长度：TCP包头长度是可变的，20字节-60字节，一般情况下都是20字节</p>
+<p>SYN：<strong>建立连接位</strong>，1代表请求建立连接</p>
+<p>FIN：<strong>请求断开连接位</strong>，1代表请求断开连接</p>
+<p>RST：重置位（强制断开位）</p>
+<p>ACK：确认开关！为1时，代表ack是有效的，0代表ack无效！紧急指针：紧急指针指出的是紧急数据在报文段中结束的位置</p>
+<p>（出现紧急情况优先发送该数据）</p>
+<h3 id="二、三次握手建立TCP连接"><a href="#二、三次握手建立TCP连接" class="headerlink" title="二、三次握手建立TCP连接"></a>二、三次握手建立TCP连接</h3><p>三次握手的目的在于客户端和服务端验证收发能力建立连接</p>
+<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125182606414.png" srcset="/img/loading.gif" lazyload alt="image-20251125182606414"></p>
+<p>syn只有双方前两次握手为1，代表彼此要建立连接</p>
+<h3 id="三、四次握手断开TCP"><a href="#三、四次握手断开TCP" class="headerlink" title="三、四次握手断开TCP"></a>三、四次握手断开TCP</h3><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251125182821505.png" srcset="/img/loading.gif" lazyload alt="image-20251125182821505"></p>
+<h3 id="四、UDP协议分析"><a href="#四、UDP协议分析" class="headerlink" title="四、UDP协议分析"></a>四、UDP协议分析</h3><p>UDP包头长度：8个字节</p>
+<p>UDP长度：代表4+5层数据的总长度</p>
+<p>UDP校验和：校验4+5层数据是否发送传输错误</p>
+<h3 id="五、DDoS"><a href="#五、DDoS" class="headerlink" title="五、DDoS"></a>五、DDoS</h3><p>D ：Distribute 分布式</p>
+<p>D ：Deny 拒绝</p>
+<p>O ：Of 的</p>
+<p>S ：Services 服务</p>
+<p>**DOS攻击：**拒绝服务攻击（SYN泛洪攻击、ICMP泛洪攻击、UDP泛洪攻击）</p>
+<p>**特点：**非法占用甚至占满资源（CPU、内存、会话、带宽），最终实现目标无法正常运转或提供正常的服务</p>
+<p>**DDOS攻击：**分布式拒绝服务攻击</p>
+<p>**CC攻击：**频繁的模拟正常访问去攻击服务器，服务器还检查不出来！杀敌一千，自损八百！</p>
+<p><strong>泛洪</strong>：flooding</p>
 
                 
               </div>
@@ -325,7 +337,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://example.com/2025/11/23/ARP协议基础/</div>
+      <div>http://example.com/2025/11/28/TCP+UDP分析+DDOS攻击/</div>
     </div>
     <div class="license-meta">
       
@@ -337,7 +349,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 23, 2025</div>
+          <div>November 28, 2025</div>
         </div>
       
       
@@ -369,7 +381,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/28/ACL/" title="">
+                      <a href="/2025/11/28/HSRP%E5%8D%8F%E8%AE%AE/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -379,7 +391,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/11/23/%E5%9F%BA%E7%A1%80%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/" title="">
+                      <a href="/2025/11/28/ACL/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>

@@ -19,20 +19,17 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ARP协议基础1️⃣广播1️⃣MAC广播地址FF-FF-FF-FF-FF-FF  2️⃣广播的危害——广播风暴广播风暴：内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。 产生原因：设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等 3️⃣IP广播地址本网段得">
+    <meta name="description" content="HSRP协议一、什么是HSRPHot Standby Router Protocol 热备份路由器协议（是Cisco私有的协议） 二、使用HSRP的作用是什么当网关路由器宕机，需要快速切换另外一台路由器，使得员工正常上网，保证业务不会被中断的时候， 这里使用HSRP协议，将多台真实的路由器进行虚拟整合，虚拟成为虚拟路由器，这个虚拟路由器的说法是站在客户的角度，客户机想要上网需要配置网关，而运用HS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2025/11/23/ARP%E5%8D%8F%E8%AE%AE%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:url" content="http://example.com/2025/11/28/HSRP%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ARP协议基础1️⃣广播1️⃣MAC广播地址FF-FF-FF-FF-FF-FF  2️⃣广播的危害——广播风暴广播风暴：内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。 产生原因：设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等 3️⃣IP广播地址本网段得">
+<meta property="og:description" content="HSRP协议一、什么是HSRPHot Standby Router Protocol 热备份路由器协议（是Cisco私有的协议） 二、使用HSRP的作用是什么当网关路由器宕机，需要快速切换另外一台路由器，使得员工正常上网，保证业务不会被中断的时候， 这里使用HSRP协议，将多台真实的路由器进行虚拟整合，虚拟成为虚拟路由器，这个虚拟路由器的说法是站在客户的角度，客户机想要上网需要配置网关，而运用HS">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119170434853.png">
-<meta property="article:published_time" content="2025-11-22T16:57:31.266Z">
-<meta property="article:modified_time" content="2025-11-19T09:05:34.956Z">
+<meta property="article:published_time" content="2025-11-28T10:10:40.914Z">
+<meta property="article:modified_time" content="2025-11-28T10:10:18.286Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png">
   
   
   
@@ -213,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-23 00:57" pubdate>
-          November 23, 2025 am
+        <time datetime="2025-11-28 18:10" pubdate>
+          November 28, 2025 pm
         </time>
       </span>
     
@@ -225,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          596 words
+          658 words
         
       </span>
     
@@ -236,7 +233,7 @@
         
         
         
-          5 mins
+          6 mins
         
       </span>
     
@@ -278,36 +275,49 @@
             
               <div class="markdown-body">
                 
-                <h1 id="ARP协议基础"><a href="#ARP协议基础" class="headerlink" title="ARP协议基础"></a>ARP协议基础</h1><h2 id="1️⃣广播"><a href="#1️⃣广播" class="headerlink" title="1️⃣广播"></a>1️⃣广播</h2><h3 id="1️⃣MAC广播地址"><a href="#1️⃣MAC广播地址" class="headerlink" title="1️⃣MAC广播地址"></a>1️⃣MAC广播地址</h3><p>FF-FF-FF-FF-FF-FF</p>
-<p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119165525979.png" srcset="/img/loading.gif" lazyload alt="image-20251119165525979"></p>
-<h3 id="2️⃣广播的危害——广播风暴"><a href="#2️⃣广播的危害——广播风暴" class="headerlink" title="2️⃣广播的危害——广播风暴"></a>2️⃣广播的危害——广播风暴</h3><h4 id="广播风暴："><a href="#广播风暴：" class="headerlink" title="广播风暴："></a>广播风暴：</h4><p>内网环境中广播过多，交换机需要转发广播帧的量大大增加，极大的占用了交换机的资源，导致带宽被极大的占用甚至正常的数据帧无法进行转发。pc处理大量的垃圾广播耗费了大量的资源。</p>
-<h4 id="产生原因："><a href="#产生原因：" class="headerlink" title="产生原因："></a>产生原因：</h4><p>设备故障、链路冗余（环路），未启用生成树协议、存在ARP攻击或中病毒等</p>
-<h3 id="3️⃣IP广播地址"><a href="#3️⃣IP广播地址" class="headerlink" title="3️⃣IP广播地址"></a>3️⃣IP广播地址</h3><p>本网段得广播IP地址：192.168.1.255&#x2F;255.255.255.0</p>
-<p>全局广播地址：255.255.255.255</p>
-<h3 id="4️⃣广播域"><a href="#4️⃣广播域" class="headerlink" title="4️⃣广播域"></a>4️⃣广播域</h3><p>可以听到同一个广播的pc集合，称为一个广播域</p>
-<p>路由器是天然的控制广播的设备！</p>
-<h2 id="2️⃣ARP概述及其工作原理"><a href="#2️⃣ARP概述及其工作原理" class="headerlink" title="2️⃣ARP概述及其工作原理"></a>2️⃣ARP概述及其工作原理</h2><h3 id="1️⃣ARP概述"><a href="#1️⃣ARP概述" class="headerlink" title="1️⃣ARP概述"></a>1️⃣ARP概述</h3><p>ARP(Address Resolution Protocol):</p>
-<p>ARP协议属于网络层（3层）</p>
-<p>ARP的作用：已知IP地址解析MAC地址！</p>
-<p>ARP协议可以说是tcp&#x2F;ip协议簇中最不安全的协议，但是离了他还不行</p>
-<h3 id="2️⃣ARP工作原理"><a href="#2️⃣ARP工作原理" class="headerlink" title="2️⃣ARP工作原理"></a>2️⃣ARP工作原理</h3><p>1）发送ARP广播：内容是：我的IP是xxx，我的mac是xxx，谁的IP是xxx，你的mac是？？？</p>
-<p>2）回应ARP单播</p>
-<p>3）当pc收到arp单播回应后，在计算机本地生成arp缓存表</p>
-<h3 id="3️⃣ARP帧结构"><a href="#3️⃣ARP帧结构" class="headerlink" title="3️⃣ARP帧结构"></a>3️⃣ARP帧结构</h3><p><img src="https://raw.githubusercontent.com/kobe88889/Images/main/image-20251119170434853.png" srcset="/img/loading.gif" lazyload alt="image-20251119170434853"></p>
-<p>硬件类型、协议类型、硬件地址长度、协议地址长度我们不需要考虑</p>
-<p>OP操作：0x0001表示ARP请求，0x0002表示ARP应答，0003表示RARP请求，0004表示RARP应答。</p>
-<p>发送端以太网地址：源主机MAC地址。</p>
-<p>发送端IP地址：源主机IP地址。</p>
-<p>目的端以太网地址：目标端MAC地址（若为请求报文，则全0）。</p>
-<p>目的端IP地址：要接受主机的IP地址。</p>
-<h2 id="3️⃣ARP的漏洞点"><a href="#3️⃣ARP的漏洞点" class="headerlink" title="3️⃣ARP的漏洞点"></a>3️⃣ARP的漏洞点</h2><p>学习ARP时，没有进行身份验证，什么都学，后到后得</p>
-<p>hack通过频繁得发送虚假得ARP报文，来实现对受害者进行ARP攻击</p>
-<p>总结：</p>
-<p>无论是攻击还是欺骗，都是发送ARP 回应报文</p>
-<p>无论是攻击还是欺骗，都是在回应包中添加虚假的mac地址（目标MAC）</p>
-<p>ARP攻击造成的是断网，欺骗是窃取流量</p>
-<p>攻击使用的虚假MAC，互联网根本不存在的MAC欺骗使用的虚假mac是攻击者自身的mac</p>
-
+                <h1 id="HSRP协议"><a href="#HSRP协议" class="headerlink" title="HSRP协议"></a>HSRP协议</h1><h3 id="一、什么是HSRP"><a href="#一、什么是HSRP" class="headerlink" title="一、什么是HSRP"></a>一、什么是HSRP</h3><p>Hot Standby Router Protocol</p>
+<p>热备份路由器协议（是Cisco私有的协议）</p>
+<h3 id="二、使用HSRP的作用是什么"><a href="#二、使用HSRP的作用是什么" class="headerlink" title="二、使用HSRP的作用是什么"></a>二、使用HSRP的作用是什么</h3><p>当网关路由器宕机，需要快速切换另外一台路由器，使得员工正常上网，保证业务不会被中断的时候，</p>
+<p>这里使用HSRP协议，<strong>将多台真实的路由器进行虚拟整合</strong>，虚拟成为虚拟路由器，这个虚拟路由器的说法是站在客户的角度，客户机想要上网需要配置网关，而运用HSRP协议后指向的是虚拟路由器的虚拟ip</p>
+<p>此网关被称为<strong>虚拟网关</strong>或<strong>冗余网关</strong></p>
+<h3 id="三、HSRP详解"><a href="#三、HSRP详解" class="headerlink" title="三、HSRP详解"></a>三、HSRP详解</h3><ul>
+<li><p>多台路由器配置HSRP后要加入HSRP组（路由热备份组）</p>
+</li>
+<li><p>HSRP组号：1-255 没有大小先后之分，只是个名字而已</p>
+</li>
+<li><p>当HSRP组产生之后会出现虚拟路由器</p>
+</li>
+<li><p>公司员工网关可以指向虚拟路由器</p>
+</li>
+<li><p>HSRP组成员</p>
+<ul>
+<li>虚拟路由器：大当家,优先级最高（老大是毋庸置疑的）</li>
+<li>活跃路由器：二当家</li>
+<li>备份路由器：三当家</li>
+<li>其它路由器：小弟</li>
+</ul>
+</li>
+<li><p>HSRP组成员的优先级：1-255 数字越大，优先级越高 ，默认为100，优先级一样比接口ip</p>
+</li>
+<li><p>HSRP组成员之间定时发送hello包来交流，默认3s（你好，我是HSRP组1的成员，我的老大是ip….我的优先级是…）通过hello包进行活跃路由器与备份路由器的选举。</p>
+</li>
+<li><p>员工网关IP指向虚拟路由器，流量指向虚拟网关后由于虚拟路由器并不真实存在无法做路由转发，流量被真正引向活跃路由的网关。</p>
+</li>
+<li><p>当活跃路由器宕机，后备份路由器会抢占成为活跃路由器，坚持时间为10s</p>
+</li>
+<li><p>占先权preempt：备份路由器当检测不到对方，或检测到对方优先级变得比自己低，会立即抢占活跃路由器的名分</p>
+</li>
+<li><p>当原本的活跃路由器恢复，后成为活跃路由器的路由器会降级成备份路由器</p>
+</li>
+<li><p>跟踪（track）端口，在路由器的网关（内网）端口配置跟踪外连端口，监控外连端口的状态。</p>
+<ul>
+<li>当外网端口宕掉，会自降HSRP优先级</li>
+</ul>
+</li>
+</ul>
+<p>四、关于HSRP的配置命令（cli）</p>
+<p>进入网关接口</p>
+<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs tap">in 网关接口 vlan 10<br><br>standby<span class="hljs-number"> 1 </span>ip 10.0.0.254<br><br>standby<span class="hljs-number"> 1 </span>priority 100<br><br>standby<span class="hljs-number"> 1 </span>preempt <span class="hljs-comment">#备份路由器一定要配置</span><br><br>standby<span class="hljs-number"> 1 </span>track 外联端口 自降优先级数值<br>模拟器不可定义数值，默认自降10） <span class="hljs-comment">#活跃路由器一定要配置</span><br><br>查看<br>show standby brief<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -325,7 +335,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div></div>
-      <div>http://example.com/2025/11/23/ARP协议基础/</div>
+      <div>http://example.com/2025/11/28/HSRP协议/</div>
     </div>
     <div class="license-meta">
       
@@ -337,7 +347,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 23, 2025</div>
+          <div>November 28, 2025</div>
         </div>
       
       
@@ -369,7 +379,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/11/28/ACL/" title="">
+                      <a href="/2025/12/02/PHP%E6%95%B0%E7%BB%84/" title="">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Previous</span>
@@ -379,7 +389,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/11/23/%E5%9F%BA%E7%A1%80%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/" title="">
+                      <a href="/2025/11/28/TCP+UDP%E5%88%86%E6%9E%90+DDOS%E6%94%BB%E5%87%BB/" title="">
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
